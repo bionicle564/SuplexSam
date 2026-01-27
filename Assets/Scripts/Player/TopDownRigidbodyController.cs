@@ -120,6 +120,7 @@ private bool stunned = false;
 
     }
     
+    //Changes stun state
     public void ToggleStun()
 	{
 	    stunned = !stunned;
@@ -137,12 +138,14 @@ private bool stunned = false;
 	    
     private void OnStunPressed(InputAction.CallbackContext context)
 	{
+        //this is the code that runs once when the player gets stunned
 	    ToggleStun();
 	}
 
     private void Update()
     {
     
+        //this happans once per frame when stunned
 	    if (stunned)
 		{
 		    // Spin in place
@@ -154,6 +157,7 @@ private bool stunned = false;
 		}
     
         // Read continuous input values
+        //don't worry about this
         if (moveAction != null && moveAction.enabled)
         {
             moveInput = moveAction.ReadValue<Vector2>();
@@ -165,16 +169,16 @@ private bool stunned = false;
     
     if (stunned)
 	{
-	    rb.linearVelocity = Vector3.zero;
+	    rb.linearVelocity = Vector3.zero; //halt the player when stunned
 	    return;
 	}
     
         if (rb == null) return;
 
-        ApplyMovement();
-        ApplyRotation();
-        ApplyDrag();
-        ClampVelocity();
+        ApplyMovement(); //move first
+        ApplyRotation(); //turn second
+        ApplyDrag(); //slow down (ridged body does this anyway?)(AI wackness)
+        ClampVelocity(); //don't go past max speed
     }
 
     /// <summary>
@@ -250,6 +254,7 @@ private bool stunned = false;
 
     /// <summary>
     /// Clamps the velocity to the maximum speed.
+    /// Does not clamp Y, so gravety is uncapped
     /// </summary>
     private void ClampVelocity()
     {

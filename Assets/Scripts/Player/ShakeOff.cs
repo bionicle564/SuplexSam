@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-
+/// <summary>
+/// This class handles the stun minigame
+/// Lots of math in here, you have been warned
+/// </summary>
 public class ShakeOff : MonoBehaviour
 {
     [Header("Settings")]

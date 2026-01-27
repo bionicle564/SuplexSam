@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Heavy objects can pass through these walls
+/// </summary>
 public class HeavyPassThroughTimed : MonoBehaviour
 {
     [Header("Settings")]
