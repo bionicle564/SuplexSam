@@ -190,6 +190,7 @@ private bool stunned = false;
 
         // Convert 2D input to 3D world space (X and Z axes for top-down)
         Vector3 movementDirection = new Vector3(moveInput.x, 0f, moveInput.y);
+        movementDirection = Quaternion.AngleAxis(-45f, new Vector3(0, 1, 0)) * movementDirection;
 
         // Normalize to prevent faster diagonal movement
         if (movementDirection.magnitude > 1f)
@@ -217,6 +218,7 @@ private bool stunned = false;
 
         // Convert 2D input to 3D world space (X and Z axes for top-down)
         Vector3 movementDirection = new Vector3(moveInput.x, 0f, moveInput.y);
+        movementDirection = Quaternion.AngleAxis(-45f, new Vector3(0, 1, 0)) * movementDirection;
 
         // Normalize to ensure consistent rotation speed
         if (movementDirection.magnitude > 1f)
