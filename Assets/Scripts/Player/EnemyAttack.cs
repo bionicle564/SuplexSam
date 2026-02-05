@@ -3,11 +3,11 @@ using System.Collections;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private float windUpTime = 0.4f;
-    [SerializeField] private float attackCooldown = 1.2f;
+    [SerializeField] private float windUpTime = 0.1f;
+    [SerializeField] private float attackCooldown = .2f;
     [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private Transform attackPoint;
-    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] public LayerMask playerLayer;
 
     private bool isAttacking;
     private float cooldownTimer;
