@@ -246,9 +246,18 @@ public class GrabAndThrow : MonoBehaviour
     {
         if (objectToGrab == null) return;
 
+
+
+
         grabbedObject = objectToGrab;
         isHoldingObject = true;
         UpdateHoldingIndicator();
+
+        HoldActions actions = grabbedObject.GetComponent<HoldActions>();
+        if(actions != null)
+        {
+            actions.Grab();
+        }
 
         // Disable gravity while holding
         grabbedObject.useGravity = false;
@@ -315,6 +324,12 @@ public class GrabAndThrow : MonoBehaviour
             Debug.Log($"Dropped object: {grabbedObject.name}");
         }
 
+        HoldActions actions = grabbedObject.GetComponent<HoldActions>();
+        if (actions != null)
+        {
+            actions.LetGo();
+        }
+
         grabbedObject = null;
         isHoldingObject = false;
         UpdateHoldingIndicator();
@@ -335,6 +350,12 @@ public class GrabAndThrow : MonoBehaviour
         // Clear velocity
         grabbedObject.linearVelocity = Vector3.zero;
         grabbedObject.angularVelocity = Vector3.zero;
+
+        HoldActions actions = grabbedObject.GetComponent<HoldActions>();
+        if (actions != null)
+        {
+            actions.LetGo();
+        }
 
         grabbedObject = null;
         isHoldingObject = false;
@@ -383,6 +404,13 @@ public class GrabAndThrow : MonoBehaviour
         {
             Debug.Log($"Threw object: {grabbedObject.name} with velocity: {throwVelocity}");
         }
+
+        HoldActions actions = grabbedObject.GetComponent<HoldActions>();
+        if (actions != null)
+        {
+            actions.LetGo();
+        }
+
 
         grabbedObject = null;
         isHoldingObject = false;
