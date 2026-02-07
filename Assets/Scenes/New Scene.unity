@@ -10008,6 +10008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GrabAndThrow
   grabActionReference: {fileID: -3286291579977015993, guid: 5599882ab566d5c43ab02076ddbd50d9, type: 3}
   throwActionReference: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  throwDownActionReference: {fileID: -2099379676528639254, guid: 5599882ab566d5c43ab02076ddbd50d9, type: 3}
   grabbableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -12713,7 +12714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   windUpTime: 0.4
-  attackCooldown: 1.2
+  attackCooldown: 5
   attackRange: 5
   attackPoint: {fileID: 194789897}
   playerLayer:
@@ -16780,7 +16781,7 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 1, y: 1}
+  m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1

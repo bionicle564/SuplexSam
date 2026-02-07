@@ -16,6 +16,9 @@ public class GrabAndThrow : MonoBehaviour
     [Tooltip("Reference to the throw input action.")]
     [SerializeField] private InputActionReference throwActionReference;
 
+    [Tooltip("Reference to the throw down action.")]
+    [SerializeField] private InputActionReference throwDownActionReference;
+
     [Header("Detection Settings")]
     [Tooltip("Layer mask for grabbable objects.")]
     [SerializeField] private LayerMask grabbableLayer = 1 << 6; // Default to layer 6
@@ -65,6 +68,7 @@ public class GrabAndThrow : MonoBehaviour
     // Input actions
     private InputAction grabAction;
     private InputAction throwAction;
+    private InputAction throwDownAction;
 
     // Grab state
     private Rigidbody grabbedObject;
@@ -97,6 +101,7 @@ public class GrabAndThrow : MonoBehaviour
         // This is the CRITICAL pattern from the InputSystem integration guide
         grabAction = playerInput.actions.FindAction(grabActionReference.action.id);
         throwAction = playerInput.actions.FindAction(throwActionReference.action.id);
+        throwDownAction = playerInput.actions.FindAction(throwDownActionReference.action.id);
 
         if (grabAction == null)
         {
@@ -118,6 +123,11 @@ public class GrabAndThrow : MonoBehaviour
             throwAction.performed += OnThrowPerformed;
         }
 
+        if (throwDownAction != null)
+        {
+            throwDownAction.performed += OnThrowDownPerformed;
+        }
+
         if (debugMode)
         {
             Debug.Log($"GrabAndThrow: Actions found and subscribed. Grab ID: {grabActionReference.action.id}, Throw ID: {throwActionReference.action.id}");
@@ -134,6 +144,10 @@ public class GrabAndThrow : MonoBehaviour
         if (throwAction != null)
         {
             throwAction.performed -= OnThrowPerformed;
+        }
+        if(throwDownAction != null)
+        {
+            throwDownAction.performed -= OnThrowDownPerformed;
         }
 
         // Release object if holding when disabled
@@ -187,6 +201,17 @@ public class GrabAndThrow : MonoBehaviour
         if (isHoldingObject)
         {
             ThrowObject();
+        }
+    }
+
+    /// <summary>
+    /// Handles throw down input - throws the held object down.
+    /// </summary>
+    private void OnThrowDownPerformed(InputAction.CallbackContext context)
+    {
+        if (isHoldingObject)
+        {
+            ThrowObjectDown();
         }
     }
 
@@ -416,7 +441,63 @@ public class GrabAndThrow : MonoBehaviour
         isHoldingObject = false;
         UpdateHoldingIndicator();
     }
-    
+
+    /// <summary>
+    /// Throws the held object with force.
+    /// </summary>
+    private void ThrowObjectDown()
+    {
+        if (grabbedObject == null) return;
+
+        Collider col = grabbedObject.GetComponent<Collider>();
+
+        // Re-enable physics
+        grabbedObject.useGravity = true;
+        grabbedObject.isKinematic = false;
+
+        GrabbableEnemy enemy = grabbedObject.GetComponent<GrabbableEnemy>();
+        if (enemy != null)
+        {
+            enemy.OnThrown(this);
+        }
+
+        grabbedObject.tag = heavyTag;
+        StartCoroutine(ResetTagAfterTime(grabbedObject, 1f));
+
+        if (col != null)
+        {
+            col.enabled = false;
+            StartCoroutine(ReenableCollider(col));
+        }
+
+        // Calculate throw direction (player's forward direction)
+        Vector3 throwDirection = -transform.forward;
+
+        // Apply throw force
+        Vector3 throwVelocity = throwDirection * throwForce + Vector3.up * throwUpwardForce;
+        grabbedObject.linearVelocity = throwVelocity;
+
+        // Add some random rotation for more natural throw
+        grabbedObject.angularVelocity = Random.insideUnitSphere * 5f;
+
+        if (debugMode)
+        {
+            Debug.Log($"Threw object: {grabbedObject.name} with velocity: {throwVelocity}");
+        }
+
+        HoldActions actions = grabbedObject.GetComponent<HoldActions>();
+        if (actions != null)
+        {
+            actions.LetGo();
+        }
+
+
+        grabbedObject = null;
+        isHoldingObject = false;
+        UpdateHoldingIndicator();
+    }
+
+
     private System.Collections.IEnumerator ReenableCollider(Collider col)
 	{
 	    yield return new WaitForSeconds(colliderDisableTime);
