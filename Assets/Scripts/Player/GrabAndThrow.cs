@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -467,15 +466,17 @@ public class GrabAndThrow : MonoBehaviour
         if (col != null)
         {
             col.enabled = false;
-            StartCoroutine(ReenableCollider(col));
+            StartCoroutine(ReenableColliderDown(col));
         }
 
         // Calculate throw direction (player's forward direction)
-        Vector3 throwDirection = -transform.forward;
+        Vector3 throwDirection = -transform.up;
 
         // Apply throw force
         Vector3 throwVelocity = throwDirection * throwForce + Vector3.up * throwUpwardForce;
         grabbedObject.linearVelocity = throwVelocity;
+
+        GetComponent<Rigidbody>().AddForce(-throwVelocity*5, ForceMode.Impulse);
 
         // Add some random rotation for more natural throw
         grabbedObject.angularVelocity = Random.insideUnitSphere * 5f;
@@ -503,8 +504,14 @@ public class GrabAndThrow : MonoBehaviour
 	    yield return new WaitForSeconds(colliderDisableTime);
 	    col.enabled = true;
 	}
-	
-	private System.Collections.IEnumerator ResetTagAfterTime(Rigidbody rb,float time)
+
+    private System.Collections.IEnumerator ReenableColliderDown(Collider col)
+    {
+        yield return new WaitForSeconds(0.01f);
+        col.enabled = true;
+    }
+
+    private System.Collections.IEnumerator ResetTagAfterTime(Rigidbody rb,float time)
 	{
 	    yield return new WaitForSeconds(time);
 	    if (rb != null)

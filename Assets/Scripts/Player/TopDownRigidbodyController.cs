@@ -175,10 +175,13 @@ private bool stunned = false;
     
         if (rb == null) return;
 
+        //rb.AddForce(Vector3.down*10, ForceMode.Force);
+
         ApplyMovement(); //move first
         ApplyRotation(); //turn second
         ApplyDrag(); //slow down (ridged body does this anyway?)(AI wackness)
         ClampVelocity(); //don't go past max speed
+        rb.AddForce(Vector3.down * 10, ForceMode.Force);
     }
 
     /// <summary>
@@ -191,6 +194,7 @@ private bool stunned = false;
         // Convert 2D input to 3D world space (X and Z axes for top-down)
         Vector3 movementDirection = new Vector3(moveInput.x, 0f, moveInput.y);
         movementDirection = Quaternion.AngleAxis(-45f, new Vector3(0, 1, 0)) * movementDirection;
+        
 
         // Normalize to prevent faster diagonal movement
         if (movementDirection.magnitude > 1f)
