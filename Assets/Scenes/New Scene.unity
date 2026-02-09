@@ -1216,7 +1216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6408673428391911041, guid: c608549b215edf640ae95150607fa094, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 59
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6408673428391911041, guid: c608549b215edf640ae95150607fa094, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28625,13 +28625,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 732876543496085903, guid: 9d9134d79d1c50943b3974415311467c, type: 3}
+      propertyPath: sprayTime
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 732876543496085903, guid: 9d9134d79d1c50943b3974415311467c, type: 3}
+      propertyPath: waterBall
+      value: 
+      objectReference: {fileID: 3207136235074108619, guid: 40c7350560ebd2c4780be13c9251649a, type: 3}
     - target: {fileID: 2212566782636648699, guid: 9d9134d79d1c50943b3974415311467c, type: 3}
       propertyPath: m_Name
       value: firehydrent (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7119008629849075372, guid: 9d9134d79d1c50943b3974415311467c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 57.878315
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7119008629849075372, guid: 9d9134d79d1c50943b3974415311467c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -28639,7 +28647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7119008629849075372, guid: 9d9134d79d1c50943b3974415311467c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 91.946526
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7119008629849075372, guid: 9d9134d79d1c50943b3974415311467c, type: 3}
       propertyPath: m_LocalRotation.w
