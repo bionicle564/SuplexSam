@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ba4c90449a4530745965c3532431e631, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: df38472a6f75c6740a8a7f7a40a4e366, type: 2}
     - target: {fileID: 919132149155446097, guid: ba4c90449a4530745965c3532431e631, type: 3}
       propertyPath: m_Name
       value: Lightpost_Double
