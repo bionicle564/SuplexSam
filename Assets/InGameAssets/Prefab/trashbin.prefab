@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5675782431516564867}
   - component: {fileID: 6825225962901892461}
   - component: {fileID: 7769790996335645122}
+  - component: {fileID: 3062255456108652511}
   m_Layer: 0
   m_Name: trashbin
   m_TagString: Untagged
@@ -109,6 +110,22 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 90065acb8b014854f866d8ee8c7ab0c1, type: 2}
+--- !u!208 &3062255456108652511
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338906750672983247}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.83, y: 1.28, z: 4.34}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2678984998070602340
 GameObject:
   m_ObjectHideFlags: 0
