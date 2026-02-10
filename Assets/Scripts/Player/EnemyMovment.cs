@@ -17,6 +17,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         enemyAttack = GetComponent<EnemyAttack>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()

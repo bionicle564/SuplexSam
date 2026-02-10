@@ -476,7 +476,7 @@ public class GrabAndThrow : MonoBehaviour
         Vector3 throwVelocity = throwDirection * throwForce + Vector3.up * throwUpwardForce;
         grabbedObject.linearVelocity = throwVelocity;
 
-        GetComponent<Rigidbody>().AddForce(-throwVelocity*5, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(-throwVelocity* (grabbedObject.mass), ForceMode.Impulse);
 
         // Add some random rotation for more natural throw
         grabbedObject.angularVelocity = Random.insideUnitSphere * 5f;
