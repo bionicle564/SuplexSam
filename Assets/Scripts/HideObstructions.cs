@@ -54,17 +54,22 @@ public class HideObstructions : MonoBehaviour
                 if (!inList)
                 {
                     hideList.Add(new ObjectToHide(hit.transform.gameObject, 1.5f));
+                    if (hit.transform.gameObject.GetComponent<MeshRenderer>().enabled)
+                    {
+                        hit.transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                    }
                 }
             }
         }
 
         foreach (ObjectToHide obj in hideList)
         {
-            if (obj.objectSelfReference == hit.transform.gameObject)
+            if (obj.objectSelfReference)
             {
                 obj.time -= Time.deltaTime;
                 if (obj.time <= 0)
                 {
+                    obj.objectSelfReference.GetComponent<MeshRenderer>().enabled = true;
                     hideList.Remove(obj);
                 }
             }
