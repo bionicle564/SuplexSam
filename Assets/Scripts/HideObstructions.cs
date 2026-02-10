@@ -36,10 +36,12 @@ public class HideObstructions : MonoBehaviour
     void Update()
     {
         //Ray ray = GetComponent<Camera>().ScreenPointToRay(Vector3.zero);
+        float distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
+        //Vector3 directionTowardPlayer = new Vector3(player.transform.position - this.transform.position);
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(ray, out hit, distanceToPlayer, layerMask))
         {
             //Debug.Log("Hit?");
             if (hit.transform.gameObject.GetComponent<MeshRenderer>() != null)
