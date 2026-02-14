@@ -42,6 +42,7 @@ public class ShakeOff : MonoBehaviour
             return;
         }
 
+        // LM TAG
         leftTargetAngle = Random.Range(0f, 360f);
         rightTargetAngle = Random.Range(0f, 360f);
 
