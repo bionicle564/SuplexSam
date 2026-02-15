@@ -66,7 +66,7 @@ public class EnemyAttack : MonoBehaviour
                 
                 if (player.shakeOff != null)
 			{
-			    player.shakeOff.StartShakeOff(player);
+			    player.shakeOff.StartShakeOff(player, 1, ShakeOff.ShakeOffDifficulty.Easy); // Edit to include ShakeOff type and count
 			}
         }
     }

@@ -67,7 +67,7 @@ public class HideObstructions : MonoBehaviour
             }
         }
 
-        foreach (ObjectToHide obj in hideList)
+        foreach (ObjectToHide obj in hideList) // Lotsa problems in here
         {
             obj.time -= Time.deltaTime;
             if (obj.time <= 0)
