@@ -1,6 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.Splines.ExtrusionShapes;
+using UnityEngine.UI;
 /// <summary>
 /// This class handles the stun minigame
 /// Lots of math in here, you have been warned
@@ -42,17 +43,17 @@ public class ShakeOff : MonoBehaviour
             return;
         }
 
-        // LM TAG
+        // Look into changing this
         leftTargetAngle = Random.Range(0f, 360f);
         rightTargetAngle = Random.Range(0f, 360f);
 
         leftPlayerAngle = 0f;
         rightPlayerAngle = 0f;
 
-        UpdateCirclePosition(leftPlayer, leftBackground, leftPlayerAngle);
-        UpdateCirclePosition(leftTarget, leftBackground, leftTargetAngle);
-        UpdateCirclePosition(rightPlayer, rightBackground, rightPlayerAngle);
-        UpdateCirclePosition(rightTarget, rightBackground, rightTargetAngle);
+        //UpdateCirclePosition(leftPlayer, leftBackground, leftPlayerAngle);
+        //UpdateCirclePosition(leftTarget, leftBackground, leftTargetAngle);
+        //UpdateCirclePosition(rightPlayer, rightBackground, rightPlayerAngle);
+        //UpdateCirclePosition(rightTarget, rightBackground, rightTargetAngle);
 
         timer = holdTime;
         gameObject.SetActive(true);
@@ -65,15 +66,23 @@ public class ShakeOff : MonoBehaviour
         Vector2 leftInput = playerInput.actions["MoveLeftStick"].ReadValue<Vector2>();
         Vector2 rightInput = playerInput.actions["MoveRightStick"].ReadValue<Vector2>();
 
-        leftPlayerAngle += leftInput.magnitude * playerSpeed * Time.deltaTime * Mathf.Sign(Vector2.SignedAngle(Vector2.up, leftInput));
-        rightPlayerAngle += rightInput.magnitude * playerSpeed * Time.deltaTime * Mathf.Sign(Vector2.SignedAngle(Vector2.up, rightInput));
+        // New code
+        leftInput *= 100f;
+        leftPlayer.position = new Vector2(leftInput.x, leftInput.y);
+        rightPlayer.position = new Vector2(rightInput.x, rightInput.y);
 
-        leftPlayerAngle = Mathf.Repeat(leftPlayerAngle, 360f);
-        rightPlayerAngle = Mathf.Repeat(rightPlayerAngle, 360f);
+        // Old left/right code
+        //leftPlayerAngle += leftInput.magnitude * playerSpeed * Time.deltaTime * Mathf.Sign(Vector2.SignedAngle(Vector2.up, leftInput));
+        //rightPlayerAngle += rightInput.magnitude * playerSpeed * Time.deltaTime * Mathf.Sign(Vector2.SignedAngle(Vector2.up, rightInput));
 
-        UpdateCirclePosition(leftPlayer, leftBackground, leftPlayerAngle);
-        UpdateCirclePosition(rightPlayer, rightBackground, rightPlayerAngle);
+        //leftPlayerAngle = Mathf.Repeat(leftPlayerAngle, 360f);
+        //rightPlayerAngle = Mathf.Repeat(rightPlayerAngle, 360f);
 
+        //UpdateCirclePosition(leftPlayer, leftBackground, leftPlayerAngle);
+        //UpdateCirclePosition(rightPlayer, rightBackground, rightPlayerAngle);
+        // Old left/right code ^
+
+        // Look into changing the as well
         bool leftAligned = Mathf.Abs(Mathf.DeltaAngle(leftPlayerAngle, leftTargetAngle)) <= angleTolerance;
         bool rightAligned = Mathf.Abs(Mathf.DeltaAngle(rightPlayerAngle, rightTargetAngle)) <= angleTolerance;
 
@@ -93,10 +102,18 @@ public class ShakeOff : MonoBehaviour
         }
     }
 
+    /*
     private void UpdateCirclePosition(RectTransform circle, RectTransform background, float angle)
     {
         if (circle == null || background == null) return;
         Vector2 pos = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * circleRadius;
         circle.anchoredPosition = pos;
+    }
+    */
+
+    private void UpdateCirclePosition(RectTransform circle, float angle)
+    {
+        float tempLength = 100f;
+        Vector2 pos = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * circleRadius;
     }
 }
