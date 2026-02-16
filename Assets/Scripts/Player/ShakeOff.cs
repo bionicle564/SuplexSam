@@ -20,7 +20,7 @@ public class ShakeOff : MonoBehaviour
     [Header("Settings")]
     public float circleRadius = 95f;
     //public float playerSpeed = 180f; // Might not be necessary
-    public float holdTime = 0.15f;
+    public float holdTime = 0.2f;
     //public float angleTolerance = 15f; // Might not be necessary
     public LayerMask uiMask; // For overlapping the needle and target
 
@@ -55,8 +55,12 @@ public class ShakeOff : MonoBehaviour
     private int qteSteps = 1;
     private int currentStep = 0;
 
+    private Animator anim;
+
     public void StartShakeOff(TopDownRigidbodyController playerController, ShakeOffDifficulty diff)
     {
+        anim = GetComponent<Animator>();
+
         player = playerController;
         playerInput = player.GetComponent<PlayerInput>();
         if (playerInput == null)
@@ -236,6 +240,7 @@ public class ShakeOff : MonoBehaviour
         if (timer <= 0f)
         {
             // Some kind of feedback
+            anim.SetTrigger("Bounce");
 
             // Change to progress the stun QTE
             currentStep += 1;
@@ -313,6 +318,8 @@ public class ShakeOff : MonoBehaviour
         if (timer <= 0f)
         {
             // Some kind of feedback
+            //anim.Play("targets_matched");
+            anim.SetTrigger("Bounce");
 
             // Change to progress the stun QTE
             currentStep += 1;
