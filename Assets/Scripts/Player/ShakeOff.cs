@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Splines.ExtrusionShapes;
@@ -19,8 +20,9 @@ public class ShakeOff : MonoBehaviour
     [Header("Settings")]
     public float circleRadius = 95f;
     public float playerSpeed = 180f; // Might not be necessary
-    public float holdTime = 0.5f;
-    public float angleTolerance = 15f;
+    public float holdTime = 0.15f;
+    public float angleTolerance = 15f; // Might not be necessary
+    public LayerMask uiMask; // For overlapping the needle and target
 
     [Header("Left Stick UI")]
     public RectTransform leftBackground;
@@ -55,18 +57,20 @@ public class ShakeOff : MonoBehaviour
             return;
         }
 
-        // Set the size of the targets based on difficulty
+        leftCircleTarget.GetComponent<Image>().color = Color.white;
+        rightCircleTarget.GetComponent<Image>().color = Color.white;
+
+        // Toggle different size of targets based on difficulty
         if (diff == ShakeOffDifficulty.Easy)
         {
-            // Set targets to semicircles
-            leftCircleTarget.GetComponent<Image>().fillAmount = 0.5f;
-            rightCircleTarget.GetComponent<Image>().fillAmount = 0.5f;
+            //leftCircleTarget.GetComponent<Image>().fillAmount = 0.5f;
+            //rightCircleTarget.GetComponent<Image>().fillAmount = 0.5f;
         }
         else
         {
-            // Set targets to be smaller (tweak later)
-            leftCircleTarget.GetComponent<Image>().fillAmount = 0.25f;
-            rightCircleTarget.GetComponent<Image>().fillAmount = 0.25f;
+            // CHANGE THESE TO BE DIFFERENT IMAGES
+            //leftCircleTarget.GetComponent<Image>().fillAmount = 0.25f;
+            //rightCircleTarget.GetComponent<Image>().fillAmount = 0.25f;
         }
 
         // 0 means the target is up, 90 means target is left, 180 means down, 270 means right
@@ -127,17 +131,54 @@ public class ShakeOff : MonoBehaviour
         //UpdateCirclePosition(leftPlayer, leftBackground, leftPlayerAngle);
         //UpdateCirclePosition(rightPlayer, rightBackground, rightPlayerAngle);
         // Old left/right code ^
+
+        // Old alignment code
+        //bool leftAligned = Mathf.Abs(Mathf.DeltaAngle(leftPlayerAngle, leftTargetAngle)) <= angleTolerance;
+        //bool rightAligned = Mathf.Abs(Mathf.DeltaAngle(rightPlayerAngle, rightTargetAngle)) <= angleTolerance;
         */
 
-        // Change the following to be a certain half/quarter of the circles in order to progress
-        // Need to make sure that input vector aligns with target angle somehow, excludes things close to center ideally
-        // a
+        bool leftAligned = false;
+        bool rightAligned = false;
 
-        // Use this
-        //Vector2 pos = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * circleRadius;
+        // Check left
+        if (Physics2D.OverlapCircle(leftPlayer.position, 8f) != null)
+        {
+            if (Physics2D.OverlapCircle(leftPlayer.position, 8f).gameObject == leftCircleTarget.gameObject) // On target
+            {
+                leftAligned = true;
+                leftCircleTarget.GetComponent<Image>().color = Color.darkGreen;
+            }
+            else // Hitting something else (shouldn't happen)
+            {
+                leftAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+                leftCircleTarget.GetComponent<Image>().color = Color.white;
+            }
+        }
+        else if (Physics2D.OverlapCircle(leftPlayer.position, 8f) == null) // Off target
+        {
+            leftAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+            leftCircleTarget.GetComponent<Image>().color = Color.white;
+        }
 
-        bool leftAligned = Mathf.Abs(Mathf.DeltaAngle(leftPlayerAngle, leftTargetAngle)) <= angleTolerance;
-        bool rightAligned = Mathf.Abs(Mathf.DeltaAngle(rightPlayerAngle, rightTargetAngle)) <= angleTolerance;
+        // Check right
+        if (Physics2D.OverlapCircle(rightPlayer.position, 8f) != null)
+        {
+            if (Physics2D.OverlapCircle(rightPlayer.position, 8f).gameObject == rightCircleTarget.gameObject) // On target
+            {
+                rightAligned = true;
+                rightCircleTarget.GetComponent<Image>().color = Color.darkGreen;
+            }
+            else // Hitting something else (shouldn't happen)
+            {
+                rightAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+                rightCircleTarget.GetComponent<Image>().color = Color.white;
+            }
+        }
+        else if (Physics2D.OverlapCircle(rightPlayer.position, 8f) == null) // Off target
+        {
+            rightAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+            rightCircleTarget.GetComponent<Image>().color = Color.white;
+        }
 
         if (leftAligned && rightAligned)
         {
@@ -150,6 +191,7 @@ public class ShakeOff : MonoBehaviour
 
         if (timer <= 0f)
         {
+            // Change to progress the stun QTE
             player.SetStun(false);
             gameObject.SetActive(false);
         }
