@@ -19,35 +19,43 @@ public class ShakeOff : MonoBehaviour
 
     [Header("Settings")]
     public float circleRadius = 95f;
-    public float playerSpeed = 180f; // Might not be necessary
+    //public float playerSpeed = 180f; // Might not be necessary
     public float holdTime = 0.15f;
-    public float angleTolerance = 15f; // Might not be necessary
+    //public float angleTolerance = 15f; // Might not be necessary
     public LayerMask uiMask; // For overlapping the needle and target
 
     [Header("Left Stick UI")]
     public RectTransform leftBackground;
     //public RectTransform leftTarget;
-    public RectTransform leftCircleTarget;
+    public RectTransform leftCircleTargetEasy;
+    public RectTransform leftCircleTargetMedium;
     public RectTransform leftPlayer;
 
     [Header("Right Stick UI")]
     public RectTransform rightBackground;
     //public RectTransform rightTarget;
-    public RectTransform rightCircleTarget;
+    public RectTransform rightCircleTargetEasy;
+    public RectTransform rightCircleTargetMedium;
     public RectTransform rightPlayer;
 
+    // Inner workings
     private float[] easyAngleRange = new float[4] { -90f, 0f, 90f, 180f };
+    private float[] mediumAngleRange = new float[8] { -135f, -90f, -45f, 0f, 45f, 90f, 135f, 180f };
 
     private float leftTargetAngle;
     private float rightTargetAngle;
-    private float leftPlayerAngle;
-    private float rightPlayerAngle;
+    //private float leftPlayerAngle;
+    //private float rightPlayerAngle;
     private float timer;
 
     private TopDownRigidbodyController player;
     private PlayerInput playerInput;
 
-    public void StartShakeOff(TopDownRigidbodyController playerController, int count, ShakeOffDifficulty diff)
+    private ShakeOffDifficulty currentDifficulty;
+    private int qteSteps = 1;
+    private int currentStep = 0;
+
+    public void StartShakeOff(TopDownRigidbodyController playerController, ShakeOffDifficulty diff)
     {
         player = playerController;
         playerInput = player.GetComponent<PlayerInput>();
@@ -57,36 +65,34 @@ public class ShakeOff : MonoBehaviour
             return;
         }
 
-        leftCircleTarget.GetComponent<Image>().color = Color.white;
-        rightCircleTarget.GetComponent<Image>().color = Color.white;
+        // Startup
+        currentDifficulty = diff;
+        currentStep = 0;
+
+        leftCircleTargetEasy.GetComponent<Image>().color = Color.white;
+        rightCircleTargetEasy.GetComponent<Image>().color = Color.white;
+        leftCircleTargetMedium.GetComponent<Image>().color = Color.white;
+        rightCircleTargetMedium.GetComponent<Image>().color = Color.white;
 
         // Toggle different size of targets based on difficulty
-        if (diff == ShakeOffDifficulty.Easy)
+        if (currentDifficulty == ShakeOffDifficulty.Easy)
         {
-            //leftCircleTarget.GetComponent<Image>().fillAmount = 0.5f;
-            //rightCircleTarget.GetComponent<Image>().fillAmount = 0.5f;
+            qteSteps = 1;
+            leftCircleTargetEasy.gameObject.SetActive(true);
+            rightCircleTargetEasy.gameObject.SetActive(true);
+            leftCircleTargetMedium.gameObject.SetActive(false);
+            rightCircleTargetMedium.gameObject.SetActive(false);
         }
-        else
+        else if (currentDifficulty == ShakeOffDifficulty.Medium)
         {
-            // CHANGE THESE TO BE DIFFERENT IMAGES
-            //leftCircleTarget.GetComponent<Image>().fillAmount = 0.25f;
-            //rightCircleTarget.GetComponent<Image>().fillAmount = 0.25f;
+            qteSteps = 2;
+            leftCircleTargetEasy.gameObject.SetActive(false);
+            rightCircleTargetEasy.gameObject.SetActive(false);
+            leftCircleTargetMedium.gameObject.SetActive(true);
+            rightCircleTargetMedium.gameObject.SetActive(true);
         }
 
-        // 0 means the target is up, 90 means target is left, 180 means down, 270 means right
-        if (diff == ShakeOffDifficulty.Easy) // Consider consolidating later
-        {
-            // Pick between cardinal directions
-            leftTargetAngle = easyAngleRange[Random.Range(0, 4)];
-            rightTargetAngle = easyAngleRange[Random.Range(0, 4)];
-
-            Debug.Log($"{leftTargetAngle}");
-            Debug.Log($"{rightTargetAngle}");
-
-            leftCircleTarget.eulerAngles = new Vector3(0, 0, leftTargetAngle);
-            rightCircleTarget.eulerAngles = new Vector3(0, 0, rightTargetAngle);
-        }
-        // Continue with code for other difficulties, easy to expand on
+        SetTargetAngles();
 
         // Old angle target code
         /*
@@ -104,6 +110,32 @@ public class ShakeOff : MonoBehaviour
 
         timer = holdTime;
         gameObject.SetActive(true);
+    }
+
+    private void SetTargetAngles()
+    {
+        // 0 means the target is up, 90 means target is left, 180 means down, 270 means right
+        if (currentDifficulty == ShakeOffDifficulty.Easy) // Consider consolidating later
+        {
+            // Pick between cardinal directions
+            leftTargetAngle = easyAngleRange[Random.Range(0, 4)];
+            rightTargetAngle = easyAngleRange[Random.Range(0, 4)];
+
+            //Debug.Log($"{leftTargetAngle}");
+            //Debug.Log($"{rightTargetAngle}");
+
+            leftCircleTargetEasy.eulerAngles = new Vector3(0, 0, leftTargetAngle);
+            rightCircleTargetEasy.eulerAngles = new Vector3(0, 0, rightTargetAngle);
+        }
+        else if (currentDifficulty == ShakeOffDifficulty.Medium)
+        {
+            // Pick between intercardinal directions
+            leftTargetAngle = mediumAngleRange[Random.Range(0, 8)];
+            rightTargetAngle = mediumAngleRange[Random.Range(0, 8)];
+
+            leftCircleTargetMedium.eulerAngles = new Vector3(0, 0, leftTargetAngle);
+            rightCircleTargetMedium.eulerAngles = new Vector3(0, 0, rightTargetAngle);
+        }
     }
 
     private void Update()
@@ -137,47 +169,59 @@ public class ShakeOff : MonoBehaviour
         //bool rightAligned = Mathf.Abs(Mathf.DeltaAngle(rightPlayerAngle, rightTargetAngle)) <= angleTolerance;
         */
 
+        if (currentDifficulty == ShakeOffDifficulty.Easy)
+        {
+            EasyShakeOff();
+        }
+        else if (currentDifficulty == ShakeOffDifficulty.Medium)
+        {
+            MediumShakeOff();
+        }
+    }
+
+    private void EasyShakeOff()
+    {
         bool leftAligned = false;
         bool rightAligned = false;
 
         // Check left
         if (Physics2D.OverlapCircle(leftPlayer.position, 8f) != null)
         {
-            if (Physics2D.OverlapCircle(leftPlayer.position, 8f).gameObject == leftCircleTarget.gameObject) // On target
+            if (Physics2D.OverlapCircle(leftPlayer.position, 8f).gameObject == leftCircleTargetEasy.gameObject) // On target
             {
                 leftAligned = true;
-                leftCircleTarget.GetComponent<Image>().color = Color.darkGreen;
+                leftCircleTargetEasy.GetComponent<Image>().color = Color.darkGreen;
             }
             else // Hitting something else (shouldn't happen)
             {
                 leftAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
-                leftCircleTarget.GetComponent<Image>().color = Color.white;
+                leftCircleTargetEasy.GetComponent<Image>().color = Color.white;
             }
         }
         else if (Physics2D.OverlapCircle(leftPlayer.position, 8f) == null) // Off target
         {
             leftAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
-            leftCircleTarget.GetComponent<Image>().color = Color.white;
+            leftCircleTargetEasy.GetComponent<Image>().color = Color.white;
         }
 
         // Check right
         if (Physics2D.OverlapCircle(rightPlayer.position, 8f) != null)
         {
-            if (Physics2D.OverlapCircle(rightPlayer.position, 8f).gameObject == rightCircleTarget.gameObject) // On target
+            if (Physics2D.OverlapCircle(rightPlayer.position, 8f).gameObject == rightCircleTargetEasy.gameObject) // On target
             {
                 rightAligned = true;
-                rightCircleTarget.GetComponent<Image>().color = Color.darkGreen;
+                rightCircleTargetEasy.GetComponent<Image>().color = Color.darkGreen;
             }
             else // Hitting something else (shouldn't happen)
             {
                 rightAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
-                rightCircleTarget.GetComponent<Image>().color = Color.white;
+                rightCircleTargetEasy.GetComponent<Image>().color = Color.white;
             }
         }
         else if (Physics2D.OverlapCircle(rightPlayer.position, 8f) == null) // Off target
         {
             rightAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
-            rightCircleTarget.GetComponent<Image>().color = Color.white;
+            rightCircleTargetEasy.GetComponent<Image>().color = Color.white;
         }
 
         if (leftAligned && rightAligned)
@@ -191,9 +235,101 @@ public class ShakeOff : MonoBehaviour
 
         if (timer <= 0f)
         {
+            // Some kind of feedback
+
             // Change to progress the stun QTE
-            player.SetStun(false);
-            gameObject.SetActive(false);
+            currentStep += 1;
+            if (currentStep >= qteSteps)
+            {
+                // Turn off event
+                player.SetStun(false);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                timer = holdTime;
+                SetTargetAngles();
+            }
+
+            //player.SetStun(false);
+            //gameObject.SetActive(false);
+        }
+    }
+
+    private void MediumShakeOff()
+    {
+        bool leftAligned = false;
+        bool rightAligned = false;
+
+        // Check left
+        if (Physics2D.OverlapCircle(leftPlayer.position, 8f) != null)
+        {
+            if (Physics2D.OverlapCircle(leftPlayer.position, 8f).gameObject == leftCircleTargetMedium.gameObject) // On target
+            {
+                leftAligned = true;
+                leftCircleTargetMedium.GetComponent<Image>().color = Color.darkGreen;
+            }
+            else // Hitting something else (shouldn't happen)
+            {
+                leftAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+                leftCircleTargetMedium.GetComponent<Image>().color = Color.white;
+            }
+        }
+        else if (Physics2D.OverlapCircle(leftPlayer.position, 8f) == null) // Off target
+        {
+            leftAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+            leftCircleTargetMedium.GetComponent<Image>().color = Color.white;
+        }
+
+        // Check right
+        if (Physics2D.OverlapCircle(rightPlayer.position, 8f) != null)
+        {
+            if (Physics2D.OverlapCircle(rightPlayer.position, 8f).gameObject == rightCircleTargetMedium.gameObject) // On target
+            {
+                rightAligned = true;
+                rightCircleTargetMedium.GetComponent<Image>().color = Color.darkGreen;
+            }
+            else // Hitting something else (shouldn't happen)
+            {
+                rightAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+                rightCircleTargetMedium.GetComponent<Image>().color = Color.white;
+            }
+        }
+        else if (Physics2D.OverlapCircle(rightPlayer.position, 8f) == null) // Off target
+        {
+            rightAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+            rightCircleTargetMedium.GetComponent<Image>().color = Color.white;
+        }
+
+        if (leftAligned && rightAligned)
+        {
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            timer = holdTime;
+        }
+
+        if (timer <= 0f)
+        {
+            // Some kind of feedback
+
+            // Change to progress the stun QTE
+            currentStep += 1;
+            if (currentStep >= qteSteps)
+            {
+                // Turn off event
+                player.SetStun(false);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                timer = holdTime;
+                SetTargetAngles();
+            }
+
+            //player.SetStun(false);
+            //gameObject.SetActive(false);
         }
     }
 
