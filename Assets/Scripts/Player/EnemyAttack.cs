@@ -62,12 +62,16 @@ public class EnemyAttack : MonoBehaviour
         {
             var player = hit.GetComponent<TopDownRigidbodyController>();
             if (player != null)
-                player.SetStun(true);
-                
+            {
                 if (player.shakeOff != null)
-			{
-			    player.shakeOff.StartShakeOff(player, ShakeOff.ShakeOffDifficulty.Medium); // Edit to include ShakeOff type and count
-			}
+                {
+                    if (!player.shakeOff.shakeOffInProgress)
+                    {
+                        player.SetStun(true);
+                        player.shakeOff.StartShakeOff(player, ShakeOff.ShakeOffDifficulty.Medium); // Edit to include ShakeOff type
+                    }
+                }
+            }
         }
     }
 }

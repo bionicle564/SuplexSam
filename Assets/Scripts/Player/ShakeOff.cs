@@ -19,21 +19,18 @@ public class ShakeOff : MonoBehaviour
 
     [Header("Settings")]
     public float circleRadius = 95f;
-    //public float playerSpeed = 180f; // Might not be necessary
     public float holdTime = 0.2f;
-    //public float angleTolerance = 15f; // Might not be necessary
     public LayerMask uiMask; // For overlapping the needle and target
+    public bool shakeOffInProgress = false;
 
     [Header("Left Stick UI")]
     public RectTransform leftBackground;
-    //public RectTransform leftTarget;
     public RectTransform leftCircleTargetEasy;
     public RectTransform leftCircleTargetMedium;
     public RectTransform leftPlayer;
 
     [Header("Right Stick UI")]
     public RectTransform rightBackground;
-    //public RectTransform rightTarget;
     public RectTransform rightCircleTargetEasy;
     public RectTransform rightCircleTargetMedium;
     public RectTransform rightPlayer;
@@ -44,8 +41,6 @@ public class ShakeOff : MonoBehaviour
 
     private float leftTargetAngle;
     private float rightTargetAngle;
-    //private float leftPlayerAngle;
-    //private float rightPlayerAngle;
     private float timer;
 
     private TopDownRigidbodyController player;
@@ -59,7 +54,12 @@ public class ShakeOff : MonoBehaviour
 
     public void StartShakeOff(TopDownRigidbodyController playerController, ShakeOffDifficulty diff)
     {
+        leftBackground.gameObject.SetActive(true);
+        rightBackground.gameObject.SetActive(true);
+        shakeOffInProgress = true;
+
         anim = GetComponent<Animator>();
+        anim.SetTrigger("Start");
 
         player = playerController;
         playerInput = player.GetComponent<PlayerInput>();
@@ -124,9 +124,6 @@ public class ShakeOff : MonoBehaviour
             // Pick between cardinal directions
             leftTargetAngle = easyAngleRange[Random.Range(0, 4)];
             rightTargetAngle = easyAngleRange[Random.Range(0, 4)];
-
-            //Debug.Log($"{leftTargetAngle}");
-            //Debug.Log($"{rightTargetAngle}");
 
             leftCircleTargetEasy.eulerAngles = new Vector3(0, 0, leftTargetAngle);
             rightCircleTargetEasy.eulerAngles = new Vector3(0, 0, rightTargetAngle);
@@ -240,24 +237,21 @@ public class ShakeOff : MonoBehaviour
         if (timer <= 0f)
         {
             // Some kind of feedback
-            anim.SetTrigger("Bounce");
 
             // Change to progress the stun QTE
             currentStep += 1;
             if (currentStep >= qteSteps)
             {
-                // Turn off event
-                player.SetStun(false);
-                gameObject.SetActive(false);
+                // Call end animation
+                anim.SetTrigger("End");
+                timer = 1f; // Stops the trigger from being spammed
             }
             else
             {
+                anim.SetTrigger("Bounce");
                 timer = holdTime;
                 SetTargetAngles();
             }
-
-            //player.SetStun(false);
-            //gameObject.SetActive(false);
         }
     }
 
@@ -318,26 +312,30 @@ public class ShakeOff : MonoBehaviour
         if (timer <= 0f)
         {
             // Some kind of feedback
-            //anim.Play("targets_matched");
-            anim.SetTrigger("Bounce");
 
             // Change to progress the stun QTE
             currentStep += 1;
             if (currentStep >= qteSteps)
             {
-                // Turn off event
-                player.SetStun(false);
-                gameObject.SetActive(false);
+                // Call end animation
+                anim.SetTrigger("End");
+                timer = 1f; // Stops the trigger from being spammed
             }
             else
             {
+                anim.SetTrigger("Bounce");
                 timer = holdTime;
                 SetTargetAngles();
             }
-
-            //player.SetStun(false);
-            //gameObject.SetActive(false);
         }
+    }
+
+    public void EndShakeOff()
+    {
+        player.SetStun(false);
+        leftBackground.gameObject.SetActive(false);
+        rightBackground.gameObject.SetActive(false);
+        shakeOffInProgress = false;
     }
 
     // Old update circle method

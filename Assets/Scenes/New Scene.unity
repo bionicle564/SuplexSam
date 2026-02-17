@@ -2656,7 +2656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &180382036
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11420,6 +11420,7 @@ MonoBehaviour:
   uiMask:
     serializedVersion: 2
     m_Bits: 32
+  shakeOffInProgress: 0
   leftBackground: {fileID: 180382036}
   leftCircleTargetEasy: {fileID: 23757213}
   leftCircleTargetMedium: {fileID: 310357594}
@@ -21946,7 +21947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1354675187
 RectTransform:
   m_ObjectHideFlags: 0
