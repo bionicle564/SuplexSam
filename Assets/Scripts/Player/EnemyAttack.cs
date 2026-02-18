@@ -8,6 +8,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private Transform attackPoint;
     [SerializeField] public LayerMask playerLayer;
+    [SerializeField] public ShakeOff.ShakeOffDifficulty attackDifficulty = ShakeOff.ShakeOffDifficulty.Easy;
 
     private bool isAttacking;
     private float cooldownTimer;
@@ -68,7 +69,7 @@ public class EnemyAttack : MonoBehaviour
                     if (!player.shakeOff.shakeOffInProgress)
                     {
                         player.SetStun(true);
-                        player.shakeOff.StartShakeOff(player, ShakeOff.ShakeOffDifficulty.Medium); // Edit to include ShakeOff type
+                        player.shakeOff.StartShakeOff(player, attackDifficulty); // Edit to include ShakeOff type
                     }
                 }
             }

@@ -27,17 +27,20 @@ public class ShakeOff : MonoBehaviour
     public RectTransform leftBackground;
     public RectTransform leftCircleTargetEasy;
     public RectTransform leftCircleTargetMedium;
+    public RectTransform leftCircleTargetHard;
     public RectTransform leftPlayer;
 
     [Header("Right Stick UI")]
     public RectTransform rightBackground;
     public RectTransform rightCircleTargetEasy;
     public RectTransform rightCircleTargetMedium;
+    public RectTransform rightCircleTargetHard;
     public RectTransform rightPlayer;
 
     // Inner workings
     private float[] easyAngleRange = new float[4] { -90f, 0f, 90f, 180f };
     private float[] mediumAngleRange = new float[8] { -135f, -90f, -45f, 0f, 45f, 90f, 135f, 180f };
+    private float[] hardAngleRange = new float[12] { -150f, -120f, -90f, -60f, -30f, 0f, 30f, 60f, 90f, 120f, 150f, 180f };
 
     private float leftTargetAngle;
     private float rightTargetAngle;
@@ -77,6 +80,8 @@ public class ShakeOff : MonoBehaviour
         rightCircleTargetEasy.GetComponent<Image>().color = Color.white;
         leftCircleTargetMedium.GetComponent<Image>().color = Color.white;
         rightCircleTargetMedium.GetComponent<Image>().color = Color.white;
+        leftCircleTargetHard.GetComponent<Image>().color = Color.white;
+        rightCircleTargetHard.GetComponent<Image>().color = Color.white;
 
         // Toggle different size of targets based on difficulty
         if (currentDifficulty == ShakeOffDifficulty.Easy)
@@ -86,6 +91,8 @@ public class ShakeOff : MonoBehaviour
             rightCircleTargetEasy.gameObject.SetActive(true);
             leftCircleTargetMedium.gameObject.SetActive(false);
             rightCircleTargetMedium.gameObject.SetActive(false);
+            leftCircleTargetHard.gameObject.SetActive(false);
+            rightCircleTargetHard.gameObject.SetActive(false);
         }
         else if (currentDifficulty == ShakeOffDifficulty.Medium)
         {
@@ -94,6 +101,18 @@ public class ShakeOff : MonoBehaviour
             rightCircleTargetEasy.gameObject.SetActive(false);
             leftCircleTargetMedium.gameObject.SetActive(true);
             rightCircleTargetMedium.gameObject.SetActive(true);
+            leftCircleTargetHard.gameObject.SetActive(false);
+            rightCircleTargetHard.gameObject.SetActive(false);
+        }
+        else if (currentDifficulty == ShakeOffDifficulty.Hard)
+        {
+            qteSteps = 3;
+            leftCircleTargetEasy.gameObject.SetActive(false);
+            rightCircleTargetEasy.gameObject.SetActive(false);
+            leftCircleTargetMedium.gameObject.SetActive(false);
+            rightCircleTargetMedium.gameObject.SetActive(false);
+            leftCircleTargetHard.gameObject.SetActive(true);
+            rightCircleTargetHard.gameObject.SetActive(true);
         }
 
         SetTargetAngles();
@@ -137,6 +156,15 @@ public class ShakeOff : MonoBehaviour
             leftCircleTargetMedium.eulerAngles = new Vector3(0, 0, leftTargetAngle);
             rightCircleTargetMedium.eulerAngles = new Vector3(0, 0, rightTargetAngle);
         }
+        else if (currentDifficulty == ShakeOffDifficulty.Hard)
+        {
+            // Pick between intercardinal directions
+            leftTargetAngle = hardAngleRange[Random.Range(0, 8)];
+            rightTargetAngle = hardAngleRange[Random.Range(0, 8)];
+
+            leftCircleTargetHard.eulerAngles = new Vector3(0, 0, leftTargetAngle);
+            rightCircleTargetHard.eulerAngles = new Vector3(0, 0, rightTargetAngle);
+        }
     }
 
     private void Update()
@@ -177,6 +205,10 @@ public class ShakeOff : MonoBehaviour
         else if (currentDifficulty == ShakeOffDifficulty.Medium)
         {
             MediumShakeOff();
+        }
+        else if (currentDifficulty == ShakeOffDifficulty.Hard)
+        {
+            HardShakeOff();
         }
     }
 
@@ -298,6 +330,81 @@ public class ShakeOff : MonoBehaviour
         {
             rightAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
             rightCircleTargetMedium.GetComponent<Image>().color = Color.white;
+        }
+
+        if (leftAligned && rightAligned)
+        {
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            timer = holdTime;
+        }
+
+        if (timer <= 0f)
+        {
+            // Some kind of feedback
+
+            // Change to progress the stun QTE
+            currentStep += 1;
+            if (currentStep >= qteSteps)
+            {
+                // Call end animation
+                anim.SetTrigger("End");
+                timer = 1f; // Stops the trigger from being spammed
+            }
+            else
+            {
+                anim.SetTrigger("Bounce");
+                timer = holdTime;
+                SetTargetAngles();
+            }
+        }
+    }
+
+    private void HardShakeOff()
+    {
+        bool leftAligned = false;
+        bool rightAligned = false;
+
+        // Check left
+        if (Physics2D.OverlapCircle(leftPlayer.position, 8f) != null)
+        {
+            if (Physics2D.OverlapCircle(leftPlayer.position, 8f).gameObject == leftCircleTargetHard.gameObject) // On target
+            {
+                leftAligned = true;
+                leftCircleTargetHard.GetComponent<Image>().color = Color.darkGreen;
+            }
+            else // Hitting something else (shouldn't happen)
+            {
+                leftAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+                leftCircleTargetHard.GetComponent<Image>().color = Color.white;
+            }
+        }
+        else if (Physics2D.OverlapCircle(leftPlayer.position, 8f) == null) // Off target
+        {
+            leftAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+            leftCircleTargetHard.GetComponent<Image>().color = Color.white;
+        }
+
+        // Check right
+        if (Physics2D.OverlapCircle(rightPlayer.position, 8f) != null)
+        {
+            if (Physics2D.OverlapCircle(rightPlayer.position, 8f).gameObject == rightCircleTargetHard.gameObject) // On target
+            {
+                rightAligned = true;
+                rightCircleTargetHard.GetComponent<Image>().color = Color.darkGreen;
+            }
+            else // Hitting something else (shouldn't happen)
+            {
+                rightAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+                rightCircleTargetHard.GetComponent<Image>().color = Color.white;
+            }
+        }
+        else if (Physics2D.OverlapCircle(rightPlayer.position, 8f) == null) // Off target
+        {
+            rightAligned = false; // Likely unnecessary but I'm keeping the block in case I want to use it later
+            rightCircleTargetHard.GetComponent<Image>().color = Color.white;
         }
 
         if (leftAligned && rightAligned)
