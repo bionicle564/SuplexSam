@@ -270,9 +270,6 @@ public class GrabAndThrow : MonoBehaviour
     {
         if (objectToGrab == null) return;
 
-
-
-
         grabbedObject = objectToGrab;
         isHoldingObject = true;
         UpdateHoldingIndicator();
@@ -281,6 +278,11 @@ public class GrabAndThrow : MonoBehaviour
         if(actions != null)
         {
             actions.Grab();
+        }
+
+        if (grabbedObject.GetComponent<GrabbableEnemy>() != null)
+        {
+            grabbedObject.GetComponent<GrabbableEnemy>().OnGrabbed();
         }
 
         // Disable gravity while holding
@@ -333,7 +335,7 @@ public class GrabAndThrow : MonoBehaviour
         grabbedObject.useGravity = true;
         grabbedObject.isKinematic = false;
         
-    GrabbableEnemy enemy = grabbedObject.GetComponent<GrabbableEnemy>();
+        GrabbableEnemy enemy = grabbedObject.GetComponent<GrabbableEnemy>();
 	    if (enemy != null)
 	    {
 	        enemy.OnDropped(this);

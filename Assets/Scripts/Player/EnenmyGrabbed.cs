@@ -23,6 +23,8 @@ public class GrabbableEnemy : MonoBehaviour
 
     public void OnGrabbed()
     {
+        Debug.Log("Called!");
+
         CancelInvoke();
 
         isStunned = false;
