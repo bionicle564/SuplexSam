@@ -12,11 +12,13 @@ public class EnemyNavMeshAttack : MonoBehaviour
 
     private NavMeshAgent agent;
     private EnemyAttack enemyAttack;
+    private GrabbableEnemy grabbableEnemy;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         enemyAttack = GetComponent<EnemyAttack>();
+        grabbableEnemy = GetComponent<GrabbableEnemy>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -28,18 +30,25 @@ public class EnemyNavMeshAttack : MonoBehaviour
 
         if (distance > detectionRange)
         {
-            agent.ResetPath();
+            if (agent.enabled)
+            {
+                agent.ResetPath();
+            }
             return;
         }
 
         if (distance > attackRange)
         {
-            agent.isStopped = false;
+            grabbableEnemy.RB.isKinematic = true;
+            agent.enabled = true;
+            //agent.isStopped = false;
             agent.SetDestination(player.position);
         }
         else
         {
-            agent.isStopped = true;
+            //agent.isStopped = true;
+            agent.enabled = false;
+            grabbableEnemy.RB.isKinematic = false;
             enemyAttack.TryAttack(); // ← ONLY THIS
             FacePlayer();
         }

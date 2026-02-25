@@ -9,6 +9,8 @@ public class GrabbableEnemy : MonoBehaviour
     private NavMeshAgent agent;
     private EnemyNavMeshAttack enemyAI;
     private Rigidbody rb;
+    public Rigidbody RB { get { return rb; } }
+
     private Collider col;
 
     private bool isStunned;
@@ -19,12 +21,25 @@ public class GrabbableEnemy : MonoBehaviour
         enemyAI = GetComponent<EnemyNavMeshAttack>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+
+        // Run the lil stun snap
+        isStunned = false;
+
+        if (agent != null)
+            agent.enabled = true;
+
+        if (enemyAI != null)
+            enemyAI.enabled = true;
+
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
+        }
     }
 
     public void OnGrabbed()
     {
-        Debug.Log("Called!");
-
         CancelInvoke();
 
         isStunned = false;
@@ -77,6 +92,8 @@ public class GrabbableEnemy : MonoBehaviour
     {
         yield return new WaitForSeconds(stunDuration);
 
+        Debug.Log("Stun Snap");
+
         isStunned = false;
 
         if (agent != null)
@@ -106,5 +123,7 @@ public class GrabbableEnemy : MonoBehaviour
 
         if (enemyAI != null)
             enemyAI.enabled = true;
+
+        Debug.Log("Drop Snap");
     }
 }

@@ -45,7 +45,10 @@ public class EnemyAttack : MonoBehaviour
         // WIND-UP (pause rotation visually)
         yield return new WaitForSeconds(windUpTime);
 
-        DoAttack();
+        if (!isGrabbed) // Bandaid solution
+        {
+            DoAttack();
+        }
 
         cooldownTimer = attackCooldown;
         isAttacking = false;

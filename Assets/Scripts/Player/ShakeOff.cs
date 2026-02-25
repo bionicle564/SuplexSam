@@ -159,8 +159,8 @@ public class ShakeOff : MonoBehaviour
         else if (currentDifficulty == ShakeOffDifficulty.Hard)
         {
             // Pick between intercardinal directions
-            leftTargetAngle = hardAngleRange[Random.Range(0, 8)];
-            rightTargetAngle = hardAngleRange[Random.Range(0, 8)];
+            leftTargetAngle = hardAngleRange[Random.Range(0, 12)];
+            rightTargetAngle = hardAngleRange[Random.Range(0, 12)];
 
             leftCircleTargetHard.eulerAngles = new Vector3(0, 0, leftTargetAngle);
             rightCircleTargetHard.eulerAngles = new Vector3(0, 0, rightTargetAngle);

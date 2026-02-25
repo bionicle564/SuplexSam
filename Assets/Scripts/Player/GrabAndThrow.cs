@@ -253,9 +253,12 @@ public class GrabAndThrow : MonoBehaviour
             }
         }
 
+        Debug.Log($"{hitColliders.Length}");
+
         if (nearestObject != null)
         {
             GrabObject(nearestObject);
+            //Debug.Log("Grabbing object");
         }
         else if (debugMode)
         {
@@ -283,6 +286,10 @@ public class GrabAndThrow : MonoBehaviour
         if (grabbedObject.GetComponent<GrabbableEnemy>() != null)
         {
             grabbedObject.GetComponent<GrabbableEnemy>().OnGrabbed();
+        }
+        if (grabbedObject.GetComponent<EnemyAttack>() != null)
+        {
+            grabbedObject.GetComponent<EnemyAttack>().OnGrabbed();
         }
 
         // Disable gravity while holding
@@ -340,7 +347,12 @@ public class GrabAndThrow : MonoBehaviour
 	    {
 	        enemy.OnDropped(this);
 	    }
-	    
+
+        if (grabbedObject.GetComponent<EnemyAttack>() != null)
+        {
+            grabbedObject.GetComponent<EnemyAttack>().OnReleased();
+        }
+
         // Clear velocity so it doesn't fly away
         grabbedObject.linearVelocity = Vector3.zero;
         grabbedObject.angularVelocity = Vector3.zero;
@@ -368,6 +380,11 @@ public class GrabAndThrow : MonoBehaviour
     private void ReleaseObject()
     {
         if (grabbedObject == null) return;
+
+        if (grabbedObject.GetComponent<EnemyAttack>() != null)
+        {
+            grabbedObject.GetComponent<EnemyAttack>().OnReleased();
+        }
 
         // Re-enable physics
         grabbedObject.useGravity = true;
@@ -406,7 +423,12 @@ public class GrabAndThrow : MonoBehaviour
 		{
 		    enemy.OnThrown(this);
 		}
-        
+
+        if (grabbedObject.GetComponent<EnemyAttack>() != null)
+        {
+            grabbedObject.GetComponent<EnemyAttack>().OnReleased();
+        }
+
         grabbedObject.tag = heavyTag;
         StartCoroutine(ResetTagAfterTime(grabbedObject, 1f));
         
