@@ -50,6 +50,12 @@ public class TopDownRigidbodyController : MonoBehaviour
     // Input state
     private Vector2 moveInput;
 
+    // Ground check code
+    bool isGrounded;
+    public bool IsGrounded => isGrounded;
+    public Transform groundCheckTransform;
+    public LayerMask groundMask;
+
     private void Awake()
     {
         // Get required components
@@ -59,6 +65,8 @@ public class TopDownRigidbodyController : MonoBehaviour
             Debug.LogError("Rigidbody component not found!", this);
             return;
         }
+
+        shakeOff = GameObject.FindGameObjectWithTag("ShakeOffUI").GetComponent<ShakeOff>();
 
         // Get PlayerInput from the same GameObject
         playerInput = GetComponent<PlayerInput>();
@@ -144,7 +152,6 @@ public class TopDownRigidbodyController : MonoBehaviour
 
     private void Update()
     {
-    
         //this happans once per frame when stunned
 	    if (stunned)
 		{
@@ -162,6 +169,10 @@ public class TopDownRigidbodyController : MonoBehaviour
         {
             moveInput = moveAction.ReadValue<Vector2>();
         }
+
+        // Check to see if we are grounded
+        isGrounded = Physics.CheckSphere(groundCheckTransform.position, 0.3f, groundMask, QueryTriggerInteraction.Ignore);
+        Debug.Log($"{isGrounded}");
     }
 
     private void FixedUpdate()
@@ -169,8 +180,12 @@ public class TopDownRigidbodyController : MonoBehaviour
     
     if (stunned)
 	{
-	    rb.linearVelocity = Vector3.zero; //halt the player when stunned
-	    return;
+	    //rb.linearVelocity = Vector3.zero; //halt the player when stunned
+        // Halt the player when stunned
+        float x = rb.linearVelocity.x * (1f - dragCoefficient * Time.fixedDeltaTime);
+        float z = rb.linearVelocity.z * (1f - dragCoefficient * Time.fixedDeltaTime);
+        rb.linearVelocity = new Vector3(x, rb.linearVelocity.y, z);
+        return;
 	}
     
         if (rb == null) return;
@@ -251,11 +266,12 @@ public class TopDownRigidbodyController : MonoBehaviour
     /// </summary>
     private void ApplyDrag()
     {
-        // Make it so that this only applies when grounded
         if (moveInput == Vector2.zero)
         {
             // Apply drag to slow down
-            rb.linearVelocity *= (1f - dragCoefficient * Time.fixedDeltaTime);
+            float x = rb.linearVelocity.x * (1f - dragCoefficient * Time.fixedDeltaTime);
+            float z = rb.linearVelocity.z * (1f - dragCoefficient * Time.fixedDeltaTime);
+            rb.linearVelocity = new Vector3(x, rb.linearVelocity.y, z);
         }
     }
 
