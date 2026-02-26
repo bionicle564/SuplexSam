@@ -35,10 +35,10 @@ public class TopDownRigidbodyController : MonoBehaviour
     [SerializeField] private InputActionReference stunActionReference;
     [SerializeField] private float spinSpeed = 720f;
     
-public ShakeOff shakeOff;
+    public ShakeOff shakeOff;
 
-private InputAction stunAction;
-private bool stunned = false;
+    private InputAction stunAction;
+    private bool stunned = false;
 
     // Components
     private Rigidbody rb;
@@ -251,6 +251,7 @@ private bool stunned = false;
     /// </summary>
     private void ApplyDrag()
     {
+        // Make it so that this only applies when grounded
         if (moveInput == Vector2.zero)
         {
             // Apply drag to slow down
