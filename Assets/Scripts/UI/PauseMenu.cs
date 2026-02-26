@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    EventSystem eventSystem;
+
     public GameObject menu;
     private bool isPaused = false;
     public bool IsPaused
@@ -12,13 +15,15 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
+        eventSystem = EventSystem.current;
+
         Time.timeScale = 1f; // Just in case
         menu.SetActive(false);
     }
 
     void Update()
     {
-        if (Input.GetButtonDown(""))
+        if (Input.GetButtonDown("Start"))
         {
             if (!isPaused)
             {
@@ -36,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0f;
         menu.SetActive(true);
+        eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
     }
 
     public void UnpauseGame()
@@ -47,6 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        // Change this to use a loading screen
         SceneManager.LoadScene("Main Menu");
     }
 }
