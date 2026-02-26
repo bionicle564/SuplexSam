@@ -1,5 +1,6 @@
 /// Sorry for the AI code its what Tom gave us, goodluck learning C# or just make a new one ¯\_(ツ)_/¯
 
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -67,6 +68,8 @@ public class TopDownRigidbodyController : MonoBehaviour
         }
 
         shakeOff = GameObject.FindGameObjectWithTag("ShakeOffUI").GetComponent<ShakeOff>();
+
+        GameObject.FindGameObjectWithTag("MasterCamera").GetComponent<CinemachineCamera>().Follow = this.transform;
 
         // Get PlayerInput from the same GameObject
         playerInput = GetComponent<PlayerInput>();
