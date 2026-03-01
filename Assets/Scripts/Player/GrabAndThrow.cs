@@ -298,6 +298,9 @@ public class GrabAndThrow : MonoBehaviour
         // Set object to kinematic to prevent physics interference
         grabbedObject.isKinematic = true;
 
+        // Maybe change the layer of the grabbed object?
+        grabbedObject.gameObject.layer = LayerMask.NameToLayer("GrabbedNoPlayerCollision");
+
         // Clear velocity
         //grabbedObject.linearVelocity = Vector3.zero;
         //grabbedObject.angularVelocity = Vector3.zero;
@@ -529,12 +532,14 @@ public class GrabAndThrow : MonoBehaviour
 	{
 	    yield return new WaitForSeconds(colliderDisableTime);
 	    col.enabled = true;
-	}
+        col.gameObject.layer = LayerMask.NameToLayer("Grabbable");
+    }
 
     private System.Collections.IEnumerator ReenableColliderDown(Collider col)
     {
         yield return new WaitForSeconds(0.01f);
         col.enabled = true;
+        col.gameObject.layer = LayerMask.NameToLayer("Grabbable");
     }
 
     private System.Collections.IEnumerator ResetTagAfterTime(Rigidbody rb,float time)
