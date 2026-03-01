@@ -175,7 +175,7 @@ public class TopDownRigidbodyController : MonoBehaviour
 
         // Check to see if we are grounded
         isGrounded = Physics.CheckSphere(groundCheckTransform.position, 0.3f, groundMask, QueryTriggerInteraction.Ignore);
-        Debug.Log($"{isGrounded}");
+        //Debug.Log($"{isGrounded}");
     }
 
     private void FixedUpdate()

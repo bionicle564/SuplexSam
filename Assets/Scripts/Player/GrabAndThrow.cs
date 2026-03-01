@@ -299,8 +299,9 @@ public class GrabAndThrow : MonoBehaviour
         grabbedObject.isKinematic = true;
 
         // Clear velocity
-        grabbedObject.linearVelocity = Vector3.zero;
-        grabbedObject.angularVelocity = Vector3.zero;
+        //grabbedObject.linearVelocity = Vector3.zero;
+        //grabbedObject.angularVelocity = Vector3.zero;
+        // ^ The above does not work on kinematic objects, nor is it necessary, luckily
 
         if (debugMode)
         {
