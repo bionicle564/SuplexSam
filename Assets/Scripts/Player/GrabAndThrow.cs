@@ -63,6 +63,7 @@ public class GrabAndThrow : MonoBehaviour
 
     // Components
     private PlayerInput playerInput;
+    private TopDownRigidbodyController playerController;
 
     // Input actions
     private InputAction grabAction;
@@ -72,11 +73,13 @@ public class GrabAndThrow : MonoBehaviour
     // Grab state
     private Rigidbody grabbedObject;
     private bool isHoldingObject = false;
+    private float jumpCooldown = 0f;
 
     private void Awake()
     {
         // Get PlayerInput from the same GameObject
         playerInput = GetComponent<PlayerInput>();
+        playerController = GetComponent<TopDownRigidbodyController>();
         
         if (playerInput == null)
         {
@@ -502,10 +505,13 @@ public class GrabAndThrow : MonoBehaviour
 
         // Apply throw force
         Vector3 throwVelocity = throwDirection * throwForce + Vector3.up * throwUpwardForce;
-        Debug.Log($"{throwVelocity}");
+        //Debug.Log($"{throwVelocity}");
         grabbedObject.linearVelocity = throwVelocity;
 
-        GetComponent<Rigidbody>().AddForce(-throwVelocity* (grabbedObject.mass), ForceMode.Impulse);
+        if (playerController.IsGrounded)
+        {
+            GetComponent<Rigidbody>().AddForce(-throwVelocity * (grabbedObject.mass), ForceMode.Impulse);
+        }
 
         // Add some random rotation for more natural throw
         grabbedObject.angularVelocity = Random.insideUnitSphere * 5f;

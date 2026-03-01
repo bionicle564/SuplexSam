@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 230930578189845038}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.22, z: 1.32}
+  m_LocalPosition: {x: 0, y: 1.22, z: 1.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -199,7 +199,7 @@ MonoBehaviour:
   detectionDistance: 1.39
   holdPoint: {fileID: 9012198267842252049}
   holdOffset: {x: 0, y: 0, z: 0}
-  holdSmoothness: 10
+  holdSmoothness: 100
   throwForce: 20
   throwUpwardForce: 5
   debugMode: 0
