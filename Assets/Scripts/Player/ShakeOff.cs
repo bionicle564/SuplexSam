@@ -1,8 +1,10 @@
 using JetBrains.Annotations;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Splines.ExtrusionShapes;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 /// <summary>
 /// This class handles the stun minigame
 /// Lots of math in here, you have been warned
@@ -178,6 +180,18 @@ public class ShakeOff : MonoBehaviour
         // Display the position of the control sticks
         leftInput *= circleRadius;
         rightInput *= circleRadius;
+
+        //leftInput.x = Math.Clamp(leftInput.x, -75f, 75f);
+        //leftInput.y = Math.Clamp(leftInput.y, -75f, 75f);
+        
+        leftInput = Vector2.ClampMagnitude(leftInput, 75f);
+        rightInput = Vector2.ClampMagnitude(rightInput, 75f);
+
+        //Math.Clamp(rightInput.x, -75f, 75f);
+        //Math.Clamp(rightInput.y, -75f, 75f);
+
+        print(leftInput);
+
         leftPlayer.position = new Vector2(leftInput.x + leftBackground.position.x, leftInput.y + leftBackground.position.y);
         rightPlayer.position = new Vector2(rightInput.x + rightBackground.position.x, rightInput.y + rightBackground.position.y);
 
