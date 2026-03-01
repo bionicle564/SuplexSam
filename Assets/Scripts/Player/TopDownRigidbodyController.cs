@@ -181,15 +181,15 @@ public class TopDownRigidbodyController : MonoBehaviour
     private void FixedUpdate()
     {
     
-    if (stunned)
-	{
-	    //rb.linearVelocity = Vector3.zero; //halt the player when stunned
-        // Halt the player when stunned
-        float x = rb.linearVelocity.x * (1f - dragCoefficient * Time.fixedDeltaTime);
-        float z = rb.linearVelocity.z * (1f - dragCoefficient * Time.fixedDeltaTime);
-        rb.linearVelocity = new Vector3(x, rb.linearVelocity.y, z);
-        return;
-	}
+        if (stunned)
+	    {
+	        //rb.linearVelocity = Vector3.zero; //halt the player when stunned
+            // Halt the player when stunned
+            float x = rb.linearVelocity.x * (1f - dragCoefficient * Time.fixedDeltaTime);
+            float z = rb.linearVelocity.z * (1f - dragCoefficient * Time.fixedDeltaTime);
+            rb.linearVelocity = new Vector3(x, rb.linearVelocity.y, z);
+            return;
+	    }
     
         if (rb == null) return;
 
