@@ -253,7 +253,7 @@ public class GrabAndThrow : MonoBehaviour
             }
         }
 
-        Debug.Log($"{hitColliders.Length}");
+        //Debug.Log($"{hitColliders.Length}");
 
         if (nearestObject != null)
         {
@@ -499,6 +499,7 @@ public class GrabAndThrow : MonoBehaviour
 
         // Apply throw force
         Vector3 throwVelocity = throwDirection * throwForce + Vector3.up * throwUpwardForce;
+        Debug.Log($"{throwVelocity}");
         grabbedObject.linearVelocity = throwVelocity;
 
         GetComponent<Rigidbody>().AddForce(-throwVelocity* (grabbedObject.mass), ForceMode.Impulse);
