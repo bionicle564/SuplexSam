@@ -519,6 +519,11 @@ public class GrabAndThrow : MonoBehaviour
             enemy.OnThrown(this);
         }
 
+        if (grabbedObject.GetComponent<EnemyAttack>() != null)
+        {
+            grabbedObject.GetComponent<EnemyAttack>().OnReleased();
+        }
+
         // Reset speed penalty
         if (grabbedObject.GetComponent<GrabbableObject>() != null)
         {

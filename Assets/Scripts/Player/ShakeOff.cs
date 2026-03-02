@@ -190,7 +190,7 @@ public class ShakeOff : MonoBehaviour
         //Math.Clamp(rightInput.x, -75f, 75f);
         //Math.Clamp(rightInput.y, -75f, 75f);
 
-        print(leftInput);
+        //print(leftInput);
 
         leftPlayer.position = new Vector2(leftInput.x + leftBackground.position.x, leftInput.y + leftBackground.position.y);
         rightPlayer.position = new Vector2(rightInput.x + rightBackground.position.x, rightInput.y + rightBackground.position.y);

@@ -60,6 +60,8 @@ public class GrabbableEnemy : MonoBehaviour
     // Called ONLY when thrown
     public void OnThrown(MonoBehaviour caller)
     {
+        Debug.Log("Called OnThrown()");
+
         if (rb != null)
         {
             rb.isKinematic = false;
