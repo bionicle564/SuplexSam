@@ -69,7 +69,10 @@ public class TopDownRigidbodyController : MonoBehaviour
 
         shakeOff = GameObject.FindGameObjectWithTag("ShakeOffUI").GetComponent<ShakeOff>();
 
-        GameObject.FindGameObjectWithTag("MasterCamera").GetComponent<CinemachineCamera>().Follow = this.transform;
+        if (GameObject.FindGameObjectWithTag("MasterCamera").GetComponent<CinemachineCamera>().Follow == null)
+        {
+            GameObject.FindGameObjectWithTag("MasterCamera").GetComponent<CinemachineCamera>().Follow = this.transform;
+        }
 
         // Get PlayerInput from the same GameObject
         playerInput = GetComponent<PlayerInput>();
