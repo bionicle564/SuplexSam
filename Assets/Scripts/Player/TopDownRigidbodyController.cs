@@ -292,9 +292,9 @@ public class TopDownRigidbodyController : MonoBehaviour
     {
         Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         
-        if (horizontalVelocity.magnitude > maxSpeed)
+        if (horizontalVelocity.magnitude > maxSpeed - (maxSpeed * maxSpeedPenalty / 100f))
         {
-            horizontalVelocity = horizontalVelocity.normalized * maxSpeed;
+            horizontalVelocity = horizontalVelocity.normalized * (maxSpeed - (maxSpeed * maxSpeedPenalty / 100f));
             rb.linearVelocity = new Vector3(horizontalVelocity.x, rb.linearVelocity.y, horizontalVelocity.z);
         }
     }

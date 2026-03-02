@@ -361,16 +361,18 @@ public class GrabAndThrow : MonoBehaviour
 	        enemy.OnDropped(this);
 	    }
 
+        if (grabbedObject.GetComponent<EnemyAttack>() != null)
+        {
+            grabbedObject.GetComponent<EnemyAttack>().OnReleased();
+        }
+
         // Reset speed penalty
         if (grabbedObject.GetComponent<GrabbableObject>() != null)
         {
             playerController.SetSpeedPenalty(0f);
         }
 
-        if (grabbedObject.GetComponent<EnemyAttack>() != null)
-        {
-            grabbedObject.GetComponent<EnemyAttack>().OnReleased();
-        }
+        grabbedObject.gameObject.layer = LayerMask.NameToLayer("Grabbable");
 
         // Clear velocity so it doesn't fly away
         grabbedObject.linearVelocity = Vector3.zero;
@@ -410,6 +412,8 @@ public class GrabAndThrow : MonoBehaviour
         {
             playerController.SetSpeedPenalty(0f);
         }
+
+        grabbedObject.gameObject.layer = LayerMask.NameToLayer("Grabbable");
 
         // Re-enable physics
         grabbedObject.useGravity = true;
