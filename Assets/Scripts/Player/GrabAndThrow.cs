@@ -544,7 +544,15 @@ public class GrabAndThrow : MonoBehaviour
 
         if (playerController.IsGrounded)
         {
-            GetComponent<Rigidbody>().AddForce(-throwVelocity * (grabbedObject.mass), ForceMode.Impulse);
+            if (grabbedObject.GetComponent<GrabbableObject>() != null)
+            {
+                GetComponent<Rigidbody>().AddForce(-throwVelocity.normalized * grabbedObject.GetComponent<GrabbableObject>().jumpHeight, ForceMode.Impulse);
+            }
+            else
+            {
+                Debug.Log("Object is missing GrabbableObject script!");
+                GetComponent<Rigidbody>().AddForce(-throwVelocity * grabbedObject.mass, ForceMode.Impulse);
+            }
         }
 
         // Add some random rotation for more natural throw

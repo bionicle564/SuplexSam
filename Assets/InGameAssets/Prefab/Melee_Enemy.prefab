@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 2994291237306764954}
   - component: {fileID: 1243576524927247334}
   - component: {fileID: 9000203575734713519}
+  - component: {fileID: 2231027699401822140}
   m_Layer: 6
   m_Name: Melee_Enemy
   m_TagString: Untagged
@@ -461,6 +462,21 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  attackDifficulty: 0
+--- !u!114 &2231027699401822140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555253762058381475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3626fa2f5d0b67488623770ed73aa06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabbableObject
+  jumpHeight: 15
+  speedPenalty: 80
 --- !u!1 &9003409313521236184
 GameObject:
   m_ObjectHideFlags: 0
