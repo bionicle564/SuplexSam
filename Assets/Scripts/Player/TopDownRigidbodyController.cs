@@ -21,6 +21,9 @@ public class TopDownRigidbodyController : MonoBehaviour
 
     [Tooltip("Maximum velocity the player can reach.")]
     [SerializeField] private float maxSpeed = 10f;
+    
+    [Tooltip("Amount the player is hampered by an object they're carrying.")]
+    [SerializeField] private float maxSpeedPenalty = 0f;
 
     [Tooltip("Drag applied to slow down when no input is provided.")]
     [SerializeField] private float dragCoefficient = 5f;
@@ -363,6 +366,11 @@ public class TopDownRigidbodyController : MonoBehaviour
         if (rb == null) return 0f;
         Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         return horizontalVelocity.magnitude;
+    }
+
+    public void SetSpeedPenalty(float newPenalty)
+    {
+        maxSpeedPenalty = newPenalty;
     }
 
     #endregion

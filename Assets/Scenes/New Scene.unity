@@ -7379,9 +7379,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 19.18
+  m_Height: 81.62
   m_Direction: 2
-  m_Center: {x: 0, y: 0.5, z: 7.4}
+  m_Center: {x: 0, y: 0.5, z: 28.7}
 --- !u!54 &491755419
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21750,10 +21750,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControllerCamera
       objectReference: {fileID: 0}
-    - target: {fileID: 6442354764615263991, guid: 954a8dfd98be63b4089ff04404a3ebe0, type: 3}
-      propertyPath: Target.TrackingTarget
-      value: 
-      objectReference: {fileID: 1075029006}
     - target: {fileID: 7551338328999753944, guid: 954a8dfd98be63b4089ff04404a3ebe0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 107.55

@@ -286,6 +286,12 @@ public class GrabAndThrow : MonoBehaviour
             actions.Grab();
         }
 
+        // Speed penalty
+        if (grabbedObject.GetComponent<GrabbableObject>() != null)
+        {
+            playerController.SetSpeedPenalty(grabbedObject.GetComponent<GrabbableObject>().speedPenalty);
+        }
+
         if (grabbedObject.GetComponent<GrabbableEnemy>() != null)
         {
             grabbedObject.GetComponent<GrabbableEnemy>().OnGrabbed();
@@ -355,6 +361,12 @@ public class GrabAndThrow : MonoBehaviour
 	        enemy.OnDropped(this);
 	    }
 
+        // Reset speed penalty
+        if (grabbedObject.GetComponent<GrabbableObject>() != null)
+        {
+            playerController.SetSpeedPenalty(0f);
+        }
+
         if (grabbedObject.GetComponent<EnemyAttack>() != null)
         {
             grabbedObject.GetComponent<EnemyAttack>().OnReleased();
@@ -391,6 +403,12 @@ public class GrabAndThrow : MonoBehaviour
         if (grabbedObject.GetComponent<EnemyAttack>() != null)
         {
             grabbedObject.GetComponent<EnemyAttack>().OnReleased();
+        }
+
+        // Reset speed penalty
+        if (grabbedObject.GetComponent<GrabbableObject>() != null)
+        {
+            playerController.SetSpeedPenalty(0f);
         }
 
         // Re-enable physics
@@ -434,6 +452,12 @@ public class GrabAndThrow : MonoBehaviour
         if (grabbedObject.GetComponent<EnemyAttack>() != null)
         {
             grabbedObject.GetComponent<EnemyAttack>().OnReleased();
+        }
+
+        // Reset speed penalty
+        if (grabbedObject.GetComponent<GrabbableObject>() != null)
+        {
+            playerController.SetSpeedPenalty(0f);
         }
 
         grabbedObject.tag = heavyTag;
@@ -489,6 +513,12 @@ public class GrabAndThrow : MonoBehaviour
         if (enemy != null)
         {
             enemy.OnThrown(this);
+        }
+
+        // Reset speed penalty
+        if (grabbedObject.GetComponent<GrabbableObject>() != null)
+        {
+            playerController.SetSpeedPenalty(0f);
         }
 
         grabbedObject.tag = heavyTag;
