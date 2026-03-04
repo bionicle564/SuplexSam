@@ -114,7 +114,7 @@ public class HideObstructions : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.gameObject.GetComponent<MeshRenderer>() != null)
+        if (other.transform.gameObject.GetComponent<MeshRenderer>() != null && other.transform.gameObject.tag != "IgnoreCamObstructions") // Band-aid
         {
             // Add it to the list of things to toggle off if it isn't already there
             bool inList = false;

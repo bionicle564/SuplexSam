@@ -4635,9 +4635,10 @@ GameObject:
   - component: {fileID: 194108264}
   - component: {fileID: 194108270}
   - component: {fileID: 194108271}
+  - component: {fileID: 194108272}
   m_Layer: 8
   m_Name: Boat 1
-  m_TagString: Untagged
+  m_TagString: IgnoreCamObstructions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5012,6 +5013,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StickyPlatform
   playerTag: Player
+--- !u!65 &194108272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194108263}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.5, y: 3.5, z: 13.5}
+  m_Center: {x: -2.75, y: 2.28, z: -6.25}
 --- !u!43 &195409340
 Mesh:
   m_ObjectHideFlags: 0
