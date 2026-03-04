@@ -1,0 +1,695 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3579931949312989055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2176366821009826534}
+  m_Layer: 0
+  m_Name: Moonshine Bottles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2176366821009826534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3579931949312989055}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 394250175230536850}
+  - {fileID: 6030744433002982602}
+  - {fileID: 4550612629877875355}
+  - {fileID: 1020801678719480646}
+  - {fileID: 1310633354785066994}
+  - {fileID: 4553517100326817868}
+  - {fileID: 4100393061782775728}
+  - {fileID: 694370014613674067}
+  - {fileID: 1757786903024337465}
+  m_Father: {fileID: 7061733766961786577}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6058605746139524863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7061733766961786577}
+  m_Layer: 0
+  m_Name: MoonshineCrate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7061733766961786577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058605746139524863}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2176366821009826534}
+  - {fileID: 6959905795336666658}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &57466631837506332
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2176366821009826534}
+    m_Modifications:
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.39850616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.41750005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939368567112315744, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_Name
+      value: Moonshine Bottle (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+--- !u!4 &4100393061782775728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+  m_PrefabInstance: {fileID: 57466631837506332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &507968086554697271
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2176366821009826534}
+    m_Modifications:
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.39850616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.4175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939368567112315744, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_Name
+      value: Moonshine Bottle (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+--- !u!4 &4550612629877875355 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+  m_PrefabInstance: {fileID: 507968086554697271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &511998543615012064
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2176366821009826534}
+    m_Modifications:
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.006500244
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.4175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939368567112315744, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_Name
+      value: Moonshine Bottle (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+--- !u!4 &4553517100326817868 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+  m_PrefabInstance: {fileID: 511998543615012064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2328156202498571925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2176366821009826534}
+    m_Modifications:
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.39850616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.4175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939368567112315744, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_Name
+      value: Moonshine Bottle (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+--- !u!4 &1757786903024337465 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+  m_PrefabInstance: {fileID: 2328156202498571925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3034267593107780446
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2176366821009826534}
+    m_Modifications:
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.006500244
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0025000274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939368567112315744, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_Name
+      value: Moonshine Bottle (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+--- !u!4 &1310633354785066994 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+  m_PrefabInstance: {fileID: 3034267593107780446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3569465003464336639
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2176366821009826534}
+    m_Modifications:
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.39850616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0025000274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939368567112315744, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_Name
+      value: Moonshine Bottle (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+--- !u!4 &694370014613674067 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+  m_PrefabInstance: {fileID: 3569465003464336639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3891446446064881642
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2176366821009826534}
+    m_Modifications:
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.006500244
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.41750005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939368567112315744, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_Name
+      value: Moonshine Bottle (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+--- !u!4 &1020801678719480646 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+  m_PrefabInstance: {fileID: 3891446446064881642}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4418880234079998014
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2176366821009826534}
+    m_Modifications:
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.39850616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.41750005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939368567112315744, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_Name
+      value: Moonshine Bottle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+--- !u!4 &394250175230536850 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+  m_PrefabInstance: {fileID: 4418880234079998014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6679443803084646410
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7061733766961786577}
+    m_Modifications:
+    - target: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765499492367182647, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+      propertyPath: m_Name
+      value: TopOpenCrate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+--- !u!4 &6959905795336666658 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4333777642507605544, guid: ecae599fd97b44a4a8bf74ffcd1ac96e, type: 3}
+  m_PrefabInstance: {fileID: 6679443803084646410}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7753560591525711974
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2176366821009826534}
+    m_Modifications:
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.39850616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0025000274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939368567112315744, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+      propertyPath: m_Name
+      value: Moonshine Bottle (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+--- !u!4 &6030744433002982602 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4047518197737667756, guid: c0861760298948b4aae069fec6ec5de2, type: 3}
+  m_PrefabInstance: {fileID: 7753560591525711974}
+  m_PrefabAsset: {fileID: 0}
