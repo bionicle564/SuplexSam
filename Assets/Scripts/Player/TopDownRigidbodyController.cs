@@ -11,6 +11,9 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class TopDownRigidbodyController : MonoBehaviour
 {
+    [Header("Health and Damage Handling")]
+    public int health = 4;
+
     [Header("Input References")]
     [Tooltip("Reference to the movement input action.")]
     [SerializeField] private InputActionReference moveActionReference;
@@ -55,6 +58,7 @@ public class TopDownRigidbodyController : MonoBehaviour
     private Vector2 moveInput;
 
     // Ground check code
+    [Header("Ground Check Code")]
     bool isGrounded;
     public bool IsGrounded => isGrounded;
     public Transform groundCheckTransform;
