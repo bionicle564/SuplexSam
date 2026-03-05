@@ -71,6 +71,8 @@ public class TopDownRigidbodyController : MonoBehaviour
     {
         maxHealth = health;
 
+        checkpoint = GameObject.FindGameObjectWithTag("StartPoint").transform;
+
         // Get required components
         rb = GetComponent<Rigidbody>();
         if (rb == null)
