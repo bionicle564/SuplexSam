@@ -13,6 +13,9 @@ public class TopDownRigidbodyController : MonoBehaviour
 {
     [Header("Health and Damage Handling")]
     public int health = 4;
+    int maxHealth;
+
+    [SerializeField] private Transform checkpoint;
 
     [Header("Input References")]
     [Tooltip("Reference to the movement input action.")]
@@ -66,6 +69,8 @@ public class TopDownRigidbodyController : MonoBehaviour
 
     private void Awake()
     {
+        maxHealth = health;
+
         // Get required components
         rb = GetComponent<Rigidbody>();
         if (rb == null)
@@ -334,6 +339,30 @@ public class TopDownRigidbodyController : MonoBehaviour
     #endregion
 
     #region Public Methods
+
+    // Health and damage
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            RespawnAtCheckpoint();
+        }
+    }
+
+    // Checkpoint code
+    public void SetCheckpoint(Transform newPoint)
+    {
+        checkpoint = newPoint;
+    }
+
+    public void RespawnAtCheckpoint()
+    {
+        health = maxHealth;
+        this.transform.position = checkpoint.position;
+        this.transform.rotation = checkpoint.rotation;
+        // Edit to reset certain encounters somehow, may need a level handler for that though
+    }
 
     /// <summary>
     /// Applies an external impulse force to the player (e.g., from knockback).

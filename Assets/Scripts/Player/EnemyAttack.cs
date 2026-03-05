@@ -72,7 +72,11 @@ public class EnemyAttack : MonoBehaviour
                     if (!player.shakeOff.shakeOffInProgress)
                     {
                         player.SetStun(true);
-                        player.shakeOff.StartShakeOff(player, attackDifficulty); // Edit to include ShakeOff type
+                        player.shakeOff.StartShakeOff(player, attackDifficulty);
+                    }
+                    else
+                    {
+                        player.TakeDamage(1); // Currently doesn't do varied damage, can change if necessary
                     }
                 }
             }
