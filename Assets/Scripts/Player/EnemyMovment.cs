@@ -14,19 +14,27 @@ public class EnemyNavMeshAttack : MonoBehaviour
 
     private NavMeshAgent agent;
     private EnemyAttack enemyAttack;
+    private RangedEnemyAttack rangedEnemyAttack;
     private GrabbableEnemy grabbableEnemy;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        enemyAttack = GetComponent<EnemyAttack>();
+        if (!isRanged)
+        {
+            enemyAttack = GetComponent<EnemyAttack>();
+        }
+        else
+        {
+            rangedEnemyAttack = GetComponent<RangedEnemyAttack>();
+        }
         grabbableEnemy = GetComponent<GrabbableEnemy>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
     {
-        if (player == null || enemyAttack == null) return;
+        if (player == null) return;
 
         float distance = Vector3.Distance(transform.position, player.position);
 
