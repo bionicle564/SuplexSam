@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
-    public TextMeshPro healthText;
+    public TextMeshProUGUI healthText;
 
     TopDownRigidbodyController player;
 

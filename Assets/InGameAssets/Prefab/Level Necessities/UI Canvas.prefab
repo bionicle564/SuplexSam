@@ -1637,6 +1637,7 @@ GameObject:
   - component: {fileID: 6206161071469813349}
   - component: {fileID: 7313513510527635068}
   - component: {fileID: 6071639920357933901}
+  - component: {fileID: 767699026936506937}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -1730,3 +1731,16 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &767699026936506937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075429349934098314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8080604b0a54a543a13db14ff3a4688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HUD
+  healthText: {fileID: 5980750018891420411}

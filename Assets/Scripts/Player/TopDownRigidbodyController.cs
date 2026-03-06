@@ -364,6 +364,9 @@ public class TopDownRigidbodyController : MonoBehaviour
         this.transform.position = checkpoint.position;
         this.transform.rotation = checkpoint.rotation;
         // Edit to reset certain encounters somehow, may need a level handler for that though
+
+        // Reset ShakeOff
+        shakeOff.EndShakeOff();
     }
 
     /// <summary>
