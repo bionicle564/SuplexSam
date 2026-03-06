@@ -3,6 +3,8 @@ using UnityEngine.AI;
 
 public class EnemyNavMeshAttack : MonoBehaviour
 {
+    public bool isRanged = false;
+
     [Header("Target")]
     [SerializeField] private Transform player;
 

@@ -9410,6 +9410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e6a5f24e48d2245aa5261504e5570e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavMeshAttack
+  isRanged: 0
   player: {fileID: 1075029006}
   detectionRange: 20
   attackRange: 5
@@ -24432,6 +24433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e6a5f24e48d2245aa5261504e5570e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavMeshAttack
+  isRanged: 0
   player: {fileID: 1075029006}
   detectionRange: 20
   attackRange: 5
@@ -32461,6 +32463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e6a5f24e48d2245aa5261504e5570e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavMeshAttack
+  isRanged: 0
   player: {fileID: 1075029006}
   detectionRange: 20
   attackRange: 5
@@ -36543,6 +36546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e6a5f24e48d2245aa5261504e5570e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavMeshAttack
+  isRanged: 0
   player: {fileID: 0}
   detectionRange: 20
   attackRange: 5
@@ -37002,13 +37006,14 @@ GameObject:
   - component: {fileID: 1243576524176153143}
   - component: {fileID: 9000203576443356542}
   - component: {fileID: 2231027700278130285}
+  - component: {fileID: 9000203576443356543}
   m_Layer: 6
   m_Name: Ranged_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6763592308134904476
 Transform:
   m_ObjectHideFlags: 0
@@ -37272,6 +37277,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackDifficulty: 0
+--- !u!114 &9000203576443356543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555253761215631730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d39c70273bfb164fb8eafa050dc04b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  attackCooldown: 1
+  attackRange: 3
+  shootPoint: {fileID: 0}
 --- !u!1 &9003409314364588297
 GameObject:
   m_ObjectHideFlags: 0
