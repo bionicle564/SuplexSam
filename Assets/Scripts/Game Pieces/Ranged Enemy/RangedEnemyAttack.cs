@@ -25,14 +25,13 @@ public class RangedEnemyAttack : MonoBehaviour
         {
             attackCooldown -= Time.deltaTime;
         }
-        if (attackCooldown <= 0f)
-        {
-            Shoot();
-        }
     }
 
     public void Shoot()
     {
-        Debug.Log("Shoot");
+        if (attackCooldown <= 0f && !isGrabbed)
+        {
+            Debug.Log("Shoot");
+        }
     }
 }

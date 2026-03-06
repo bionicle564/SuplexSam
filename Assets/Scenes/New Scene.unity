@@ -37004,7 +37004,6 @@ GameObject:
   - component: {fileID: 8376299547438399307}
   - component: {fileID: 2994291237621167947}
   - component: {fileID: 1243576524176153143}
-  - component: {fileID: 9000203576443356542}
   - component: {fileID: 2231027700278130285}
   - component: {fileID: 9000203576443356543}
   m_Layer: 6
@@ -37257,26 +37256,6 @@ MonoBehaviour:
   _data:
     _json: '{"nest":{"source":"Macro","macro":null,"embed":null}}'
     _objectReferences: []
---- !u!114 &9000203576443356542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6555253761215631730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b1333a78f1fef4e89bc29ec87a37c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  windUpTime: 0.4
-  attackCooldown: 5
-  attackRange: 5
-  attackPoint: {fileID: 5458680601630954378}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  attackDifficulty: 0
 --- !u!114 &9000203576443356543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37291,7 +37270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   attackCooldown: 1
   attackRange: 3
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 5458680601630954378}
 --- !u!1 &9003409314364588297
 GameObject:
   m_ObjectHideFlags: 0
