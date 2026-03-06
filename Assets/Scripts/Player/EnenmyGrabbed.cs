@@ -60,7 +60,7 @@ public class GrabbableEnemy : MonoBehaviour
     // Called ONLY when thrown
     public void OnThrown(MonoBehaviour caller)
     {
-        Debug.Log("Called OnThrown()");
+        //Debug.Log("Called OnThrown()");
 
         if (rb != null)
         {
@@ -94,7 +94,7 @@ public class GrabbableEnemy : MonoBehaviour
     {
         yield return new WaitForSeconds(stunDuration);
 
-        Debug.Log("Stun Snap");
+        //Debug.Log("Stun Snap");
 
         isStunned = false;
 
