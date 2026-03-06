@@ -59,7 +59,14 @@ public class EnemyNavMeshAttack : MonoBehaviour
             //agent.isStopped = true;
             agent.enabled = false;
             grabbableEnemy.RB.isKinematic = false;
-            enemyAttack.TryAttack(); // ← ONLY THIS
+            if (!isRanged)
+            {
+                enemyAttack.TryAttack();
+            }
+            else
+            {
+                rangedEnemyAttack.Shoot();
+            }
             FacePlayer();
         }
     }
