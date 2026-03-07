@@ -453,7 +453,10 @@ public class ShakeOff : MonoBehaviour
 
     public void EndShakeOff()
     {
-        player.SetStun(false);
+        if (player != null)
+        {
+            player.SetStun(false);
+        }
         leftBackground.gameObject.SetActive(false);
         rightBackground.gameObject.SetActive(false);
         shakeOffInProgress = false;

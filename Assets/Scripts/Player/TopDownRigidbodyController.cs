@@ -46,6 +46,7 @@ public class TopDownRigidbodyController : MonoBehaviour
     [SerializeField] private float spinSpeed = 720f;
     
     public ShakeOff shakeOff;
+    public GrabAndThrow grabAndThrow;
 
     private InputAction stunAction;
     private bool stunned = false;
@@ -81,6 +82,7 @@ public class TopDownRigidbodyController : MonoBehaviour
             return;
         }
 
+        grabAndThrow = GetComponent<GrabAndThrow>();
         shakeOff = GameObject.FindGameObjectWithTag("ShakeOffUI").GetComponent<ShakeOff>();
 
         if (GameObject.FindGameObjectWithTag("MasterCamera").GetComponent<CinemachineCamera>().Follow == null)
@@ -365,8 +367,14 @@ public class TopDownRigidbodyController : MonoBehaviour
         this.transform.rotation = checkpoint.rotation;
         // Edit to reset certain encounters somehow, may need a level handler for that though
 
+        // Force drop items
+        grabAndThrow.ReleaseObject();
+
         // Reset ShakeOff
-        shakeOff.EndShakeOff();
+        if (shakeOff != null)
+        {
+            shakeOff.EndShakeOff();
+        }
     }
 
     /// <summary>

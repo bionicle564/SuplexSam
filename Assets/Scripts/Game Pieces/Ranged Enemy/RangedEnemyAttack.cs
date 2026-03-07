@@ -35,10 +35,10 @@ public class RangedEnemyAttack : MonoBehaviour
         if (attackTimer <= 0f && !isGrabbed)
         {
             attackTimer = attackCooldown;
-            Debug.Log("Shoot");
-            Rigidbody bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+            Rigidbody bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation); // Rotation needs to be changed
             Vector3 direction = target.position - this.transform.position;
             direction = Vector3.Normalize(direction);
+            bullet.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
             bullet.linearVelocity = direction * bulletSpeed;
         }
     }

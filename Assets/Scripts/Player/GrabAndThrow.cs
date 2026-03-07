@@ -398,7 +398,7 @@ public class GrabAndThrow : MonoBehaviour
     /// <summary>
     /// Releases the held object (used when component is disabled).
     /// </summary>
-    private void ReleaseObject()
+    public void ReleaseObject()
     {
         if (grabbedObject == null) return;
 
