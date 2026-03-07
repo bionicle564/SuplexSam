@@ -20,6 +20,8 @@ public class SimpleBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Bullet collided!");
+
         if (collision.gameObject.tag == "Player")
         {
             if (collision.gameObject.GetComponent<TopDownRigidbodyController>() != null)
@@ -31,6 +33,7 @@ public class SimpleBullet : MonoBehaviour
         else if (collision.gameObject.GetComponent<GrabbableObject>() != null)
         {
             // Code for breaking breakable objects will go here later
+            BulletHit();
         }
         else
         {

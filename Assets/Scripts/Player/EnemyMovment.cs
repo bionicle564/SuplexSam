@@ -56,7 +56,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
             // Shoot haphazardly while moving
             if (isRanged)
             {
-                rangedEnemyAttack.Shoot();
+                rangedEnemyAttack.Shoot(player.transform);
             }
         }
         else
@@ -69,7 +69,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
             }
             else
             {
-                rangedEnemyAttack.Shoot();
+                rangedEnemyAttack.Shoot(player.transform);
             }
             FacePlayer();
         }

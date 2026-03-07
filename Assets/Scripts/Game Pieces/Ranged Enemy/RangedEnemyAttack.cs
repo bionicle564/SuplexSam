@@ -30,14 +30,16 @@ public class RangedEnemyAttack : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public void Shoot(Transform target)
     {
         if (attackTimer <= 0f && !isGrabbed)
         {
             attackTimer = attackCooldown;
             Debug.Log("Shoot");
             Rigidbody bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
-            bullet.linearVelocity = transform.forward * bulletSpeed;
+            Vector3 direction = target.position - this.transform.position;
+            direction = Vector3.Normalize(direction);
+            bullet.linearVelocity = direction * bulletSpeed;
         }
     }
 }
