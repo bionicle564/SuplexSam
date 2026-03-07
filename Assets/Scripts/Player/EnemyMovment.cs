@@ -51,12 +51,16 @@ public class EnemyNavMeshAttack : MonoBehaviour
         {
             grabbableEnemy.RB.isKinematic = true;
             agent.enabled = true;
-            //agent.isStopped = false;
             agent.SetDestination(player.position);
+
+            // Shoot haphazardly while moving
+            if (isRanged)
+            {
+                rangedEnemyAttack.Shoot();
+            }
         }
         else
         {
-            //agent.isStopped = true;
             agent.enabled = false;
             grabbableEnemy.RB.isKinematic = false;
             if (!isRanged)
