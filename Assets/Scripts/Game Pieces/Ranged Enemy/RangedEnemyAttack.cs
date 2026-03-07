@@ -3,6 +3,7 @@ using UnityEngine.ProBuilder;
 
 public class RangedEnemyAttack : MonoBehaviour
 {
+    [SerializeField] private float attackTimer = 0f;
     [SerializeField] private float attackCooldown = 1f;
     [SerializeField] private float attackRange = 3f;
     [SerializeField] private Transform shootPoint;
@@ -23,16 +24,17 @@ public class RangedEnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        if (attackCooldown > 0f)
+        if (attackTimer > 0f)
         {
-            attackCooldown -= Time.deltaTime;
+            attackTimer -= Time.deltaTime;
         }
     }
 
     public void Shoot()
     {
-        if (attackCooldown <= 0f && !isGrabbed)
+        if (attackTimer <= 0f && !isGrabbed)
         {
+            attackTimer = attackCooldown;
             Debug.Log("Shoot");
             Rigidbody bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
             bullet.linearVelocity = transform.forward * bulletSpeed;

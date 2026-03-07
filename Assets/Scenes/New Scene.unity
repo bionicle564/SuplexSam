@@ -36546,7 +36546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e6a5f24e48d2245aa5261504e5570e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavMeshAttack
-  isRanged: 0
+  isRanged: 1
   player: {fileID: 0}
   detectionRange: 20
   attackRange: 5
@@ -37268,9 +37268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d39c70273bfb164fb8eafa050dc04b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  attackTimer: 0
   attackCooldown: 1
   attackRange: 3
   shootPoint: {fileID: 5458680601630954378}
+  bulletPrefab: {fileID: 6161528626983077939, guid: a75305917f3da4b42b6cd5e8d6ee3b24, type: 3}
+  bulletSpeed: 6
 --- !u!1 &9003409314364588297
 GameObject:
   m_ObjectHideFlags: 0
