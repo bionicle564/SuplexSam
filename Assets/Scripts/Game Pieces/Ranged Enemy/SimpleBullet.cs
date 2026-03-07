@@ -20,8 +20,6 @@ public class SimpleBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Bullet collided!");
-
         if (collision.gameObject.tag == "Player")
         {
             if (collision.gameObject.GetComponent<TopDownRigidbodyController>() != null)
