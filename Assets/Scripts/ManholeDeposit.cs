@@ -16,6 +16,12 @@ public class ManholeDeposit : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("HEAVY"))
+        {
+            Destroy(other);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<Rigidbody>().AddForce(new Vector3(0, 10, 0), ForceMode.Impulse);
+
+        }
     }
 }
