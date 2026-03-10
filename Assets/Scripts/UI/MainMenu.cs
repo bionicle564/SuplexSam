@@ -1,13 +1,21 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    EventSystem eventSystem;
+    
     public GameObject mainMenu;
     public GameObject levelSelectMenu;
 
+    public GameObject playButton;
+    public GameObject level1Button;
+
     void Start()
     {
+        eventSystem = EventSystem.current;
+
         Time.timeScale = 1.0f; // Just in case
     }
 
@@ -20,12 +28,16 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(false);
         levelSelectMenu.SetActive(true);
+
+        eventSystem.SetSelectedGameObject(level1Button);
     }
 
     public void ReturnToMainMenu()
     {
         levelSelectMenu.SetActive(false);
         mainMenu.SetActive(true);
+
+        eventSystem.SetSelectedGameObject(playButton);
     }
 
     public void PlayLevel(string test)

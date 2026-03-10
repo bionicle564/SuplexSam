@@ -187,6 +187,9 @@ public class ShakeOff : MonoBehaviour
         leftInput = Vector2.ClampMagnitude(leftInput, 75f);
         rightInput = Vector2.ClampMagnitude(rightInput, 75f);
 
+        //Debug.Log(leftInput);
+        //Debug.Log(leftInput.magnitude);
+
         //Math.Clamp(rightInput.x, -75f, 75f);
         //Math.Clamp(rightInput.y, -75f, 75f);
 
