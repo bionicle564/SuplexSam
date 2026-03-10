@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject menu;
     private bool isPaused = false;
+
+    public GameObject resumeButton;
     public bool IsPaused
     {
         get { return isPaused; }
@@ -32,6 +34,14 @@ public class PauseMenu : MonoBehaviour
             else 
             {
                 UnpauseGame();
+            }
+        }
+
+        if (eventSystem.currentSelectedGameObject == null)
+        {
+            if (menu.activeInHierarchy)
+            {
+                eventSystem.SetSelectedGameObject(resumeButton);
             }
         }
     }
