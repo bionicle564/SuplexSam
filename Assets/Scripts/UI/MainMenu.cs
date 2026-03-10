@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject mainMenu;
+    public GameObject levelSelectMenu;
+
     void Start()
     {
         Time.timeScale = 1.0f; // Just in case
@@ -11,6 +14,18 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void LevelSelectMenu()
+    {
+        mainMenu.SetActive(false);
+        levelSelectMenu.SetActive(true);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        levelSelectMenu.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
     public void PlayLevel(string test)
