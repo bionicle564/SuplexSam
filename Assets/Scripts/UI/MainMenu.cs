@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject levelSelectMenu;
 
     public GameObject playButton;
+    public GameObject levelSelectButton;
     public GameObject level1Button;
 
     void Start()
@@ -21,7 +22,17 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        
+        if (eventSystem.currentSelectedGameObject == null)
+        {
+            if (mainMenu.activeInHierarchy)
+            {
+                eventSystem.SetSelectedGameObject(playButton);
+            }
+            else
+            {
+                eventSystem.SetSelectedGameObject(level1Button);
+            }
+        }
     }
 
     public void LevelSelectMenu()
@@ -37,7 +48,7 @@ public class MainMenu : MonoBehaviour
         levelSelectMenu.SetActive(false);
         mainMenu.SetActive(true);
 
-        eventSystem.SetSelectedGameObject(playButton);
+        eventSystem.SetSelectedGameObject(levelSelectButton);
     }
 
     public void PlayLevel(string test)
