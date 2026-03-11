@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     EventSystem eventSystem;
-    
+    LoadingTrigger loadingTrigger;
+
     public GameObject mainMenu;
     public GameObject levelSelectMenu;
 
@@ -16,6 +17,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         eventSystem = EventSystem.current;
+        loadingTrigger = GameObject.FindGameObjectWithTag("LoadingTrigger").GetComponent<LoadingTrigger>();
 
         Time.timeScale = 1.0f; // Just in case
     }
@@ -51,10 +53,12 @@ public class MainMenu : MonoBehaviour
         eventSystem.SetSelectedGameObject(levelSelectButton);
     }
 
-    public void PlayLevel(string test)
+    public void PlayLevel(string levelToLoad)
     {
+        loadingTrigger.LoadScene(SceneManager.GetActiveScene().name, levelToLoad);
+
         // Change this to use a loading screen
-        SceneManager.LoadScene(test);
+        //SceneManager.LoadScene(test);
     }
 
     public void QuitGame()
