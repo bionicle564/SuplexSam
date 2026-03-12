@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5200910128589496379}
   - component: {fileID: 1850062622998308550}
-  m_Layer: 0
+  - component: {fileID: 2940572557990295226}
+  - component: {fileID: 5433832688231068341}
+  m_Layer: 6
   m_Name: Steel_Chair_Folded_Upright
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,6 +56,47 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18597609, y: 1.0583429, z: 0.78083956}
   m_Center: {x: 0.010437184, y: 0.5248934, z: 0.015654504}
+--- !u!54 &2940572557990295226
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2184777175908565310}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &5433832688231068341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2184777175908565310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3626fa2f5d0b67488623770ed73aa06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabbableObject
+  jumpHeight: 1
+  speedPenalty: 20
 --- !u!1001 &418765495511229217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,14 +145,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8204880374533385131, guid: be10d5a75e9d4ba4b8be08eef615581e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -7255168901617812561, guid: be10d5a75e9d4ba4b8be08eef615581e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 27634570643b8f24e954f7cfe0c17c31, type: 2}
+    - target: {fileID: -5453070723975637521, guid: be10d5a75e9d4ba4b8be08eef615581e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4225914887560890740, guid: be10d5a75e9d4ba4b8be08eef615581e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -3361629883295301225, guid: be10d5a75e9d4ba4b8be08eef615581e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 27634570643b8f24e954f7cfe0c17c31, type: 2}
+    - target: {fileID: 496588809085960997, guid: be10d5a75e9d4ba4b8be08eef615581e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 801069082749560911, guid: be10d5a75e9d4ba4b8be08eef615581e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -117,6 +176,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be10d5a75e9d4ba4b8be08eef615581e, type: 3}
       propertyPath: m_Name
       value: SteelChair_Folded_mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be10d5a75e9d4ba4b8be08eef615581e, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5095268260769352227, guid: be10d5a75e9d4ba4b8be08eef615581e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

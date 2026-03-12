@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4466589950789613080}
   - component: {fileID: 8201763641986492888}
   - component: {fileID: 426709590239234191}
-  - component: {fileID: 7594673770039330835}
+  - component: {fileID: 3497497528279880024}
   m_Layer: 6
   m_Name: Car Tire
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   jumpHeight: 10
   speedPenalty: 80
---- !u!64 &7594673770039330835
+--- !u!64 &3497497528279880024
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +92,7 @@ MeshCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1

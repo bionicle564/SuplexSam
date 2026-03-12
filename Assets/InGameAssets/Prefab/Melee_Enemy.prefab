@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 1243576524927247334}
   - component: {fileID: 9000203575734713519}
   - component: {fileID: 2231027699401822140}
+  - component: {fileID: 2171283513357805937}
   m_Layer: 6
   m_Name: Melee_Enemy
   m_TagString: Untagged
@@ -427,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e6a5f24e48d2245aa5261504e5570e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavMeshAttack
+  isRanged: 0
   player: {fileID: 0}
   detectionRange: 20
   attackRange: 5
@@ -477,6 +479,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableObject
   jumpHeight: 15
   speedPenalty: 80
+--- !u!208 &2171283513357805937
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555253762058381475}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &9003409313521236184
 GameObject:
   m_ObjectHideFlags: 0
