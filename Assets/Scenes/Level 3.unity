@@ -58470,6 +58470,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e259176e1886b4b83efed7c4fea63f, type: 3}
+--- !u!1001 &4560884618357694720
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 459629244452820849, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 459629244452820849, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 459629244452820849, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 459629244452820849, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071079
+      objectReference: {fileID: 0}
+    - target: {fileID: 459629244452820849, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0000009909248
+      objectReference: {fileID: 0}
+    - target: {fileID: 459629244452820849, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 459629244452820849, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000009834798
+      objectReference: {fileID: 0}
+    - target: {fileID: 459629244452820849, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459629244452820849, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 459629244452820849, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390417260813428264, guid: 06981af348551c74584a9034c3768a18, type: 3}
+      propertyPath: m_Name
+      value: FREAKSHOW_Decal_Projector
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06981af348551c74584a9034c3768a18, type: 3}
 --- !u!1001 &5074594478723540997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59009,3 +59066,4 @@ SceneRoots:
   - {fileID: 9071123005878089679}
   - {fileID: 8856251379059403771}
   - {fileID: 240708673756925154}
+  - {fileID: 4560884618357694720}
