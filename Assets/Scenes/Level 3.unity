@@ -58584,6 +58584,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a4a89a3eeed3b9469539713d912efcc, type: 3}
+--- !u!1001 &5775691038016168783
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1149531581438470216, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 29.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149531581438470216, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149531581438470216, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 68.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149531581438470216, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149531581438470216, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021075621
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149531581438470216, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149531581438470216, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0000015172864
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149531581438470216, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149531581438470216, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149531581438470216, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642403117091554376, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
+      propertyPath: m_Name
+      value: PARKING_Decal_Projector
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 34dde9065927b1049a72da4f23105a44, type: 3}
 --- !u!1001 &6499445878045662366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59067,3 +59124,4 @@ SceneRoots:
   - {fileID: 8856251379059403771}
   - {fileID: 240708673756925154}
   - {fileID: 4560884618357694720}
+  - {fileID: 5775691038016168783}
