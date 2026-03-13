@@ -201,13 +201,15 @@ public class ShakeOff : MonoBehaviour
         //leftPlayer.position = new Vector2(leftInput.x + leftBackground.position.x, leftInput.y + leftBackground.position.y);
         //rightPlayer.position = new Vector2(rightInput.x + rightBackground.position.x, rightInput.y + rightBackground.position.y);
 
-        float w = Screen.currentResolution.width;
-        float h = Screen.currentResolution.height;
+        float w = Screen.width;
+        float h = Screen.height;
 
-        leftPlayer.position = new Vector2(leftInput.x + leftBackground.position.x, leftInput.y + leftBackground.position.y);
-        rightPlayer.position = new Vector2(rightInput.x + rightBackground.position.x, rightInput.y + rightBackground.position.y);
+        // If 960, make it add only half because 960 is half of 1920
+        // 1 / x
+        // amount * 1 / (1920 / w)
 
-        Debug.Log(leftBackground.position);
+        leftPlayer.position = new Vector2(leftInput.x * (1 / (1920 / w)) + leftBackground.position.x, leftInput.y * (1 / (1080 / h)) + leftBackground.position.y);
+        rightPlayer.position = new Vector2(rightInput.x * (1 / (1920 / w)) + rightBackground.position.x, rightInput.y * (1 / (1080 / h)) + rightBackground.position.y);
 
         // Old left/right turning code
         /*

@@ -51,7 +51,7 @@ public class ExplodingBarrel : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (rbMain.linearVelocity.magnitude > 1.5f)
+        if (rbMain.linearVelocity.magnitude > 1.5f && this.tag == "HEAVY")
         {
             Explode();
         }
