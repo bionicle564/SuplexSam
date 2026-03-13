@@ -17909,6 +17909,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2171283513357805937, guid: 92197d639fd1835478aacd17a4667f98, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6555253762058381475, guid: 92197d639fd1835478aacd17a4667f98, type: 3}
       propertyPath: m_Name
       value: Melee_Enemy (4)

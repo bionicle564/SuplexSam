@@ -177,6 +177,8 @@ public class ShakeOff : MonoBehaviour
         Vector2 leftInput = playerInput.actions["MoveLeftStick"].ReadValue<Vector2>();
         Vector2 rightInput = playerInput.actions["MoveRightStick"].ReadValue<Vector2>();
 
+        Debug.Log(leftInput);
+
         // Display the position of the control sticks
         leftInput *= circleRadius;
         rightInput *= circleRadius;
