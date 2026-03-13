@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7737896824133302482}
   - component: {fileID: 8412518146073768225}
-  m_Layer: 0
+  - component: {fileID: 8772174062708614302}
+  m_Layer: 10
   m_Name: Bench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,6 +55,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.7614963, y: 1.1579813, z: 1.0641394}
   m_Center: {x: 0.008280081, y: 0.5673373, z: -0.1026212}
+--- !u!208 &8772174062708614302
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057736508426128545}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.46, y: 0.675, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.54, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1677523903112960608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,6 +79,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7737896824133302482}
     m_Modifications:
+    - target: {fileID: -8764077512085610462, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -102,14 +123,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8462709953001013040, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8081348558823717844, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7862391691550088030, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -7849268929617644440, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6dd7b14004516004eb14d593790ef56c, type: 2}
+    - target: {fileID: -7639331209684527813, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -7202464317774104332, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6dd7b14004516004eb14d593790ef56c, type: 2}
+    - target: {fileID: -5921505478000457673, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -3785575533041018619, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -118,17 +159,41 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6dd7b14004516004eb14d593790ef56c, type: 2}
+    - target: {fileID: -3068240195741245191, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -2589101670870198070, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d3b92c6c8c8ed6340824fac4987102e1, type: 2}
+    - target: {fileID: -1916899210259106318, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -1592289475483123607, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6dd7b14004516004eb14d593790ef56c, type: 2}
+    - target: {fileID: 52361805505633545, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 666602370706033372, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
       propertyPath: m_Name
       value: Bench_mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134951815588960339, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 84de408dd05ac934b96556858e7b0cad, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

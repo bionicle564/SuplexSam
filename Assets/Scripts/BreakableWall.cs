@@ -14,8 +14,9 @@ public class BreakableWall : MonoBehaviour
         
     }
 
-    public void DestroyedByExplosion()
+    public virtual void DestroyedByExplosion()
     {
+        Debug.Log("breakableWall");
         Destroy(gameObject);
     }
 

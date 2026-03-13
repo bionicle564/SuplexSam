@@ -41,6 +41,7 @@ public class ExplodingBarrel : MonoBehaviour
             {
                 if (wall.explosivesOnly)
                 {
+                    Debug.Log("hit");
                     wall.DestroyedByExplosion();
                 }
             }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5763032091930303516}
   - component: {fileID: 5808484586615027154}
   - component: {fileID: 7519523990809647185}
-  - component: {fileID: 5739650683860271712}
-  m_Layer: 0
+  - component: {fileID: 1889272207977952781}
+  m_Layer: 11
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,8 +90,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5739650683860271712
-SphereCollider:
+--- !u!136 &1889272207977952781
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,8 +108,10 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
+  serializedVersion: 2
+  m_Radius: 0.49999997
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3427033119534198727
 GameObject:
@@ -122,8 +124,8 @@ GameObject:
   - component: {fileID: 9126803044635669620}
   - component: {fileID: 4003463336862847504}
   - component: {fileID: 2903559249610114921}
-  - component: {fileID: 4020573522917876906}
-  m_Layer: 0
+  - component: {fileID: 7435398993895364199}
+  m_Layer: 11
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,8 +203,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4020573522917876906
-SphereCollider:
+--- !u!136 &7435398993895364199
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -219,8 +221,10 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
+  serializedVersion: 2
+  m_Radius: 0.49999997
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4960443402558276600
 GameObject:
@@ -231,7 +235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1469028025930100193}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bush_MT
   m_TagString: Untagged
   m_Icon: {fileID: 0}

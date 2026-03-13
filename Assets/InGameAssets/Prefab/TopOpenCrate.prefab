@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3349905598209011002}
   - component: {fileID: 3053345189685736780}
   - component: {fileID: 860112429964880136}
+  - component: {fileID: 5095629858682856397}
   m_Layer: 6
   m_Name: TopOpenCrate
   m_TagString: Untagged
@@ -245,6 +246,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &5095629858682856397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765499492367182647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3626fa2f5d0b67488623770ed73aa06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabbableObject
+  jumpHeight: 23
+  speedPenalty: 20
 --- !u!1001 &6844508852385101638
 PrefabInstance:
   m_ObjectHideFlags: 0
