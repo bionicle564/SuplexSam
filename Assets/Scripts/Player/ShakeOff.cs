@@ -177,8 +177,6 @@ public class ShakeOff : MonoBehaviour
         Vector2 leftInput = playerInput.actions["MoveLeftStick"].ReadValue<Vector2>();
         Vector2 rightInput = playerInput.actions["MoveRightStick"].ReadValue<Vector2>();
 
-        Debug.Log(leftInput);
-
         // Display the position of the control sticks
         leftInput *= circleRadius;
         rightInput *= circleRadius;
@@ -186,8 +184,10 @@ public class ShakeOff : MonoBehaviour
         //leftInput.x = Math.Clamp(leftInput.x, -75f, 75f);
         //leftInput.y = Math.Clamp(leftInput.y, -75f, 75f);
         
-        leftInput = Vector2.ClampMagnitude(leftInput, 75f);
-        rightInput = Vector2.ClampMagnitude(rightInput, 75f);
+        //leftInput = Vector2.ClampMagnitude(leftInput, 75f);
+        //rightInput = Vector2.ClampMagnitude(rightInput, 75f);
+        leftInput = Vector2.ClampMagnitude(leftInput, circleRadius);
+        rightInput = Vector2.ClampMagnitude(rightInput, circleRadius);
 
         //Debug.Log(leftInput);
         //Debug.Log(leftInput.magnitude);
@@ -197,8 +197,17 @@ public class ShakeOff : MonoBehaviour
 
         //print(leftInput);
 
+        // Need this to adapt to screen resolution
+        //leftPlayer.position = new Vector2(leftInput.x + leftBackground.position.x, leftInput.y + leftBackground.position.y);
+        //rightPlayer.position = new Vector2(rightInput.x + rightBackground.position.x, rightInput.y + rightBackground.position.y);
+
+        float w = Screen.currentResolution.width;
+        float h = Screen.currentResolution.height;
+
         leftPlayer.position = new Vector2(leftInput.x + leftBackground.position.x, leftInput.y + leftBackground.position.y);
         rightPlayer.position = new Vector2(rightInput.x + rightBackground.position.x, rightInput.y + rightBackground.position.y);
+
+        Debug.Log(leftBackground.position);
 
         // Old left/right turning code
         /*
