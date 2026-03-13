@@ -4799,7 +4799,7 @@ GameObject:
   - component: {fileID: 430261513}
   - component: {fileID: 430261517}
   m_Layer: 0
-  m_Name: Warehouse Barrel Dispenser
+  m_Name: Barrel Dispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5130,6 +5130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aef4f3d9f3881e42857fa527d2be3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  isOn: 0
+  barrelPrefab: {fileID: 6263765668635393730, guid: 4fa5fb1c41203814e8b3d86624293eb8, type: 3}
+  spawnPoint: {fileID: 456931829}
 --- !u!1001 &432078890
 PrefabInstance:
   m_ObjectHideFlags: 0
