@@ -22,6 +22,7 @@ public class ExplodingBarrel : MonoBehaviour
 
     public void Explode()
     {
+        // Spawn particles
         //Instantiate(explosionParticles, transform.position, Quaternion.identity);
 
         Vector3 explosionPosition = transform.position;
@@ -30,10 +31,18 @@ public class ExplodingBarrel : MonoBehaviour
         foreach (Collider hit in colliders)
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
+            BreakableWall wall = hit.GetComponent<BreakableWall>();
 
             if (rb != null)
             {
                 rb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardsModifier);
+            }
+            if (wall != null)
+            {
+                if (wall.explosivesOnly)
+                {
+                    wall.DestroyedByExplosion();
+                }
             }
         }
 
@@ -42,7 +51,7 @@ public class ExplodingBarrel : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (rbMain.linearVelocity.magnitude > 2)
+        if (rbMain.linearVelocity.magnitude > 1.5f)
         {
             Explode();
         }
