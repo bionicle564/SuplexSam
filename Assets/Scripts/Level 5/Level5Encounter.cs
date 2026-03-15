@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class Level5Encounter : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool isActive = false;
+    public bool isComplete = false;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         
     }
