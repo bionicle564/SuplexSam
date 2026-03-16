@@ -7,30 +7,17 @@ using static HideObstructions;
 
 public class Level5Encounter : MonoBehaviour
 {
-    public bool isActive = false;
-    public bool isComplete = false;
+    public bool triggersEvent;
+    public GameObject objectToToggle;
 
-    // Data structure for enemy/spawnpoint pairings
-    // THIS IS DUMB AND STUPID AND we probably totally aren't going to change it BUT WE SHOULD
-    public class EnemySpawnPair
-    {
-        public EnemySpawnPair(GameObject e, Transform s)
-        {
-            enemy = e;
-            spawnPoint = s;
-        }
-
-        public GameObject enemy { get; set; }
-        public Transform spawnPoint { get; set; }
-
-        public override string ToString() => $"({enemy.name}, {spawnPoint})";
-    }
-
-    //public List<EnemySpawnPair> encounterList = new List<EnemySpawnPair>();
     List<GameObject> activeEnemies = new List<GameObject>();
 
     public GameObject enemyPrefab;
     public List<Transform> spawnPoints = new List<Transform>();
+
+    [Header("Logic Switches")]
+    public bool isActive = false;
+    public bool isComplete = false;
 
     void Start()
     {
@@ -39,33 +26,42 @@ public class Level5Encounter : MonoBehaviour
 
     void Update()
     {
-        List<GameObject> removeList = new List<GameObject>();
-
-        foreach (GameObject enemy in activeEnemies)
+        if (isActive)
         {
-            if (enemy == null)
+            List<GameObject> removeList = new List<GameObject>();
+
+            foreach (GameObject enemy in activeEnemies)
             {
-                removeList.Add(enemy);
+                if (enemy == null)
+                {
+                    removeList.Add(enemy);
+                }
             }
-        }
 
-        foreach (GameObject enemy in removeList)
-        {
-            activeEnemies.Remove(enemy);
-        }
+            foreach (GameObject enemy in removeList)
+            {
+                activeEnemies.Remove(enemy);
+            }
 
-        if (activeEnemies.Count == 0)
-        {
-            CompleteEncounter();
+            if (activeEnemies.Count == 0)
+            {
+                CompleteEncounter();
+            }
         }
     }
 
     public void StartEncounter()
     {
+        isActive = true;
         foreach (Transform point in spawnPoints)
         {
             GameObject e = Instantiate(enemyPrefab, point.position, point.rotation);
             activeEnemies.Add(e);
+        }
+
+        if (triggersEvent)
+        {
+            objectToToggle.SetActive(!objectToToggle.activeInHierarchy);
         }
     }
 
@@ -86,7 +82,7 @@ public class Level5Encounter : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (!isActive)
+            if (!isActive && !isComplete)
             {
                 isActive = true;
                 StartEncounter();
