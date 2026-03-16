@@ -32,6 +32,10 @@ public class FerryFloorTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag != "Player")
+        {
+            return;
+        }
         foreach (MeshRenderer renderer in meshrenderers)
         {
             renderer.enabled = false;
@@ -40,6 +44,10 @@ public class FerryFloorTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if(other.tag != "Player")
+        {
+            return;
+        }
         foreach (MeshRenderer renderer in meshrenderers)
         {
             renderer.enabled = true;

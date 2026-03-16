@@ -2397,6 +2397,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1047033136722334604, guid: f2ad94be3a9173142a05528e6f0580b4, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3140524631233019031, guid: f2ad94be3a9173142a05528e6f0580b4, type: 3}
       propertyPath: m_Name
       value: fireball (2)
@@ -35796,6 +35800,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1047033136722334604, guid: f2ad94be3a9173142a05528e6f0580b4, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3140524631233019031, guid: f2ad94be3a9173142a05528e6f0580b4, type: 3}
       propertyPath: m_Name
       value: fireball (1)
@@ -90936,6 +90944,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1047033136722334604, guid: f2ad94be3a9173142a05528e6f0580b4, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3140524631233019031, guid: f2ad94be3a9173142a05528e6f0580b4, type: 3}
       propertyPath: m_Name
       value: fireball
@@ -115717,11 +115729,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1325675114517724384, guid: ed324b1eb54ba5f4fbcdfe3dcb928d66, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 348.84
+      value: 341.67
       objectReference: {fileID: 0}
     - target: {fileID: 1325675114517724384, guid: ed324b1eb54ba5f4fbcdfe3dcb928d66, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -5.76
       objectReference: {fileID: 0}
     - target: {fileID: 1325675114517724384, guid: ed324b1eb54ba5f4fbcdfe3dcb928d66, type: 3}
       propertyPath: m_LocalPosition.z
