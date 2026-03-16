@@ -4,18 +4,19 @@ public class Level5Manager : MonoBehaviour
 {
     // Opening area
     public BarrelDispenser area1Dispenser;
-    //Enemy spawn points/combat encounters
+    // Enemy spawn points/combat encounters
     public Level5Encounter warehouseDoor1;
     public Level5Encounter warehouseDoor2;
 
-    // One-way hallway
-    //Trigger for that maybe (unless it being a solo object is better)
-    //Switch puzzle piece
-    //Enemy encounter x2
+    // Switch puzzle piece
+    public ProxyPickup missingPiece;
 
     // Boat jam
-    //Barrier bypass
-    //Lever/valve puzzle check
+    public GameObject boatBarrierWater;
+    public GameObject boatBarrierLand;
+
+    public GameObject boatCrank;
+    public ProxyPickup boatCrankPickup;
 
     // Hydrant delivery + fire
     //Fire handling?
@@ -34,6 +35,17 @@ public class Level5Manager : MonoBehaviour
         if (warehouseDoor1.isComplete && warehouseDoor2.isComplete && !area1Dispenser.isOn)
         {
             area1Dispenser.isOn = true;
+        }
+
+        if (missingPiece.isPickedUp && !boatCrank.activeInHierarchy)
+        {
+            boatCrank.SetActive(true);
+        }
+
+        if (boatCrankPickup.isPickedUp && boatBarrierLand.activeInHierarchy)
+        {
+            boatBarrierLand.SetActive(false);
+            boatBarrierWater.SetActive(false);
         }
     }
 }
