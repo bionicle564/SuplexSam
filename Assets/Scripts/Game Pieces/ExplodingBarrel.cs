@@ -23,7 +23,7 @@ public class ExplodingBarrel : MonoBehaviour
     public void Explode()
     {
         // Spawn particles
-        //Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        Instantiate(explosionParticles, transform.position, Quaternion.identity);
 
         Vector3 explosionPosition = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius);
