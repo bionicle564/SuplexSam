@@ -19,6 +19,10 @@ public class KillPlane : MonoBehaviour
             other.GetComponent<TopDownRigidbodyController>().RespawnAtCheckpoint();
             // Need to maybe change this to not insta-kill?
         }
+        else if (other.gameObject.tag == "MainCamera")
+        {
+            return;
+        }
         else if (other.GetComponent<Rigidbody>() != null)
         {
             Destroy(other.gameObject);
