@@ -169,7 +169,14 @@ public class GrabAndThrow : MonoBehaviour
 
     private void FixedUpdate()
     {
-    
+        // If an object disappears while you're holding it, sets you back to normal instead of getting softlocked
+        if (grabbedObject == null)
+        {
+            grabbedObject = null;
+            isHoldingObject = false;
+            UpdateHoldingIndicator();
+            playerController.SetSpeedPenalty(0f);
+        }
     
         // Move held object to hold position
         if (isHoldingObject && grabbedObject != null)

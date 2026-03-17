@@ -41,7 +41,7 @@ public class ExplodingBarrel : MonoBehaviour
             {
                 if (wall.explosivesOnly)
                 {
-                    Debug.Log("hit");
+                    //Debug.Log("hit");
                     wall.DestroyedByExplosion();
                 }
             }
@@ -52,7 +52,11 @@ public class ExplodingBarrel : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (rbMain.linearVelocity.magnitude > 1.5f && this.tag == "HEAVY")
+        /*if (rbMain.linearVelocity.magnitude > 1f && this.tag == "HEAVY")
+        {
+            Explode();
+        }*/
+        if (this.tag == "HEAVY")
         {
             Explode();
         }
