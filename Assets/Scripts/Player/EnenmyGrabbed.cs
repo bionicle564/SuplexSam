@@ -42,6 +42,8 @@ public class GrabbableEnemy : MonoBehaviour
     {
         CancelInvoke();
 
+        //StopCoroutine(StunRoutine());
+
         isStunned = false;
 
         if (agent != null)
@@ -79,7 +81,7 @@ public class GrabbableEnemy : MonoBehaviour
             rb.useGravity = true;
         }
 
-        ResumeAI(caller, 0f);
+        ResumeAI(caller, 0.5f);
     }
 
     private void StartStun(MonoBehaviour caller)
@@ -94,7 +96,7 @@ public class GrabbableEnemy : MonoBehaviour
     {
         yield return new WaitForSeconds(stunDuration);
 
-        //Debug.Log("Stun Snap");
+        Debug.Log("Stun Snap");
 
         isStunned = false;
 
