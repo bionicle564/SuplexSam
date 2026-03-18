@@ -11,6 +11,7 @@ public class SubtitleUI : MonoBehaviour
     void Awake()
     {
         instance = this;
+        ClearSubtitle();
     }
 
     void Update()
