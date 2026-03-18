@@ -3594,6 +3594,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1418395055}
     m_Modifications:
+    - target: {fileID: 1205952914028540416, guid: 752980a05fbd86a4494c0651b5449bbc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ee65a3ec4e584a4e9a5c290d03dbb1c, type: 2}
+    - target: {fileID: 2595237332792327856, guid: 752980a05fbd86a4494c0651b5449bbc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ee65a3ec4e584a4e9a5c290d03dbb1c, type: 2}
     - target: {fileID: 2930105898343494701, guid: 752980a05fbd86a4494c0651b5449bbc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -3602,6 +3610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car
       objectReference: {fileID: 0}
+    - target: {fileID: 3654232345312684783, guid: 752980a05fbd86a4494c0651b5449bbc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ee65a3ec4e584a4e9a5c290d03dbb1c, type: 2}
     - target: {fileID: 7631293546473386130, guid: 752980a05fbd86a4494c0651b5449bbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -30525,6 +30537,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1418395055}
     m_Modifications:
+    - target: {fileID: 1205952914028540416, guid: 752980a05fbd86a4494c0651b5449bbc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8319da97be2acf049ab8ec0dfddcaaad, type: 2}
+    - target: {fileID: 2595237332792327856, guid: 752980a05fbd86a4494c0651b5449bbc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8319da97be2acf049ab8ec0dfddcaaad, type: 2}
     - target: {fileID: 2930105898343494701, guid: 752980a05fbd86a4494c0651b5449bbc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -30533,6 +30553,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3654232345312684783, guid: 752980a05fbd86a4494c0651b5449bbc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8319da97be2acf049ab8ec0dfddcaaad, type: 2}
     - target: {fileID: 7631293546473386130, guid: 752980a05fbd86a4494c0651b5449bbc, type: 3}
       propertyPath: m_LocalScale.z
       value: 4.3200006
