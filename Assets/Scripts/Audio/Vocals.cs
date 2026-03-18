@@ -3,7 +3,7 @@ using UnityEngine;
 public class Vocals : MonoBehaviour
 {
     // Potentially switch up if we want more than just Sam to have subtitles
-    private AudioSource source;
+    [SerializeField] AudioSource source;
 
     public static Vocals instance;
 
@@ -14,7 +14,7 @@ public class Vocals : MonoBehaviour
 
     void Start()
     {
-        source = GetComponent<AudioSource>();
+        
     }
 
     void Update()
@@ -31,6 +31,6 @@ public class Vocals : MonoBehaviour
 
         source.PlayOneShot(obj.clip);
 
-        SubtitleUI.instance.SetSubtitle($"{obj.subtitle}");
+        SubtitleUI.instance.SetSubtitle(obj.subtitle, obj.clip.length);
     }
 }
