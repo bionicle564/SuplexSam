@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class ManholeDeposit : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float jumpHeight = 10f;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -20,8 +20,13 @@ public class ManholeDeposit : MonoBehaviour
         {
             Destroy(other);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.GetComponent<Rigidbody>().AddForce(new Vector3(0, 10, 0), ForceMode.Impulse);
+            
+            // Reset jump from held prop
+            Rigidbody rb = player.GetComponent<Rigidbody>();
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
+            // Set to new height
+            player.GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
         }
     }
 }
