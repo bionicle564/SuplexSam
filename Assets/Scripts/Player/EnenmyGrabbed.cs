@@ -15,6 +15,8 @@ public class GrabbableEnemy : MonoBehaviour
 
     private bool isStunned;
 
+    private float stunTimer;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -38,13 +40,24 @@ public class GrabbableEnemy : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (stunTimer > 0f)
+        {
+            stunTimer -= Time.deltaTime;
+        }
+        if (stunTimer <= 0f && isStunned)
+        {
+            isStunned = false;
+            StunRoutine();
+        }
+    }
+
     public void OnGrabbed()
     {
         CancelInvoke();
 
-        //StopCoroutine(StunRoutine());
-
-        isStunned = false;
+        isStunned = false; // ?
 
         if (agent != null)
             agent.enabled = false;
@@ -81,7 +94,8 @@ public class GrabbableEnemy : MonoBehaviour
             rb.useGravity = true;
         }
 
-        ResumeAI(caller, 0.5f);
+        //ResumeAI(caller, 0.5f);
+        StartStun(caller);
     }
 
     private void StartStun(MonoBehaviour caller)
@@ -89,16 +103,36 @@ public class GrabbableEnemy : MonoBehaviour
         if (isStunned) return;
 
         isStunned = true;
-        caller.StartCoroutine(StunRoutine());
+        stunTimer = stunDuration;
+        //caller.StartCoroutine(StunRoutine());
     }
 
-    private System.Collections.IEnumerator StunRoutine()
+    /*private System.Collections.IEnumerator StunRoutine()
     {
         yield return new WaitForSeconds(stunDuration);
 
         Debug.Log("Stun Snap");
 
-        isStunned = false;
+        //isStunned = false;
+
+        if (agent != null)
+            agent.enabled = true;
+
+        if (enemyAI != null)
+            enemyAI.enabled = true;
+
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
+        }
+    }*/
+
+    private void StunRoutine()
+    {
+        Debug.Log("Stun Snap");
+
+        //isStunned = false;
 
         if (agent != null)
             agent.enabled = true;
