@@ -258,8 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3626fa2f5d0b67488623770ed73aa06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableObject
-  jumpHeight: 23
-  speedPenalty: 20
+  jumpHeight: 10
+  speedPenalty: 50
 --- !u!1001 &6844508852385101638
 PrefabInstance:
   m_ObjectHideFlags: 0
