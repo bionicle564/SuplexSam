@@ -15,11 +15,20 @@ public class FerryFloorTrigger : MonoBehaviour
             {
                 meshrenderers.Add(Level2Ground.transform.GetChild(i).GetComponent<MeshRenderer>());
             }
-            for(int j = 0;j<Level2Ground.transform.GetChild(i).transform.childCount; j++)
+
+            for(int j = 0; j < Level2Ground.transform.GetChild(i).transform.childCount; j++)
             {
                 if (Level2Ground.transform.GetChild(i).GetChild(j).GetComponent<MeshRenderer>() != null)
                 {
                     meshrenderers.Add(Level2Ground.transform.GetChild(i).GetChild(j).GetComponent<MeshRenderer>());
+                }
+
+                for (int k = 0; k < Level2Ground.transform.GetChild(i).GetChild(j).transform.childCount; k++)
+                {
+                    if (Level2Ground.transform.GetChild(i).GetChild(j).GetChild(k).GetComponent<MeshRenderer>() != null)
+                    {
+                        meshrenderers.Add(Level2Ground.transform.GetChild(i).GetChild(j).GetChild(k).GetComponent<MeshRenderer>());
+                    }
                 }
             }
         }
