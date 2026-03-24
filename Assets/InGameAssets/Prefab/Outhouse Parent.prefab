@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6926818874254052498}
   - component: {fileID: 8642628007542931547}
+  - component: {fileID: 1679006874720134807}
+  - component: {fileID: 4336267560181642756}
   m_Layer: 0
   m_Name: Outhouse Parent
   m_TagString: Untagged
@@ -54,6 +56,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.2606518, y: 5.2360497, z: 3.2301495}
   m_Center: {x: -3.02842, y: 3.653562, z: -1.0602696}
+--- !u!114 &1679006874720134807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518469641284602622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.VisualScripting.Core::Unity.VisualScripting.Variables
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!114 &4336267560181642756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518469641284602622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.VisualScripting.Flow::Unity.VisualScripting.ScriptMachine
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 90065acb8b014854f866d8ee8c7ab0c1, type: 2}
 --- !u!1 &3023796241524568835
 GameObject:
   m_ObjectHideFlags: 0

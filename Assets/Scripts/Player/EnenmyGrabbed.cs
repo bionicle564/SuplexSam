@@ -145,6 +145,8 @@ public class GrabbableEnemy : MonoBehaviour
             rb.isKinematic = true;
             rb.useGravity = false;
         }
+
+        this.tag = "enemy";
     }
 
     private void ResumeAI(MonoBehaviour caller, float delay)

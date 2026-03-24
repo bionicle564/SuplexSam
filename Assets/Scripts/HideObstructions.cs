@@ -98,7 +98,14 @@ public class HideObstructions : MonoBehaviour
                 {
                     if (!obj.invis)
                     {
-                        obj.objectSelfReference.GetComponent<MeshRenderer>().enabled = true;
+                        if (obj.objectSelfReference.tag == "AptBuilding")
+                        {
+                            obj.objectSelfReference.transform.GetChild(0).gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            obj.objectSelfReference.GetComponent<MeshRenderer>().enabled = true;
+                        }
                     }
                     removeList.Add(obj);
                 }
@@ -106,7 +113,7 @@ public class HideObstructions : MonoBehaviour
             foreach (ObjectToHide obj in removeList)
             {
                 hideList.Remove(obj);
-                //Debug.Log("Removed item from list!");
+                Debug.Log("Removed item from list!");
             }
             removeList.Clear();
         }
@@ -114,7 +121,32 @@ public class HideObstructions : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.gameObject.GetComponent<MeshRenderer>() != null && other.transform.gameObject.tag != "IgnoreCamObstructions") // Band-aid
+        if (other.transform.gameObject.tag == "AptBuilding") // Band-aid
+        {
+            GameObject child = other.gameObject.transform.GetChild(0).gameObject;
+            // Add it to the list of things to toggle off if it isn't already there
+            bool inList = false;
+            foreach (ObjectToHide obj in hideList)
+            {
+                if (obj.objectSelfReference == child)
+                {
+                    inList = true;
+                    obj.time = 15f;
+                }
+            }
+            if (!inList)
+            {
+                bool isInvis = false;
+                if (!child.activeSelf)
+                {
+                    isInvis = true;
+                }
+                child.SetActive(false);
+                hideList.Add(new ObjectToHide(other.transform.gameObject, 15f, isInvis));
+                Debug.Log("Added apt");
+            }
+        }
+        else if (other.transform.gameObject.GetComponent<MeshRenderer>() != null && other.transform.gameObject.tag != "IgnoreCamObstructions") // Band-aid
         {
             // Add it to the list of things to toggle off if it isn't already there
             bool inList = false;
@@ -138,6 +170,7 @@ public class HideObstructions : MonoBehaviour
                 Debug.Log("Added new item to list!" + other.name);
             }
         }
+
     }
 
     // Old trigger exit toggle code
