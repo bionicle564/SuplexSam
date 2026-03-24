@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    public Transform respawnPoint;
     public bool reusable = false;
     bool triggered = false;
 
