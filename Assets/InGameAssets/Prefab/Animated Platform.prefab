@@ -128,10 +128,10 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.15124512, y: 0.15124512}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
-      m_Anchor: 0
+      m_Anchor: 9
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
     m_ManualUV: 0
@@ -206,10 +206,10 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 6.782152, y: 1}
   - {x: 0, y: 1}
-  - {x: 0, y: 0.9999962}
-  - {x: 6.5, y: 1}
-  - {x: 0, y: -5.782156}
-  - {x: 6.5, y: -5.7821217}
+  - {x: -0.30249023, y: -2.837538}
+  - {x: 0.680603, y: -2.8375375}
+  - {x: -0.30249023, y: -3.8633056}
+  - {x: 0.680603, y: -3.8633003}
   - {x: 6.5, y: -5.782156}
   - {x: 0, y: -5.7821217}
   - {x: 6.5, y: 0.9999962}
@@ -233,10 +233,10 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -1, w: -1}
   - {x: 0, y: 0, z: -1, w: -1}
   - {x: 0, y: 0, z: -1, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0.000000101839014, w: -1}
+  - {x: 1, y: 0, z: 0.000000024157213, w: -1}
+  - {x: 1, y: 0, z: 0.000000024157213, w: -1}
+  - {x: 1, y: 0, z: -0.000000053524595, w: -1}
   - {x: -1, y: 0, z: 0, w: -1}
   - {x: -1, y: 0, z: 0, w: -1}
   - {x: -1, y: 0, z: 0, w: -1}
@@ -250,11 +250,19 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3605
+  m_VersionIndex: 3770
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 04000000
+  m_SelectedEdges:
+  - a: 16
+    b: 17
+  - a: 18
+    b: 16
+  - a: 17
+    b: 19
+  - a: 19
+    b: 18
+  m_SelectedVertices: 10000000110000001200000013000000
 --- !u!114 &7118717186542178377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +312,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 07dc42d1bcd0e9a469c51e5c04f09512, type: 2}
+  - {fileID: 2100000, guid: 0ff650ccaf16ed94cb1ddcf5ed4752d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
