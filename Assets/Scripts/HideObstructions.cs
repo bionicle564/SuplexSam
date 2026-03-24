@@ -135,7 +135,7 @@ public class HideObstructions : MonoBehaviour
                 }
                 other.transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
                 hideList.Add(new ObjectToHide(other.transform.gameObject, 1f, isInvis));
-                //Debug.Log("Added new item to list!");
+                Debug.Log("Added new item to list!" + other.name);
             }
         }
     }
