@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class GrabbableEnemy : MonoBehaviour
 {
@@ -16,6 +18,9 @@ public class GrabbableEnemy : MonoBehaviour
     private bool isStunned;
 
     private float stunTimer;
+
+    private bool isOnGround;
+    public LayerMask layerMask;
 
     private void Awake()
     {
@@ -42,15 +47,16 @@ public class GrabbableEnemy : MonoBehaviour
 
     void Update()
     {
+        /*
         if (stunTimer > 0f)
         {
             stunTimer -= Time.deltaTime;
         }
         if (stunTimer <= 0f && isStunned)
         {
-            isStunned = false;
             StunRoutine();
         }
+        */
     }
 
     public void OnGrabbed()
@@ -132,7 +138,7 @@ public class GrabbableEnemy : MonoBehaviour
     {
         Debug.Log("Stun Snap");
 
-        //isStunned = false;
+        isStunned = false;
 
         if (agent != null)
             agent.enabled = true;
@@ -165,5 +171,23 @@ public class GrabbableEnemy : MonoBehaviour
             enemyAI.enabled = true;
 
         Debug.Log("Drop Snap");
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        // Yoinked something off the net marked as "bitwise-and (&) with bitwise shifting (<<)"
+        int newMask = layerMask;
+        if ((newMask & (1 << collision.gameObject.layer)) != 0)
+        {
+            // Touching ground (or something)
+            if (stunTimer > 0f)
+            {
+                stunTimer -= Time.deltaTime;
+            }
+            if (stunTimer <= 0f && isStunned)
+            {
+                StunRoutine();
+            }
+        }
     }
 }
