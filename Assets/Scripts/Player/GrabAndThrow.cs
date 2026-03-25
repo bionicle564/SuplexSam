@@ -281,7 +281,7 @@ public class GrabAndThrow : MonoBehaviour
     /// </summary>
     private void GrabObject(Rigidbody objectToGrab)
     {
-        if (objectToGrab == null) return;
+        if (objectToGrab == null || playerController.IsStunned()) return;
 
         grabbedObject = objectToGrab;
         isHoldingObject = true;
@@ -356,7 +356,7 @@ public class GrabAndThrow : MonoBehaviour
     /// </summary>
     private void DropObject()
     {
-        if (grabbedObject == null) return;
+        if (grabbedObject == null || playerController.IsStunned()) return;
 
         // Re-enable physics
         grabbedObject.useGravity = true;
@@ -407,7 +407,7 @@ public class GrabAndThrow : MonoBehaviour
     /// </summary>
     public void ReleaseObject()
     {
-        if (grabbedObject == null) return;
+        if (grabbedObject == null || playerController.IsStunned()) return;
 
         if (grabbedObject.GetComponent<EnemyAttack>() != null)
         {
@@ -446,7 +446,7 @@ public class GrabAndThrow : MonoBehaviour
     /// </summary>
     private void ThrowObject()
     {
-        if (grabbedObject == null) return;
+        if (grabbedObject == null || playerController.IsStunned()) return;
         
         Collider col = grabbedObject.GetComponent<Collider>();
 
@@ -512,7 +512,7 @@ public class GrabAndThrow : MonoBehaviour
     /// </summary>
     private void ThrowObjectDown()
     {
-        if (grabbedObject == null) return;
+        if (grabbedObject == null || playerController.IsStunned()) return;
 
         Collider col = grabbedObject.GetComponent<Collider>();
 

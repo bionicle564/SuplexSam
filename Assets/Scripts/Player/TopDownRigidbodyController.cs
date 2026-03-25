@@ -199,7 +199,8 @@ public class TopDownRigidbodyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-    
+        // Add extra drag/lower gravity if stunned. Dunno why we would want this.
+        /*
         if (stunned)
 	    {
 	        //rb.linearVelocity = Vector3.zero; //halt the player when stunned
@@ -209,6 +210,7 @@ public class TopDownRigidbodyController : MonoBehaviour
             rb.linearVelocity = new Vector3(x, rb.linearVelocity.y, z);
             return;
 	    }
+        */
     
         if (rb == null) return;
 
