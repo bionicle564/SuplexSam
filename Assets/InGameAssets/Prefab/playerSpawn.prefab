@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: playerDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 7694430826777832873, guid: 37c035ef3ab3edb4cae455509980d2c3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 46840c0cfb1d15a4d825113f7afe8010, type: 2}
     - target: {fileID: 9077926073120308842, guid: 37c035ef3ab3edb4cae455509980d2c3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
