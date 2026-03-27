@@ -175,6 +175,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableEnemy
   stunDuration: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &4203362348800711444
 MonoBehaviour:
   m_ObjectHideFlags: 0
