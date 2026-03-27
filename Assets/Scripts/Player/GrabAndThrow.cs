@@ -52,6 +52,7 @@ public class GrabAndThrow : MonoBehaviour
 	[Header("Visuals")]
 	[Tooltip("SpriteRenderer that indicates holding state.")]
 	[SerializeField] private SpriteRenderer holdingIndicator;
+	[SerializeField] private SpriteRenderer holdingIndicatorForward; // Added for the throw toggling option
 	
 	[Header("Throw Safety")]
 	[Tooltip("Disable Throwable Colider to pass Player")]
@@ -161,10 +162,19 @@ public class GrabAndThrow : MonoBehaviour
 
 	private void UpdateHoldingIndicator()
 	{
-	    if (holdingIndicator != null)
-	    {
-	        holdingIndicator.enabled = isHoldingObject;
-	    }
+        if (holdingIndicator != null && holdingIndicatorForward != null)
+        {
+            if (PlayerPrefs.GetInt("BackThrowToggle") == 1)
+            {
+                holdingIndicator.enabled = isHoldingObject;
+                holdingIndicatorForward.enabled = false;
+            }
+            else
+            {
+                holdingIndicator.enabled = false;
+                holdingIndicatorForward.enabled = isHoldingObject;
+            }
+        }
 	}
 
     private void FixedUpdate()
@@ -481,7 +491,15 @@ public class GrabAndThrow : MonoBehaviour
 	    }
 
         // Calculate throw direction (player's forward direction)
-        Vector3 throwDirection = -transform.forward;
+        Vector3 throwDirection;
+        if (PlayerPrefs.GetInt("BackThrowToggle") == 1)
+        {
+            throwDirection = -transform.forward;
+        }
+        else
+        {
+            throwDirection = transform.forward;
+        }
 
         // Apply throw force
         Vector3 throwVelocity = throwDirection * throwForce + Vector3.up * throwUpwardForce;

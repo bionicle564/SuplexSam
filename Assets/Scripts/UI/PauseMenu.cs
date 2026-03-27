@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PauseMenu : MonoBehaviour
         get { return isPaused; }
     }
 
+    public Toggle backThrowToggle;
+
     void Start()
     {
         eventSystem = EventSystem.current;
@@ -23,6 +26,11 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f; // Just in case
         menu.SetActive(false);
+
+        if (PlayerPrefs.GetInt("BackThrowToggle") == 1)
+        {
+            backThrowToggle.isOn = true;
+        }
     }
 
     void Update()
@@ -70,5 +78,17 @@ public class PauseMenu : MonoBehaviour
 
         // Change this to use a loading screen
         //SceneManager.LoadScene("Main Menu");
+    }
+
+    public void Toggle()
+    {
+        if (backThrowToggle.isOn)
+        {
+            PlayerPrefs.SetInt("BackThrowToggle", 1); // 0 for forwards, 1 for backwards
+        }
+        else
+        {
+            PlayerPrefs.SetInt("BackThrowToggle", 0); // 0 for forwards, 1 for backwards
+        }
     }
 }
