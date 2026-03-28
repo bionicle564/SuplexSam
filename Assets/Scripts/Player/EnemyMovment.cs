@@ -13,6 +13,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
     [SerializeField] private float attackRange = 2f;
 
     private NavMeshAgent agent;
+    private NavMeshObstacle obstacle;
     private EnemyAttack enemyAttack;
     private RangedEnemyAttack rangedEnemyAttack;
     private GrabbableEnemy grabbableEnemy;
@@ -20,6 +21,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        obstacle = GetComponent<NavMeshObstacle>();
         if (!isRanged)
         {
             enemyAttack = GetComponent<EnemyAttack>();
@@ -31,7 +33,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
         grabbableEnemy = GetComponent<GrabbableEnemy>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        agent.avoidancePriority = Random.Range(0, 50);
+        //agent.avoidancePriority = Random.Range(0, 50);
     }
 
     private void Update()
@@ -55,6 +57,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
         if (distance > attackRange)
         {
             grabbableEnemy.RB.isKinematic = true;
+            obstacle.enabled = false;
             agent.enabled = true;
             if (agent.isOnNavMesh)
             {
@@ -69,7 +72,9 @@ public class EnemyNavMeshAttack : MonoBehaviour
         }
         else
         {
+            agent.updatePosition = false;
             agent.enabled = false;
+            obstacle.enabled = true;
             grabbableEnemy.RB.isKinematic = false;
             if (!isRanged)
             {
@@ -80,6 +85,22 @@ public class EnemyNavMeshAttack : MonoBehaviour
                 rangedEnemyAttack.Shoot(player.transform);
             }
             FacePlayer();
+        }
+
+        // My attempt to stop weird teleports
+        if (agent.enabled)
+        {
+            if (agent.isOnNavMesh && agent.updatePosition == false)
+            {
+                //agent.Warp(this.transform.position);
+                Debug.Log(this.transform.position);
+                Debug.Log(this.GetComponentInChildren<Transform>().position);
+                agent.updatePosition = true;
+            }
+            else if (!agent.isOnNavMesh && agent.updatePosition == true)
+            {
+                agent.updatePosition = false;
+            }
         }
     }
 
