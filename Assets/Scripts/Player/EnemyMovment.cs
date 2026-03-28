@@ -30,6 +30,8 @@ public class EnemyNavMeshAttack : MonoBehaviour
         }
         grabbableEnemy = GetComponent<GrabbableEnemy>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        agent.avoidancePriority = Random.Range(0, 50);
     }
 
     private void Update()
@@ -42,7 +44,10 @@ public class EnemyNavMeshAttack : MonoBehaviour
         {
             if (agent.enabled)
             {
-                agent.ResetPath();
+                if (agent.isOnNavMesh) // Should stop enemies from floating, but will also not reset them properly if there is no navmesh
+                {
+                    agent.ResetPath();
+                }
             }
             return;
         }
@@ -51,7 +56,10 @@ public class EnemyNavMeshAttack : MonoBehaviour
         {
             grabbableEnemy.RB.isKinematic = true;
             agent.enabled = true;
-            agent.SetDestination(player.position);
+            if (agent.isOnNavMesh)
+            {
+                agent.SetDestination(player.position);
+            }
 
             // Shoot haphazardly while moving
             if (isRanged)

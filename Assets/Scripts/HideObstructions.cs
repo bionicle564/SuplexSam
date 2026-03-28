@@ -113,7 +113,7 @@ public class HideObstructions : MonoBehaviour
             foreach (ObjectToHide obj in removeList)
             {
                 hideList.Remove(obj);
-                Debug.Log("Removed item from list!");
+                //Debug.Log("Removed item from list!");
             }
             removeList.Clear();
         }
@@ -143,7 +143,7 @@ public class HideObstructions : MonoBehaviour
                 }
                 child.SetActive(false);
                 hideList.Add(new ObjectToHide(other.transform.gameObject, 15f, isInvis));
-                Debug.Log("Added apt");
+                //Debug.Log("Added apt");
             }
         }
         else if (other.transform.gameObject.GetComponent<MeshRenderer>() != null && other.transform.gameObject.tag != "IgnoreCamObstructions") // Band-aid
@@ -167,7 +167,7 @@ public class HideObstructions : MonoBehaviour
                 }
                 other.transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
                 hideList.Add(new ObjectToHide(other.transform.gameObject, 1f, isInvis));
-                Debug.Log("Added new item to list!" + other.name);
+                //Debug.Log("Added new item to list!" + other.name);
             }
         }
 
