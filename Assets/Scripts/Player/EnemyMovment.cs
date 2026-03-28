@@ -72,7 +72,6 @@ public class EnemyNavMeshAttack : MonoBehaviour
         }
         else
         {
-            agent.updatePosition = false;
             agent.enabled = false;
             obstacle.enabled = true;
             grabbableEnemy.RB.isKinematic = false;
@@ -85,22 +84,6 @@ public class EnemyNavMeshAttack : MonoBehaviour
                 rangedEnemyAttack.Shoot(player.transform);
             }
             FacePlayer();
-        }
-
-        // My attempt to stop weird teleports
-        if (agent.enabled)
-        {
-            if (agent.isOnNavMesh && agent.updatePosition == false)
-            {
-                //agent.Warp(this.transform.position);
-                Debug.Log(this.transform.position);
-                Debug.Log(this.GetComponentInChildren<Transform>().position);
-                agent.updatePosition = true;
-            }
-            else if (!agent.isOnNavMesh && agent.updatePosition == true)
-            {
-                agent.updatePosition = false;
-            }
         }
     }
 
