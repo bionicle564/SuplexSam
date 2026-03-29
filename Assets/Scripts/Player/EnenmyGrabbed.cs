@@ -210,7 +210,7 @@ public class GrabbableEnemy : MonoBehaviour
         Rigidbody colRB = collision.gameObject.GetComponent<Rigidbody>();
         if (colRB != null)
         {
-            if (colRB.linearVelocity.magnitude > 2f && collision.gameObject.tag != "Player")
+            if (colRB.linearVelocity.magnitude > 1.6f && collision.gameObject.tag != "Player")
             {
                 StartStunPublic();
             }
