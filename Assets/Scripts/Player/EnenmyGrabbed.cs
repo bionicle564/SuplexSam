@@ -113,6 +113,20 @@ public class GrabbableEnemy : MonoBehaviour
         //caller.StartCoroutine(StunRoutine());
     }
 
+    public void StartStunPublic()
+    {
+        if (isStunned) return;
+
+        agent.enabled = false;
+        enemyAI.enabled = false;
+
+        rb.isKinematic = false;
+        rb.useGravity = true;
+
+        isStunned = true;
+        stunTimer = stunDuration / 2;
+    }
+
     /*private System.Collections.IEnumerator StunRoutine()
     {
         yield return new WaitForSeconds(stunDuration);
@@ -187,6 +201,18 @@ public class GrabbableEnemy : MonoBehaviour
             if (stunTimer <= 0f && isStunned)
             {
                 StunRoutine();
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Rigidbody colRB = collision.gameObject.GetComponent<Rigidbody>();
+        if (colRB != null)
+        {
+            if (colRB.linearVelocity.magnitude > 2f && collision.gameObject.tag != "Player")
+            {
+                StartStunPublic();
             }
         }
     }

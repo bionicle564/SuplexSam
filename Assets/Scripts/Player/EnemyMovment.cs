@@ -57,7 +57,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
         if (distance > attackRange)
         {
             grabbableEnemy.RB.isKinematic = true;
-            obstacle.enabled = false;
+            //obstacle.enabled = false;
             agent.enabled = true;
             if (agent.isOnNavMesh)
             {
@@ -73,7 +73,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
         else
         {
             agent.enabled = false;
-            obstacle.enabled = true;
+            //obstacle.enabled = true;
             grabbableEnemy.RB.isKinematic = false;
             if (!isRanged)
             {

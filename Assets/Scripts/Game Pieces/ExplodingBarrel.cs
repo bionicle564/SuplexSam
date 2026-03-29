@@ -8,6 +8,8 @@ public class ExplodingBarrel : MonoBehaviour
     public float timeDelay = 1.5f;
     public GameObject explosionParticles;
 
+    public bool hasExploded; // Need this to stop recursion. Whoops.
+
     Rigidbody rbMain;
 
     void Start()
@@ -22,9 +24,12 @@ public class ExplodingBarrel : MonoBehaviour
 
     public void Explode()
     {
+        hasExploded = true;
+
         // Spawn particles
         Instantiate(explosionParticles, transform.position, Quaternion.identity);
 
+        // Apply force
         Vector3 explosionPosition = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius);
 
@@ -32,7 +37,13 @@ public class ExplodingBarrel : MonoBehaviour
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             BreakableWall wall = hit.GetComponent<BreakableWall>();
+            GrabbableEnemy grabbableEnemy = hit.GetComponent<GrabbableEnemy>();
+            ExplodingBarrel eb = hit.GetComponent<ExplodingBarrel>();
 
+            if (grabbableEnemy != null)
+            {
+                grabbableEnemy.StartStunPublic();
+            }
             if (rb != null)
             {
                 rb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardsModifier);
@@ -43,6 +54,13 @@ public class ExplodingBarrel : MonoBehaviour
                 {
                     //Debug.Log("hit");
                     wall.DestroyedByExplosion();
+                }
+            }
+            if (eb != null)
+            {
+                if (!eb.hasExploded)
+                {
+                    eb.Explode();
                 }
             }
         }
