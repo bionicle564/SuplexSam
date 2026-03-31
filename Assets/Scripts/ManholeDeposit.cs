@@ -18,6 +18,8 @@ public class ManholeDeposit : MonoBehaviour
     {
         if (other.CompareTag("HEAVY"))
         {
+            Rigidbody objectRB = other.gameObject.GetComponent<Rigidbody>();
+            objectRB.linearVelocity = new Vector3(objectRB.linearVelocity.x, objectRB.linearVelocity.y - 0.5f, objectRB.linearVelocity.z);
             Destroy(other);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             
