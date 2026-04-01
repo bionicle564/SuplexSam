@@ -17,13 +17,10 @@ public class ProxyPickup : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !isPickedUp)
         {
-            if (Input.GetButtonDown("Fire2") && !isPickedUp)
-            {
-                isPickedUp = true;
-                meshRenderer.enabled = false;
-            }
+            isPickedUp = true;
+            meshRenderer.enabled = false;
         }
     }
 }
