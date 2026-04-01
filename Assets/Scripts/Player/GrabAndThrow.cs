@@ -56,7 +56,7 @@ public class GrabAndThrow : MonoBehaviour
 	
 	[Header("Throw Safety")]
 	[Tooltip("Disable Throwable Colider to pass Player")]
-	[SerializeField] private float colliderDisableTime = 0.1f;
+	[SerializeField] private float colliderDisableTime = 0.05f;
 	
 	[Header("HEAVY Tag")]
 	[Tooltip("Makes Objects interact with stage elements ONLY when thrown")]
@@ -482,7 +482,7 @@ public class GrabAndThrow : MonoBehaviour
         }
 
         grabbedObject.tag = heavyTag;
-        StartCoroutine(ResetTagAfterTime(grabbedObject, 1f));
+        StartCoroutine(ResetTagAfterTime(grabbedObject, 1.25f));
         
         if (col != null)
 	    {
