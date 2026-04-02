@@ -15,9 +15,9 @@ public class GrabbableEnemy : MonoBehaviour
 
     private Collider col;
 
-    private bool isStunned;
+    [SerializeField] private bool isStunned; // What is happening???
 
-    private float stunTimer;
+    [SerializeField] private float stunTimer;
 
     private bool isOnGround;
     public LayerMask layerMask;
@@ -104,6 +104,19 @@ public class GrabbableEnemy : MonoBehaviour
         StartStun(caller);
     }
 
+    public void OnReleased()
+    {
+        //StartStunPublic();
+        /*if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+        }
+
+        StartStun(caller);*/
+        StartStunPublic();
+    }
+
     private void StartStun(MonoBehaviour caller)
     {
         if (isStunned) return;
@@ -150,7 +163,7 @@ public class GrabbableEnemy : MonoBehaviour
 
     private void StunRoutine()
     {
-        Debug.Log("Stun Snap");
+        //Debug.Log("Stun Snap");
 
         isStunned = false;
 
@@ -184,7 +197,7 @@ public class GrabbableEnemy : MonoBehaviour
         if (enemyAI != null)
             enemyAI.enabled = true;
 
-        Debug.Log("Drop Snap");
+        //Debug.Log("Drop Snap");
     }
 
     private void OnCollisionStay(Collision collision)

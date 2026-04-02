@@ -169,7 +169,7 @@ public class TopDownRigidbodyController : MonoBehaviour
     private void OnStunPressed(InputAction.CallbackContext context)
 	{
         //this is the code that runs once when the player gets stunned
-	    ToggleStun();
+	    //ToggleStun();
 	}
 
     private void Update()

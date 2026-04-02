@@ -382,6 +382,10 @@ public class GrabAndThrow : MonoBehaviour
         {
             grabbedObject.GetComponent<EnemyAttack>().OnReleased();
         }
+        if (grabbedObject.GetComponent<GrabbableEnemy>() != null)
+        {
+            grabbedObject.GetComponent<GrabbableEnemy>().OnReleased();
+        }
 
         // Reset speed penalty
         if (grabbedObject.GetComponent<GrabbableObject>() != null)
@@ -422,6 +426,10 @@ public class GrabAndThrow : MonoBehaviour
         if (grabbedObject.GetComponent<EnemyAttack>() != null)
         {
             grabbedObject.GetComponent<EnemyAttack>().OnReleased();
+        }
+        if (grabbedObject.GetComponent<GrabbableEnemy>() != null)
+        {
+            grabbedObject.GetComponent<GrabbableEnemy>().OnReleased();
         }
 
         // Reset speed penalty
