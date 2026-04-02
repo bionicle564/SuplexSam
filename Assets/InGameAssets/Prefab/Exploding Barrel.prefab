@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableObject
   jumpHeight: 12
-  speedPenalty: 70
+  speedPenalty: 60
 --- !u!114 &8021023020234939097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   upwardsModifier: 2
   timeDelay: 1.5
   explosionParticles: {fileID: 8313139008058014211, guid: 506f4a6aedd98a746b08b06d92b14d75, type: 3}
+  hasExploded: 0
 --- !u!1001 &8870000185808703314
 PrefabInstance:
   m_ObjectHideFlags: 0
