@@ -13,7 +13,7 @@ public class TopDownRigidbodyController : MonoBehaviour
 {
     [Header("Health and Damage Handling")]
     public int health = 4;
-    int maxHealth;
+    public int maxHealth;
 
     [SerializeField] private Transform checkpoint;
 
@@ -349,6 +349,9 @@ public class TopDownRigidbodyController : MonoBehaviour
     // Health and damage
     public void TakeDamage(int damage)
     {
+        // Find a way to add animations here
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>().DamageAnimation();
+
         health -= damage;
         if (health <= 0)
         {

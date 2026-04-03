@@ -1,9 +1,14 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
     public TextMeshProUGUI healthText;
+    public Image heartFill;
+
+    public Animator anim;
+    public AnimationClip hurtClip;
 
     TopDownRigidbodyController player;
 
@@ -14,6 +19,12 @@ public class HUD : MonoBehaviour
 
     void Update()
     {
-        healthText.text = "HP: " + player.health.ToString();
+        healthText.text = player.health.ToString();
+        heartFill.fillAmount = (float)player.health / (float)player.maxHealth;
+    }
+
+    public void DamageAnimation()
+    {
+        anim.Play(hurtClip.name);
     }
 }
