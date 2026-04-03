@@ -31,10 +31,12 @@ Shader "FullScreen/waterBlend"
     // There are also a lot of utility function you can use inside Common.hlsl and Color.hlsl,
     // you can check them out in the source code of the core SRP package.
 
+    StructuredBuffer<float3> _WaterPos;
+
     // Sample depth helper
     float SampleDepth(float2 uv)
     {
-        return SampleCameraColor(uv);
+        return SampleCustomColor(uv);
     }
     
     // Simple 5-tap blur (cross pattern)
@@ -112,7 +114,8 @@ Shader "FullScreen/waterBlend"
 
         if (custom.r > 0.01)
         {
-            return float4(custom);
+            return float4(col, .5f);
+            //return custom;
         }
 
         return color;
