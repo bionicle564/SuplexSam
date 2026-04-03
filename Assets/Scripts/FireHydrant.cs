@@ -28,7 +28,7 @@ public class FireHydrant : HoldActions
             if(timer <= 0f)
             {
                 GameObject temp = Instantiate(waterBall, this.transform.position + transform.forward *2f, transform.rotation);
-                temp.GetComponent<Rigidbody>().AddForce(transform.forward * 10,ForceMode.Impulse);
+                temp.GetComponent<Rigidbody>().AddForce(transform.forward * 5,ForceMode.Impulse);
                 
                 timer = sprayTime;
             }
