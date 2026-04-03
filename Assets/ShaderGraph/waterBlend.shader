@@ -85,6 +85,8 @@ Shader "FullScreen/waterBlend"
 
         // Add your custom pass code here
 
+        //get a rect sdf, position it at blob, rotate to next in line, add that as part of the mask
+
         float4 custom = CustomPassLoadCustomColor(varyings.positionCS.xy);
         //return float4(custom.rgb, 1);
 
@@ -114,7 +116,7 @@ Shader "FullScreen/waterBlend"
 
         if (custom.r > 0.01)
         {
-            return float4(col, .5f);
+            return float4(_WaterPos[0], .5f);
             //return custom;
         }
 

@@ -61,6 +61,7 @@ public class FireHydrant : HoldActions
             else
             {
                 pos.Add(node.Value.transform.position);
+                Debug.Log("help");
             }
         }
 
@@ -71,7 +72,7 @@ public class FireHydrant : HoldActions
             
             killTimer = 2f;
         }
-        Debug.Log(activeWater.Count());
+        //Debug.Log(activeWater.Count());
     }
 }
 
