@@ -76,6 +76,10 @@ public class GrabAndThrow : MonoBehaviour
     private bool isHoldingObject = false;
     private float jumpCooldown = 0f;
 
+    [Header("Suplex Code")]
+    [SerializeField] private Transform decalPoint;
+    [SerializeField] private GameObject poofParticles;
+
     private void Awake()
     {
         // Get PlayerInput from the same GameObject
@@ -584,6 +588,9 @@ public class GrabAndThrow : MonoBehaviour
         {
             if (grabbedObject.GetComponent<GrabbableObject>() != null)
             {
+                // Spawn particles
+                Instantiate(poofParticles, decalPoint.position, decalPoint.rotation);
+
                 GetComponent<Rigidbody>().AddForce(-throwVelocity.normalized * grabbedObject.GetComponent<GrabbableObject>().jumpHeight, ForceMode.Impulse);
             }
             else

@@ -67,6 +67,7 @@ Transform:
   m_Children:
   - {fileID: 8644001440630381286}
   - {fileID: 9012198267842252049}
+  - {fileID: 430400014122094378}
   - {fileID: 5440922033975987687}
   - {fileID: 249244491439638583}
   - {fileID: 3362806089211739824}
@@ -166,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TopDownRigidbodyController
   health: 20
+  maxHealth: 0
   checkpoint: {fileID: 0}
   moveActionReference: {fileID: -1680190386980627800, guid: 5599882ab566d5c43ab02076ddbd50d9, type: 3}
   moveForce: 50
@@ -212,6 +214,8 @@ MonoBehaviour:
   holdingIndicatorForward: {fileID: 6442348737136669125}
   colliderDisableTime: 0.2
   heavyTag: HEAVY
+  decalPoint: {fileID: 430400014122094378}
+  poofParticles: {fileID: 375133716508520939, guid: 6592dbd5efc874c45b7f5ac82e155802, type: 3}
 --- !u!1 &1670849620083862266
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +846,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1325675114517724384}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6252436918651132744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 430400014122094378}
+  m_Layer: 7
+  m_Name: DecalPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &430400014122094378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6252436918651132744}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
