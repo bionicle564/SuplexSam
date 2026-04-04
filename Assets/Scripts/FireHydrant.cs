@@ -17,13 +17,15 @@ public class FireHydrant : HoldActions
 
     private GraphicsBuffer pelletsBuffer;
     private LinkedList<GameObject> activeWater;
+    List<Vector4> pos;
 
     public float sprayTime;
 
     private void Start()
     {
-        pelletsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, 50, sizeof(float) * 3);
+        pelletsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, 50, sizeof(float) * 4);
         activeWater = new LinkedList<GameObject>();
+        pos = new List<Vector4>();
         waterPassMat.SetBuffer("_WaterPos", pelletsBuffer);
         //timer = sprayTime;    
     }
@@ -39,38 +41,53 @@ public class FireHydrant : HoldActions
         {
             timer -= Time.deltaTime;
 
-            if(timer <= 0f)
+            if (timer <= 0f)
             {
-                GameObject temp = Instantiate(waterBall, this.transform.position + transform.forward *2f, transform.rotation);
-                temp.GetComponent<Rigidbody>().AddForce(transform.forward * 5,ForceMode.Impulse);
+                GameObject temp = Instantiate(waterBall, this.transform.position + transform.forward * 2f, transform.rotation);
+                temp.GetComponent<Rigidbody>().AddForce(transform.forward * 5, ForceMode.Impulse);
 
                 activeWater.AddFirst(temp);
 
                 timer = sprayTime;
             }
-        }
 
-        List<Vector3> pos = new List<Vector3>();
-        for (LinkedListNode<GameObject> node = activeWater.First; node != activeWater.Last; node = node.Next)
-        {
-            if (node.Value != null)
-            {
-                activeWater.Remove(node);
-
-            }
-            else
-            {
-                pos.Add(node.Value.transform.position);
-                Debug.Log("help");
-            }
-        }
-
-
-        killTimer -= Time.deltaTime;
-        if(killTimer <= 0f)
-        {
+            pos.Clear();
             
-            killTimer = 2f;
+
+            var node = activeWater.First;
+            while (node != null)
+            {
+                var next = node.Next; // store before modifying
+
+                if (node.Value == null)
+                {
+                    activeWater.Remove(node);
+                }
+                else
+                {
+                    pos.Add(node.Value.transform.position);
+                }
+
+                node = next;
+            }
+            pelletsBuffer.SetData(pos);
+
+            killTimer -= Time.deltaTime;
+            if (killTimer <= 0f)
+            {
+                //var node2 = activeWater.First;
+                //while (node2 != null)
+                //{
+                //    var next = node2.Next; // store before modifying
+
+                //    if (node2.Value == null)
+                //    {
+                //        activeWater.Remove(node2);
+                //    }
+                //    node2 = next;
+                //}
+                killTimer = 2f;
+            }
         }
         //Debug.Log(activeWater.Count());
     }

@@ -31,7 +31,7 @@ Shader "FullScreen/waterBlend"
     // There are also a lot of utility function you can use inside Common.hlsl and Color.hlsl,
     // you can check them out in the source code of the core SRP package.
 
-    StructuredBuffer<float3> _WaterPos;
+    StructuredBuffer<float4> _WaterPos;
 
     // Sample depth helper
     float SampleDepth(float2 uv)
@@ -114,9 +114,14 @@ Shader "FullScreen/waterBlend"
         float3 col = waterColor * ndotl;
         col = lerp(col, float3(1,1,1), fresnel * 0.5);
 
-        if (custom.r > 0.01)
+        float4 clipPos = mul(GetWorldToHClipMatrix(), float4(_WaterPos[0].xyz - _WorldSpaceCameraPos, 1.0));
+
+        float2 uv2 = clipPos.xy / clipPos.w;
+        uv2 = uv2 * 0.5 + 0.5;
+
+        if (custom.r > 0.01) // or on the line to another pellet
         {
-            return float4(_WaterPos[0], .5f);
+            return float4(float4(uv2.xy, 0, 1.0));
             //return custom;
         }
 
