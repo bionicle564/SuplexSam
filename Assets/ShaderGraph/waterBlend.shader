@@ -71,6 +71,40 @@ Shader "FullScreen/waterBlend"
         return n;
     }
 
+    float random (float2 st) 
+    {
+        return frac(sin(dot(st.xy,
+        float2(12.9898,78.233)))
+        * 43758.5453123);
+    }
+
+    float2 random2( float2 p ) 
+    {
+        return frac(sin(float2(dot(p,float2(127.1,311.7)),dot(p,float2(269.5,183.3))))*43758.5453);
+    }
+
+    float noise (in float2 st) 
+    {
+        float2 i = floor(st);
+        float2 f = frac(st);
+
+        // Four corners in 2D of a tile
+        float a = random(i);
+        float b = random(i + float2(1.0, 0.0));
+        float c = random(i + float2(0.0, 1.0));
+        float d = random(i + float2(1.0, 1.0));
+
+        // Smooth Interpolation
+
+        // Cubic Hermine Curve.  Same as SmoothStep()
+        float2 u = f*f*(3.0-2.0*f);
+        // u = smoothstep(0.,1.,f);
+
+        // Mix 4 coorners percentages
+        return lerp(a, b, u.x) +
+        (c - a)* u.y * (1.0 - u.x) +
+        (d - b) * u.x * u.y;
+    }
 
     float4 FullScreenPass(Varyings varyings) : SV_Target
     {
@@ -110,7 +144,7 @@ Shader "FullScreen/waterBlend"
 
         // Simple lighting
         float3 lightDir = normalize(float3(0.3, 0.7, 0.2));
-        float ndotl = saturate(dot(normal, lightDir));
+        float ndotl = (dot(normal, lightDir));
 
         // Fake water color
         float3 waterColor = float3(0.0, 0.3, 0.6);
@@ -119,8 +153,9 @@ Shader "FullScreen/waterBlend"
         float fresnel = pow(1.0 - saturate(normal.z), 5.0);
 
         float3 col = waterColor * ndotl;
-        col = lerp(col, float3(1,1,1), fresnel * 0.5);
+        col = lerp(col, float3(1,1,1), fresnel * 1.5);
 
+        bool include = false;
 
         for(int i = 0;i<30;i++)
         {
@@ -138,18 +173,51 @@ Shader "FullScreen/waterBlend"
             waterPos1.y = 1-waterPos1.y;
             waterPos2.y = 1-waterPos2.y;
 
-           
-            if(distance(thisPos, waterPos1) < .02)
+            float2 a = waterPos1.xy;
+            float2 b = waterPos2.xy;
+            float2 p = thisPos.xy;
+
+            float2 ab = b - a;
+            float2 ap = p - a;
+
+            // Project p onto ab, normalized to segment length
+            float t = dot(ap, ab) / dot(ab, ab);
+            t = saturate(t); // clamps to [0,1] in HLSL
+
+            float2 closestPoint = a + t * ab;
+            float dist = length(p - closestPoint);
+
+            // float numer = abs(((waterPos2.y - waterPos1.y) * thisPos.x) -
+            //                    ((waterPos2.x - waterPos1.x) * thisPos.y) +
+            //                    (waterPos2.x * waterPos1.y) -
+            //                    (waterPos2.y * waterPos1.x));
+
+            // float denumer = sqrt(pow((waterPos2.y - waterPos1.y), 2) +
+            //                      pow((waterPos2.x - waterPos1.x), 2));
+
+            // float dist = numer/denumer;
+            
+            if((t >= 0.0) && (t <= 1.0) && dist < .01)
             {
-                return float4(0,1,0,1);
+                include = true;
             }
 
         }
         
 
-        if (custom.r > 0.01) // or on the line to another pellet
+        if (custom.r > 0.01 || include) // or on the line to another pellet
         {
-            return float4(float4(col, 1.0));
+            float4 rtn = float4(0.0, 0.6, 0.9, 1.0);
+            
+            
+            
+            rtn.r += noise((uv + posInput.positionWS.xz  + _WaterPos[0].xz + _Time.w ) * 8);
+
+            //rtn.a -= random(uv);
+
+            rtn.xyz *= (ndotl *1.9);
+
+            return rtn;
             //return custom;
         }
 

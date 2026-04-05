@@ -77,7 +77,7 @@ public class FireHydrant : HoldActions
 
                 if (node.Value == null)
                 {
-                    activeWater.Remove(node);
+                    //activeWater.Remove(node);
                 }
                 else
                 {
@@ -91,17 +91,17 @@ public class FireHydrant : HoldActions
             killTimer -= Time.deltaTime;
             if (killTimer <= 0f)
             {
-                //var node2 = activeWater.First;
-                //while (node2 != null)
-                //{
-                //    var next = node2.Next; // store before modifying
+                var node2 = activeWater.First;
+                while (node2 != null)
+                {
+                    var next = node2.Next; // store before modifying
 
-                //    if (node2.Value == null)
-                //    {
-                //        activeWater.Remove(node2);
-                //    }
-                //    node2 = next;
-                //}
+                    if (node2.Value == null)
+                    {
+                        activeWater.Remove(node2);
+                    }
+                    node2 = next;
+                }
                 killTimer = 2f;
             }
         }
