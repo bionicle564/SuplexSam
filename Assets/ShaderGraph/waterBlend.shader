@@ -33,6 +33,8 @@ Shader "FullScreen/waterBlend"
 
     StructuredBuffer<float4> _WaterPos;
 
+    int _Render;
+
     // Sample depth helper
     float SampleDepth(float2 uv)
     {
@@ -85,6 +87,11 @@ Shader "FullScreen/waterBlend"
 
         // Add your custom pass code here
 
+        if(_Render < 1)
+        {
+            return color;
+        }
+
         //get a rect sdf, position it at blob, rotate to next in line, add that as part of the mask
 
         float4 custom = CustomPassLoadCustomColor(varyings.positionCS.xy);
@@ -114,14 +121,35 @@ Shader "FullScreen/waterBlend"
         float3 col = waterColor * ndotl;
         col = lerp(col, float3(1,1,1), fresnel * 0.5);
 
-        float4 clipPos = mul(GetWorldToHClipMatrix(), float4(_WaterPos[0].xyz - _WorldSpaceCameraPos, 1.0));
 
-        float2 uv2 = clipPos.xy / clipPos.w;
-        uv2 = uv2 * 0.5 + 0.5;
+        for(int i = 0;i<30;i++)
+        {
+            float4 clipPos1 = mul(GetWorldToHClipMatrix(), float4(_WaterPos[i].xyz - _WorldSpaceCameraPos, 1.0));
+            float4 clipPos2 = mul(GetWorldToHClipMatrix(), float4(_WaterPos[i+1].xyz - _WorldSpaceCameraPos, 1.0));
+
+            float2 thisPos = uv;
+            
+            float2 clip11 = clipPos1.xy / clipPos1.w; // 0 -> 2
+            float2 clip12 = clipPos2.xy / clipPos2.w; // 0 -> 2
+
+            float2 waterPos1 = clip11 * 0.5 + .5;
+            float2 waterPos2 = clip12 * 0.5 + .5;
+
+            waterPos1.y = 1-waterPos1.y;
+            waterPos2.y = 1-waterPos2.y;
+
+           
+            if(distance(thisPos, waterPos1) < .02)
+            {
+                return float4(0,1,0,1);
+            }
+
+        }
+        
 
         if (custom.r > 0.01) // or on the line to another pellet
         {
-            return float4(float4(uv2.xy, 0, 1.0));
+            return float4(float4(col, 1.0));
             //return custom;
         }
 

@@ -5,13 +5,13 @@ public class HoldActions : MonoBehaviour
 {
     public bool held;
 
-    public void Grab()
+    virtual public void Grab()
     {
         held = true;
     }
 
 
-    public void LetGo()
+    virtual public void LetGo()
     {
         held = false;
     }

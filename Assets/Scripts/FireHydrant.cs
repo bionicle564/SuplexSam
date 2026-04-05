@@ -26,7 +26,8 @@ public class FireHydrant : HoldActions
         pelletsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, 50, sizeof(float) * 4);
         activeWater = new LinkedList<GameObject>();
         pos = new List<Vector4>();
-        waterPassMat.SetBuffer("_WaterPos", pelletsBuffer);
+        
+        waterPassMat.SetInt("_Render", 0);
         //timer = sprayTime;    
     }
 
@@ -35,10 +36,25 @@ public class FireHydrant : HoldActions
         pelletsBuffer.Release();
     }
 
+    override public void Grab()
+    {
+        waterPassMat.SetBuffer("_WaterPos", pelletsBuffer);
+        waterPassMat.SetInt("_Render", 1);
+        held = true;
+    }
+
+    override public void LetGo()
+    {
+        waterPassMat.SetInt("_Render", 0);
+        held = false;
+    }
+
+
     private void Update()
     {
         if (held)
         {
+            
             timer -= Time.deltaTime;
 
             if (timer <= 0f)
@@ -88,6 +104,11 @@ public class FireHydrant : HoldActions
                 //}
                 killTimer = 2f;
             }
+        }
+        else
+        {
+            pos.Clear();
+            
         }
         //Debug.Log(activeWater.Count());
     }
