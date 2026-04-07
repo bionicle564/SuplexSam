@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableObject
   jumpHeight: 1
   speedPenalty: 20
+  collisionAudio: {fileID: 8300000, guid: a4762b6b457b7ed4b81a375250403b3b, type: 3}
 --- !u!54 &2486840410084049090
 Rigidbody:
   m_ObjectHideFlags: 0

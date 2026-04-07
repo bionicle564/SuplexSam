@@ -80,11 +80,17 @@ public class GrabAndThrow : MonoBehaviour
     [SerializeField] private Transform decalPoint;
     [SerializeField] private GameObject poofParticles;
 
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip throwSFX;
+    [SerializeField] private AudioClip grunt1SFX;
+    [SerializeField] private AudioClip grunt2SFX;
+
     private void Awake()
     {
         // Get PlayerInput from the same GameObject
         playerInput = GetComponent<PlayerInput>();
         playerController = GetComponent<TopDownRigidbodyController>();
+        audioSource = GetComponent<AudioSource>();
         
         if (playerInput == null)
         {
@@ -307,6 +313,18 @@ public class GrabAndThrow : MonoBehaviour
             actions.Grab();
         }
 
+        // Play sounds
+        audioSource.pitch = 1f;
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+        {
+            audioSource.PlayOneShot(grunt1SFX);
+        }
+        else
+        {
+            audioSource.PlayOneShot(grunt2SFX);
+        }
+
         // Speed penalty
         if (grabbedObject.GetComponent<GrabbableObject>() != null)
         {
@@ -481,6 +499,9 @@ public class GrabAndThrow : MonoBehaviour
 		{
 		    enemy.OnThrown(this);
 		}
+
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(throwSFX);
 
         if (grabbedObject.GetComponent<EnemyAttack>() != null)
         {

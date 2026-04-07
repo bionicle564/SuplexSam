@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   jumpHeight: 10
   speedPenalty: 50
+  collisionAudio: {fileID: 8300000, guid: 1b85668ca992eba4d8fe44b37b24a613, type: 3}
 --- !u!1001 &3147472311833561930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   jumpHeight: 10
   speedPenalty: 80
+  collisionAudio: {fileID: 0}
 --- !u!4 &3180852063257685153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c73300cf7781c1d4a98f2f49104fe3eb, type: 3}
