@@ -14,8 +14,8 @@ public class GrabbableObject : MonoBehaviour
     void Start()
     {
         audioPlayer = gameObject.AddComponent<AudioSource>();
-        audioPlayer.spatialBlend = 0.8f;
-        audioPlayer.volume = 0.8f;
+        audioPlayer.spatialBlend = 0.85f;
+        audioPlayer.volume = 0.5f;
         //audioPlayer = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
 
         rb = GetComponent<Rigidbody>();
