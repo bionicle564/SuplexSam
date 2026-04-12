@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &947956140177457751
 Transform:
@@ -92,9 +92,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1346369550762627069, guid: ecb6fac27fd6de64b9d26eec93528ce9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ecb6fac27fd6de64b9d26eec93528ce9, type: 3}
       propertyPath: m_Name
       value: Fountain_Mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecb6fac27fd6de64b9d26eec93528ce9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375491472025259090, guid: ecb6fac27fd6de64b9d26eec93528ce9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
