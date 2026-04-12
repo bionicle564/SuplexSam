@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6408673428391911041
 Transform:
@@ -247,7 +247,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &396895034437296093
 Transform:
@@ -336,7 +336,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2436750711138274698
 Transform:
@@ -5240,14 +5240,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dumpster_Mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 585e46a7b9a7c2e4f8065955b08e203d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1068746758860442942, guid: 585e46a7b9a7c2e4f8065955b08e203d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9cecde0fec9091e44bac421c72a69ea4, type: 2}
+    - target: {fileID: 1839001305873153134, guid: 585e46a7b9a7c2e4f8065955b08e203d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1895248903474956215, guid: 585e46a7b9a7c2e4f8065955b08e203d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9cecde0fec9091e44bac421c72a69ea4, type: 2}
+    - target: {fileID: 4229208227961970111, guid: 585e46a7b9a7c2e4f8065955b08e203d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854698203783691004, guid: 585e46a7b9a7c2e4f8065955b08e203d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8513626899920246884, guid: 585e46a7b9a7c2e4f8065955b08e203d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

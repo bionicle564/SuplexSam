@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7892418922416096170
 Transform:
@@ -73,7 +73,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &909907133839918396
 Transform:
@@ -437,7 +437,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1989918197845833704
 Transform:
@@ -478,6 +478,14 @@ PrefabInstance:
     - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_Name
       value: Dock Log
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
@@ -553,6 +561,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dock Log (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4131895
@@ -626,6 +642,14 @@ PrefabInstance:
     - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_Name
       value: Dock Log (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
@@ -701,6 +725,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dock Log (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4131895
@@ -774,6 +806,14 @@ PrefabInstance:
     - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_Name
       value: Dock Log (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
@@ -849,6 +889,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dock Log (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4131895
@@ -922,6 +970,14 @@ PrefabInstance:
     - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_Name
       value: Dock Log (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
@@ -997,6 +1053,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dock Log (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4131895
@@ -1070,6 +1134,14 @@ PrefabInstance:
     - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_Name
       value: Dock Log (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
@@ -1145,6 +1217,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dock Log (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4131895
@@ -1219,6 +1299,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dock Log (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4131895
@@ -1292,6 +1380,14 @@ PrefabInstance:
     - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_Name
       value: Dock Log (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005488999104096420, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457026147791682550, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6014169112309890567, guid: 5213525e6096d1b4faebeb8bf8235903, type: 3}
       propertyPath: m_LocalScale.x
