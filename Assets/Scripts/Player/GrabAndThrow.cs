@@ -62,6 +62,8 @@ public class GrabAndThrow : MonoBehaviour
 	[Tooltip("Makes Objects interact with stage elements ONLY when thrown")]
 	[SerializeField] private string heavyTag = "HEAVY";
 
+    public Animator controller;
+
     // Components
     private PlayerInput playerInput;
     private TopDownRigidbodyController playerController;
@@ -487,7 +489,9 @@ public class GrabAndThrow : MonoBehaviour
     private void ThrowObject()
     {
         if (grabbedObject == null || playerController.IsStunned()) return;
-        
+
+        controller.SetTrigger("throw");
+
         Collider col = grabbedObject.GetComponent<Collider>();
 
         // Re-enable physics
@@ -564,6 +568,8 @@ public class GrabAndThrow : MonoBehaviour
     private void ThrowObjectDown()
     {
         if (grabbedObject == null || playerController.IsStunned()) return;
+
+        controller.SetTrigger("suplex");
 
         Collider col = grabbedObject.GetComponent<Collider>();
 

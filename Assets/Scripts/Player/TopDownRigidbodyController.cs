@@ -48,6 +48,8 @@ public class TopDownRigidbodyController : MonoBehaviour
     public ShakeOff shakeOff;
     public GrabAndThrow grabAndThrow;
 
+    public Animator controller;
+
     private InputAction stunAction;
     private bool stunned = false;
 
@@ -228,7 +230,13 @@ public class TopDownRigidbodyController : MonoBehaviour
     /// </summary>
     private void ApplyMovement()
     {
-        if (moveInput == Vector2.zero) return;
+        if (moveInput == Vector2.zero)
+        {
+            controller.SetBool("moving", false);
+            return;
+        }
+
+        controller.SetBool("moving", true);
 
         // Convert 2D input to 3D world space (X and Z axes for top-down)
         Vector3 movementDirection = new Vector3(moveInput.x, 0f, moveInput.y);
