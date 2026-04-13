@@ -94,7 +94,7 @@ public class GrabAndThrow : MonoBehaviour
     public List<AudioClip> throwClips;
     public List<AudioClip> suplexClips;
 
-    public float clipVolume = 0.6f;
+    public float clipVolume = 0.5f;
     public float clipSpatial = 0f;
 
     private void Awake()

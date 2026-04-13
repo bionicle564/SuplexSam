@@ -75,7 +75,7 @@ public class TopDownRigidbodyController : MonoBehaviour
     [Header("Voice Lines")]
     public List<AudioClip> hurtClips;
 
-    public float clipVolume = 0.6f;
+    public float clipVolume = 0.5f;
     public float clipSpatial = 0f;
 
     private void Awake()
