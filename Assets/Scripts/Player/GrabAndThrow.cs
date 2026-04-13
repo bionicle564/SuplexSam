@@ -91,6 +91,7 @@ public class GrabAndThrow : MonoBehaviour
 
     [Header("Voice Lines")]
     public List<AudioClip> grabClips;
+    public List<AudioClip> grabClipsRare;
     public List<AudioClip> throwClips;
     public List<AudioClip> suplexClips;
 
@@ -348,8 +349,16 @@ public class GrabAndThrow : MonoBehaviour
             // Sounds
             if (Random.Range(0, 5) == 0) // 20/80?
             {
-                AudioClip clip = grabClips[Random.Range(0, grabClips.Count)];
-                VoiceManager.Instance.VoiceTrySam(clip, this.transform, clipVolume, clipSpatial);
+                if (Random.Range(0, 3) == 0) // Rare check
+                {
+                    AudioClip clip = grabClips[Random.Range(0, grabClips.Count)];
+                    VoiceManager.Instance.VoiceTrySam(clip, this.transform, clipVolume, clipSpatial);
+                }
+                else
+                {
+                    AudioClip clip = grabClipsRare[Random.Range(0, grabClipsRare.Count)];
+                    VoiceManager.Instance.VoiceTrySam(clip, this.transform, clipVolume, clipSpatial);
+                }
             }
             grabbedObject.GetComponent<GrabbableEnemy>().OnGrabbed();
         }
