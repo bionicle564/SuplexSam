@@ -253,7 +253,7 @@ public class ShakeOff : MonoBehaviour
             if (Physics2D.OverlapCircle(leftPlayer.position, 8f).gameObject == leftCircleTargetEasy.gameObject) // On target
             {
                 leftAligned = true;
-                leftCircleTargetEasy.GetComponent<Image>().color = Color.darkGreen;
+                leftCircleTargetEasy.GetComponent<Image>().color = Color.darkOrange;
             }
             else // Hitting something else (shouldn't happen)
             {
@@ -273,7 +273,7 @@ public class ShakeOff : MonoBehaviour
             if (Physics2D.OverlapCircle(rightPlayer.position, 8f).gameObject == rightCircleTargetEasy.gameObject) // On target
             {
                 rightAligned = true;
-                rightCircleTargetEasy.GetComponent<Image>().color = Color.darkGreen;
+                rightCircleTargetEasy.GetComponent<Image>().color = Color.darkOrange;
             }
             else // Hitting something else (shouldn't happen)
             {
@@ -328,7 +328,7 @@ public class ShakeOff : MonoBehaviour
             if (Physics2D.OverlapCircle(leftPlayer.position, 8f).gameObject == leftCircleTargetMedium.gameObject) // On target
             {
                 leftAligned = true;
-                leftCircleTargetMedium.GetComponent<Image>().color = Color.darkGreen;
+                leftCircleTargetMedium.GetComponent<Image>().color = Color.darkOrange;
             }
             else // Hitting something else (shouldn't happen)
             {
@@ -348,7 +348,7 @@ public class ShakeOff : MonoBehaviour
             if (Physics2D.OverlapCircle(rightPlayer.position, 8f).gameObject == rightCircleTargetMedium.gameObject) // On target
             {
                 rightAligned = true;
-                rightCircleTargetMedium.GetComponent<Image>().color = Color.darkGreen;
+                rightCircleTargetMedium.GetComponent<Image>().color = Color.darkOrange;
             }
             else // Hitting something else (shouldn't happen)
             {
@@ -403,7 +403,7 @@ public class ShakeOff : MonoBehaviour
             if (Physics2D.OverlapCircle(leftPlayer.position, 8f).gameObject == leftCircleTargetHard.gameObject) // On target
             {
                 leftAligned = true;
-                leftCircleTargetHard.GetComponent<Image>().color = Color.darkGreen;
+                leftCircleTargetHard.GetComponent<Image>().color = Color.darkOrange;
             }
             else // Hitting something else (shouldn't happen)
             {
@@ -423,7 +423,7 @@ public class ShakeOff : MonoBehaviour
             if (Physics2D.OverlapCircle(rightPlayer.position, 8f).gameObject == rightCircleTargetHard.gameObject) // On target
             {
                 rightAligned = true;
-                rightCircleTargetHard.GetComponent<Image>().color = Color.darkGreen;
+                rightCircleTargetHard.GetComponent<Image>().color = Color.darkOrange;
             }
             else // Hitting something else (shouldn't happen)
             {
