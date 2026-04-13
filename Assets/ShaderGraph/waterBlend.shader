@@ -157,7 +157,7 @@ Shader "FullScreen/waterBlend"
 
         bool include = false;
 
-        for(int i = 0;i<30;i++)
+        for(int i = 0;i<20;i++)
         {
             float4 clipPos1 = mul(GetWorldToHClipMatrix(), float4(_WaterPos[i].xyz - _WorldSpaceCameraPos, 1.0));
             float4 clipPos2 = mul(GetWorldToHClipMatrix(), float4(_WaterPos[i+1].xyz - _WorldSpaceCameraPos, 1.0));
