@@ -3,6 +3,8 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Top-down rigidbody controller that uses AddForce with impulse force mode for movement.
@@ -69,6 +71,12 @@ public class TopDownRigidbodyController : MonoBehaviour
     public bool IsGrounded => isGrounded;
     public Transform groundCheckTransform;
     public LayerMask groundMask;
+
+    [Header("Voice Lines")]
+    public List<AudioClip> hurtClips;
+
+    public float clipVolume = 0.6f;
+    public float clipSpatial = 0.8f;
 
     private void Awake()
     {
@@ -358,6 +366,12 @@ public class TopDownRigidbodyController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         // Find a way to add animations here
+        if (Random.Range(0, 2) == 0) // 50/50?
+        {
+            AudioClip clip = hurtClips[Random.Range(0, hurtClips.Count)];
+            VoiceManager.Instance.VoiceTrySam(clip, this.transform, clipVolume, clipSpatial);
+        }
+
         GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>().DamageAnimation();
 
         health -= damage;

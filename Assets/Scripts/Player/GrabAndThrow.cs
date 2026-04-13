@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Grab and throw component that allows picking up and throwing rigidbody objects.
@@ -86,6 +88,16 @@ public class GrabAndThrow : MonoBehaviour
     [SerializeField] private AudioClip throwSFX;
     [SerializeField] private AudioClip grunt1SFX;
     [SerializeField] private AudioClip grunt2SFX;
+
+    [Header("Voice Lines")]
+    public List<AudioClip> grabClips;
+    public List<AudioClip> throwClips;
+    public List<AudioClip> suplexClips;
+    public List<AudioClip> airborneClips;
+    public List<AudioClip> hurtClips;
+
+    public float clipVolume = 0.6f;
+    public float clipSpatial = 0.8f;
 
     private void Awake()
     {
