@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7543725295274999444
 Transform:
@@ -780,6 +780,14 @@ PrefabInstance:
     - target: {fileID: 3540722610942949334, guid: 3f8d8008c19b15e409ad3fefd8c0b5a8, type: 3}
       propertyPath: m_Name
       value: Pipe_Left_Turn (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3540722610942949334, guid: 3f8d8008c19b15e409ad3fefd8c0b5a8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259180769764838740, guid: 3f8d8008c19b15e409ad3fefd8c0b5a8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
