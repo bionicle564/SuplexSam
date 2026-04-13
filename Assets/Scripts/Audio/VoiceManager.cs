@@ -24,7 +24,12 @@ public class VoiceManager : MonoBehaviour
     public GameObject currentSamAudio;
     public GameObject currentGoonAudio;
 
-    public GameObject audioObject;
+    public GameObject audioObjectPrefab;
+
+    float samTimer = 0f;
+    [SerializeField] float samTimerMax = 25f;
+    float goonTimer = 0f;
+    [SerializeField] float goonTimerMax = 25f;
 
     void Start()
     {
@@ -33,28 +38,86 @@ public class VoiceManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (samTimer > 0)
+        {
+            samTimer -= Time.deltaTime;
+        }
+        if (goonTimer > 0)
+        {
+            goonTimer -= Time.deltaTime;
+        }
     }
 
-    public void VoiceForce(AudioClip clip)
+    public void VoiceForceSam(AudioClip clip, Transform point, float volume, float spatialBlend)
     {
         // Forces the current Sam audio to cut and plays this instead
-        // Goon audio is ignored, and allowed to continue
+        // Goon audio is ignored, and is allowed to continue
+
+        if (currentSamAudio != null)
+        {
+            Destroy(currentSamAudio);
+
+            currentSamAudio = Instantiate(audioObjectPrefab, point.position, point.rotation);
+            currentSamAudio.GetComponent<AudioSource>().volume = volume;
+            currentSamAudio.GetComponent<AudioSource>().spatialBlend = spatialBlend;
+
+            samTimer = samTimerMax + clip.length;
+        }
     }
 
-    public void VoiceTryGoon(AudioClip clip)
+    public void VoiceTrySam(AudioClip clip, Transform point, float volume, float spatialBlend)
     {
         // Logic goes here
         // If already playing voice sound (either Sam or goon), don't play anything
-        // If goon timer is not depleted, don't play
-        // If goon timer is depleted, play goon voice line and reset goon voice timer
-    }
-
-    public void VoiceTrySam(AudioClip clip)
-    {
-        // Logic goes here
-        // If already playing voice sound (either Sam or goon), don't play anything
-        // If Sam timer is not depleted, don't play
+        if (currentSamAudio != null)
+        {
+            return;
+        }
+        if (currentGoonAudio != null)
+        {
+            return;
+        }
+        // If Sam timer is not depleted, don't play (Probably unnecessary)
+        if (samTimer > 0f)
+        {
+            return;
+        }
         // If Sam timer is depleted, play goon voice line and reset Sam voice timer
+        if (samTimer <= 0f)
+        {
+            currentSamAudio = Instantiate(audioObjectPrefab, point.position, point.rotation);
+            currentSamAudio.GetComponent<AudioSource>().volume = volume;
+            currentSamAudio.GetComponent<AudioSource>().spatialBlend = spatialBlend;
+
+            samTimer = samTimerMax + clip.length;
+        }
+    }
+
+    public void VoiceTryGoon(AudioClip clip, Transform point, float volume, float spatialBlend)
+    {
+        // Logic goes here
+        // If already playing voice sound (either Sam or goon), don't play anything
+        if (currentSamAudio != null)
+        {
+            return;
+        }
+        if (currentGoonAudio != null)
+        {
+            return;
+        }
+        // If goon timer is not depleted, don't play (Probably unnecessary)
+        if (goonTimer > 0f)
+        {
+            return;
+        }
+        // If goon timer is depleted, play goon voice line and reset goon voice timer
+        if (goonTimer <= 0f)
+        {
+            currentGoonAudio = Instantiate(audioObjectPrefab, point.position, point.rotation);
+            currentGoonAudio.GetComponent<AudioSource>().volume = volume;
+            currentGoonAudio.GetComponent<AudioSource>().spatialBlend = spatialBlend;
+
+            goonTimer = goonTimerMax + clip.length;
+        }
     }
 }
