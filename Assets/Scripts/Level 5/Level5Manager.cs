@@ -10,13 +10,10 @@ public class Level5Manager : MonoBehaviour
 
     // Switch puzzle piece
     public ProxyPickup missingPiece;
+    public bool pieceCollected = false;
 
-    // Boat jam
-    public GameObject boatBarrierWater;
-    public GameObject boatBarrierLand;
-
-    public GameObject boatCrank;
-    public ProxyPickup boatCrankPickup;
+    // Goon barricade switch
+    public GameObject goonSwitch;
 
     // Hydrant delivery + fire
     //Fire handling?
@@ -37,15 +34,11 @@ public class Level5Manager : MonoBehaviour
             area1Dispenser.isOn = true;
         }
 
-        if (missingPiece.isPickedUp && !boatCrank.activeInHierarchy)
+        if (missingPiece.isPickedUp)
         {
-            boatCrank.SetActive(true);
-        }
-
-        if (boatCrankPickup.isPickedUp && boatBarrierLand.activeInHierarchy)
-        {
-            boatBarrierLand.SetActive(false);
-            boatBarrierWater.SetActive(false);
+            pieceCollected = true;
+            missingPiece.gameObject.SetActive(false);
+            goonSwitch.SetActive(true);
         }
     }
 }

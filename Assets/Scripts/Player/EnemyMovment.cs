@@ -24,6 +24,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
 
     public float clipVolume = 0.5f;
     public float clipSpatial = 0.8f;
+    float alertCooldown = 25f;
 
     private void Awake()
     {
@@ -61,6 +62,10 @@ public class EnemyNavMeshAttack : MonoBehaviour
             return;
         }
 
+        if (alertCooldown > 0)
+        {
+            alertCooldown -= Time.deltaTime;
+        }
         if (distance > attackRange)
         {
             grabbableEnemy.RB.isKinematic = true;
@@ -70,10 +75,11 @@ public class EnemyNavMeshAttack : MonoBehaviour
             {
                 agent.SetDestination(player.position);
                 // Sounds
-                if (Random.Range(0, 10) == 0) // 10/90?
+                if (Random.Range(0, 10) == 0 && alertCooldown <= 0f)
                 {
                     AudioClip clip = alertClips[Random.Range(0, alertClips.Count)];
                     VoiceManager.Instance.VoiceTryGoon(clip, this.transform, clipVolume, clipSpatial);
+                    alertCooldown = 30f;
                 }
             }
 
