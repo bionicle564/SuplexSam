@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -15,7 +16,13 @@ public class EnemyAttack : MonoBehaviour
     
     private bool isGrabbed = false;
 
-	public void OnGrabbed()
+    [Header("Voice Lines")]
+    public List<AudioClip> tauntClips;
+
+    public float clipVolume = 0.5f;
+    public float clipSpatial = 0.8f;
+
+    public void OnGrabbed()
 	{
 	    isGrabbed = true;        // Enemy is now grabbed
 	    isAttacking = false;     // Cancel any attack in progress
@@ -78,6 +85,13 @@ public class EnemyAttack : MonoBehaviour
                     {
                         player.TakeDamage(1); // Currently doesn't do varied damage, can change if necessary
                         //Debug.Log("Enemy Damages Player");
+                    }
+
+                    // Sounds
+                    if (Random.Range(0, 5) == 0) // 20/80?
+                    {
+                        AudioClip clip = tauntClips[Random.Range(0, tauntClips.Count)];
+                        VoiceManager.Instance.VoiceTryGoon(clip, this.transform, clipVolume, clipSpatial);
                     }
                 }
             }

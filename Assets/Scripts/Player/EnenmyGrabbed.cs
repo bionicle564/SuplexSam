@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -21,6 +22,13 @@ public class GrabbableEnemy : MonoBehaviour
 
     private bool isOnGround;
     public LayerMask layerMask;
+
+    [Header("Voice Lines")]
+    public List<AudioClip> hurtClips;
+    public List<AudioClip> defeatClips;
+
+    public float clipVolume = 0.5f;
+    public float clipSpatial = 0.8f;
 
     private void Awake()
     {
@@ -90,6 +98,13 @@ public class GrabbableEnemy : MonoBehaviour
         }
 
         StartStun(caller);
+
+        // Sounds
+        if (Random.Range(0, 5) == 0) // 20/80?
+        {
+            AudioClip clip = defeatClips[Random.Range(0, defeatClips.Count)];
+            VoiceManager.Instance.VoiceTryGoon(clip, this.transform, clipVolume, clipSpatial);
+        }
     }
 
     public void OnDropped(MonoBehaviour caller)
@@ -226,6 +241,12 @@ public class GrabbableEnemy : MonoBehaviour
             if (colRB.linearVelocity.magnitude > 1.6f && collision.gameObject.tag != "Player")
             {
                 StartStunPublic();
+                // Sounds
+                if (Random.Range(0, 5) == 0) // 20/80?
+                {
+                    AudioClip clip = hurtClips[Random.Range(0, hurtClips.Count)];
+                    VoiceManager.Instance.VoiceTryGoon(clip, this.transform, clipVolume, clipSpatial);
+                }
             }
         }
     }

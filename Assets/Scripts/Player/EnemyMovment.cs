@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +18,12 @@ public class EnemyNavMeshAttack : MonoBehaviour
     private EnemyAttack enemyAttack;
     private RangedEnemyAttack rangedEnemyAttack;
     private GrabbableEnemy grabbableEnemy;
+
+    [Header("Voice Lines")]
+    public List<AudioClip> alertClips;
+
+    public float clipVolume = 0.5f;
+    public float clipSpatial = 0.8f;
 
     private void Awake()
     {
@@ -62,6 +69,12 @@ public class EnemyNavMeshAttack : MonoBehaviour
             if (agent.isOnNavMesh)
             {
                 agent.SetDestination(player.position);
+                // Sounds
+                if (Random.Range(0, 10) == 0) // 10/90?
+                {
+                    AudioClip clip = alertClips[Random.Range(0, alertClips.Count)];
+                    VoiceManager.Instance.VoiceTryGoon(clip, this.transform, clipVolume, clipSpatial);
+                }
             }
 
             // Shoot haphazardly while moving

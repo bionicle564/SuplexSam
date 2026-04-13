@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder;
 
@@ -11,6 +12,12 @@ public class RangedEnemyAttack : MonoBehaviour
     [SerializeField] private float bulletSpeed = 1f;
 
     private bool isGrabbed = false;
+
+    [Header("Voice Lines")]
+    public List<AudioClip> tauntClips;
+
+    public float clipVolume = 0.5f;
+    public float clipSpatial = 0.8f;
 
     public void OnGrabbed()
     {
@@ -34,6 +41,13 @@ public class RangedEnemyAttack : MonoBehaviour
     {
         if (attackTimer <= 0f && !isGrabbed)
         {
+            // Sounds
+            if (Random.Range(0, 10) == 0) // 10/90?
+            {
+                AudioClip clip = tauntClips[Random.Range(0, tauntClips.Count)];
+                VoiceManager.Instance.VoiceTryGoon(clip, this.transform, clipVolume, clipSpatial);
+            }
+
             attackTimer = attackCooldown;
             Rigidbody bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation); // Rotation needs to be changed
             Vector3 direction = target.position - this.transform.position;
