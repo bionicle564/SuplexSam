@@ -488,6 +488,13 @@ MonoBehaviour:
   player: {fileID: 0}
   detectionRange: 20
   attackRange: 5
+  alertClips:
+  - {fileID: 8300000, guid: b58bbdc89b213ac42b5793546b8eee91, type: 3}
+  - {fileID: 8300000, guid: 827f172f60d5d88478662bca55cd3fea, type: 3}
+  - {fileID: 8300000, guid: c35655f4f9a7fa2419a162cc3fc0ff26, type: 3}
+  - {fileID: 8300000, guid: b34a36e032a95e14fa8771c8de36833f, type: 3}
+  clipVolume: 0.5
+  clipSpatial: 0.8
 --- !u!114 &1243576524927247334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +513,22 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 261
+  hurtClips:
+  - {fileID: 8300000, guid: c929138819592314cb1370d9641ec724, type: 3}
+  - {fileID: 8300000, guid: fc3418fd5b5b3f94c9882faaa69ba028, type: 3}
+  - {fileID: 8300000, guid: 3a70d2c03fe81054b934284526032c44, type: 3}
+  - {fileID: 8300000, guid: be9825746ab03b14480878841d81085b, type: 3}
+  - {fileID: 8300000, guid: 4416dd506119414489ddd0ea6c46f5e3, type: 3}
+  grabbedClips:
+  - {fileID: 8300000, guid: 401ac8a962cfb3b40936470f2e9f038e, type: 3}
+  - {fileID: 8300000, guid: ff777221fe33a3f4ea290a1c0ba9c353, type: 3}
+  - {fileID: 8300000, guid: e56b5181a34783947bc08c556213d4e9, type: 3}
+  defeatClips:
+  - {fileID: 8300000, guid: 0c84a335fa878984c9af411c4f43036e, type: 3}
+  - {fileID: 8300000, guid: 69e46a3c9a1628b44bd75aa0dd3957cf, type: 3}
+  - {fileID: 8300000, guid: e40ace744ae554749bb6001a7b5a448e, type: 3}
+  clipVolume: 0.5
+  clipSpatial: 0.8
 --- !u!114 &9000203575734713519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,6 +549,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackDifficulty: 1
+  tauntClips:
+  - {fileID: 8300000, guid: 71a973282a3ed744e9907d885bd817fc, type: 3}
+  - {fileID: 8300000, guid: d9ee7f657baf07f418579c0cec9cd90a, type: 3}
+  - {fileID: 8300000, guid: 2d72d247db62bfe4dbd04a10cde503c2, type: 3}
+  - {fileID: 8300000, guid: ea7a5fa16177fc4458a0a7137cdeaae1, type: 3}
+  - {fileID: 8300000, guid: 7b13c038dede5a04ab158c93d4cad95d, type: 3}
+  - {fileID: 8300000, guid: 6830c8c6b0e6b5045ae87e7cc5381771, type: 3}
+  - {fileID: 8300000, guid: 1cd791ac48dff514380786bdbd162890, type: 3}
+  - {fileID: 8300000, guid: 920fb3ada8c9e57408f6ec6c857c845f, type: 3}
+  clipVolume: 0.5
+  clipSpatial: 0.8
 --- !u!114 &2231027699401822140
 MonoBehaviour:
   m_ObjectHideFlags: 0

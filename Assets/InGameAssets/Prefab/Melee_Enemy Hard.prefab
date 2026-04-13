@@ -497,6 +497,12 @@ MonoBehaviour:
   player: {fileID: 0}
   detectionRange: 20
   attackRange: 5
+  alertClips:
+  - {fileID: 8300000, guid: ae3d3d3664f51194798d2722d4b5917e, type: 3}
+  - {fileID: 8300000, guid: f4fd5fe08ef379543a3d2af6a83b3a7a, type: 3}
+  - {fileID: 8300000, guid: ea34c78878fbc85419a1c383558b9f38, type: 3}
+  clipVolume: 0.5
+  clipSpatial: 0.8
 --- !u!114 &1243576524927247334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +521,17 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 261
+  hurtClips:
+  - {fileID: 8300000, guid: ce98d71d685ddca40b3def9ed0691884, type: 3}
+  - {fileID: 8300000, guid: 55d91938e5814f346a4e2a6f5f96e6c8, type: 3}
+  grabbedClips:
+  - {fileID: 8300000, guid: bda4aa25a931fde41b814662f64f2194, type: 3}
+  - {fileID: 8300000, guid: f5fa6530876631e4095a8397f68ddc25, type: 3}
+  defeatClips:
+  - {fileID: 8300000, guid: e45ac3de1947c1b4283d0724c84432d6, type: 3}
+  - {fileID: 8300000, guid: 4143d8fe8589bc04aa51dd58de2fe618, type: 3}
+  clipVolume: 0.5
+  clipSpatial: 0.8
 --- !u!114 &9000203575734713519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +552,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackDifficulty: 2
+  tauntClips:
+  - {fileID: 8300000, guid: fd7533346baea7a4cb9ed1aa77de19c7, type: 3}
+  - {fileID: 8300000, guid: 8c022396823c9b648aa65731c19ae00e, type: 3}
+  - {fileID: 8300000, guid: 70451da4b39cc1646817330306b84a7e, type: 3}
+  - {fileID: 8300000, guid: 3c81bb2ce68490b4b81e6f6dd128c0a9, type: 3}
+  - {fileID: 8300000, guid: aecdd14ce707a0c409666c96b7ea713f, type: 3}
+  - {fileID: 8300000, guid: 8466b2966ce47ff40a9e26d173d848c6, type: 3}
+  clipVolume: 0.5
+  clipSpatial: 0.8
 --- !u!114 &2231027699401822140
 MonoBehaviour:
   m_ObjectHideFlags: 0

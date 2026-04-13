@@ -165,6 +165,12 @@ MonoBehaviour:
   player: {fileID: 0}
   detectionRange: 20
   attackRange: 12
+  alertClips:
+  - {fileID: 8300000, guid: 1d7171b9578a2be4fa76afe6066e055a, type: 3}
+  - {fileID: 8300000, guid: 4c193c70195c63a4087b51178541bed3, type: 3}
+  - {fileID: 8300000, guid: f3800b9f504cef84493cd19d93795f34, type: 3}
+  clipVolume: 0.5
+  clipSpatial: 0.8
 --- !u!114 &3897462458421245339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +189,18 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  hurtClips:
+  - {fileID: 8300000, guid: a5cbe5293dc6cb44fad777d2cc1180d3, type: 3}
+  - {fileID: 8300000, guid: f0314091ea982c84b9717d022e974f73, type: 3}
+  - {fileID: 8300000, guid: 019ec74799e99b645adbe024af42011f, type: 3}
+  grabbedClips:
+  - {fileID: 8300000, guid: a5cbe5293dc6cb44fad777d2cc1180d3, type: 3}
+  - {fileID: 8300000, guid: f0314091ea982c84b9717d022e974f73, type: 3}
+  - {fileID: 8300000, guid: 019ec74799e99b645adbe024af42011f, type: 3}
+  defeatClips:
+  - {fileID: 8300000, guid: ec458698b6d9933469814d80d190baa8, type: 3}
+  clipVolume: 0.5
+  clipSpatial: 0.8
 --- !u!114 &4203362348800711444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +234,13 @@ MonoBehaviour:
   shootPoint: {fileID: 8646006923252299224}
   bulletPrefab: {fileID: 6161528626983077939, guid: a75305917f3da4b42b6cd5e8d6ee3b24, type: 3}
   bulletSpeed: 9
+  tauntClips:
+  - {fileID: 8300000, guid: bd42d048c4213db47a6d9768b630780b, type: 3}
+  - {fileID: 8300000, guid: 421b9acb3585799408f5b226de45a882, type: 3}
+  - {fileID: 8300000, guid: d7f87b47e878a444fbefeaf992626010, type: 3}
+  - {fileID: 8300000, guid: 1f77b3b9b61f30f46a5b393fb2b243e1, type: 3}
+  clipVolume: 0.5
+  clipSpatial: 0.8
 --- !u!208 &2349816404929449817
 NavMeshObstacle:
   m_ObjectHideFlags: 0

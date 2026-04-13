@@ -25,6 +25,7 @@ public class GrabbableEnemy : MonoBehaviour
 
     [Header("Voice Lines")]
     public List<AudioClip> hurtClips;
+    public List<AudioClip> grabbedClips;
     public List<AudioClip> defeatClips;
 
     public float clipVolume = 0.5f;
@@ -83,6 +84,13 @@ public class GrabbableEnemy : MonoBehaviour
         {
             rb.isKinematic = true;
             rb.useGravity = false;
+        }
+
+        // Sounds
+        if (Random.Range(0, 5) == 0) // 20/80?
+        {
+            AudioClip clip = grabbedClips[Random.Range(0, grabbedClips.Count)];
+            VoiceManager.Instance.VoiceTryGoon(clip, this.transform, clipVolume, clipSpatial);
         }
     }
 
