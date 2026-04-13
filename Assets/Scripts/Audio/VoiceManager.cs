@@ -20,8 +20,11 @@ public class VoiceManager : MonoBehaviour
         }
     }
 
-    // Things to keep track of (various timers as well as current audio)
-    public GameObject currentAudioObject;
+    // Things to keep track of (various timers as well as current audio(s))
+    public GameObject currentSamAudio;
+    public GameObject currentGoonAudio;
+
+    public GameObject audioObject;
 
     void Start()
     {
@@ -36,19 +39,22 @@ public class VoiceManager : MonoBehaviour
     public void VoiceForce(AudioClip clip)
     {
         // Forces the current Sam audio to cut and plays this instead
+        // Goon audio is ignored, and allowed to continue
     }
 
     public void VoiceTryGoon(AudioClip clip)
     {
         // Logic goes here
         // If already playing voice sound (either Sam or goon), don't play anything
-        // If 
-        // If not, play goon voice and reset goon voice timer
+        // If goon timer is not depleted, don't play
+        // If goon timer is depleted, play goon voice line and reset goon voice timer
     }
 
-    public void VoiceTrySam()
+    public void VoiceTrySam(AudioClip clip)
     {
         // Logic goes here
-        // 
+        // If already playing voice sound (either Sam or goon), don't play anything
+        // If Sam timer is not depleted, don't play
+        // If Sam timer is depleted, play goon voice line and reset Sam voice timer
     }
 }
