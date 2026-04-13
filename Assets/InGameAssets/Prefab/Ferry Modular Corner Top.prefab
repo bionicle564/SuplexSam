@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2503922881164082606
 Transform:
@@ -48,7 +48,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8710593782219775377
 Transform:
@@ -149,6 +149,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 708621aea6539eb4790b16ce3f75ff35, type: 3}
       propertyPath: m_Name
       value: FerryModularWallCornerTop
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 708621aea6539eb4790b16ce3f75ff35, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
