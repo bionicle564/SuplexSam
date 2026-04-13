@@ -19,6 +19,9 @@ public class EnemyNavMeshAttack : MonoBehaviour
     private RangedEnemyAttack rangedEnemyAttack;
     private GrabbableEnemy grabbableEnemy;
 
+    [Header("Animation")]
+    public Animator animController;
+
     [Header("Voice Lines")]
     public List<AudioClip> alertClips;
 
@@ -103,6 +106,17 @@ public class EnemyNavMeshAttack : MonoBehaviour
                 rangedEnemyAttack.Shoot(player.transform);
             }
             FacePlayer();
+        }
+
+        if (agent.velocity.magnitude > 0.05f) // Arbitrary number for now
+        {
+            Debug.Log("Moving");
+            animController.SetBool("moving", true);
+        }
+        else if (agent.velocity.magnitude <= 0.05f)
+        {
+            Debug.Log("Not moving");
+            animController.SetBool("moving", false);
         }
     }
 

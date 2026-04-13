@@ -16,6 +16,9 @@ public class EnemyAttack : MonoBehaviour
     
     private bool isGrabbed = false;
 
+    [Header("Animation")]
+    public Animator animController;
+
     [Header("Voice Lines")]
     public List<AudioClip> tauntClips;
 
@@ -48,6 +51,8 @@ public class EnemyAttack : MonoBehaviour
     private IEnumerator AttackRoutine()
     {
         isAttacking = true;
+
+        animController.SetTrigger("punch");
 
         // WIND-UP (pause rotation visually)
         yield return new WaitForSeconds(windUpTime);

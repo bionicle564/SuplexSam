@@ -488,6 +488,7 @@ MonoBehaviour:
   player: {fileID: 0}
   detectionRange: 20
   attackRange: 5
+  animController: {fileID: 1217404625311381784}
   alertClips:
   - {fileID: 8300000, guid: b58bbdc89b213ac42b5793546b8eee91, type: 3}
   - {fileID: 8300000, guid: 827f172f60d5d88478662bca55cd3fea, type: 3}
@@ -513,6 +514,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 261
+  animController: {fileID: 1217404625311381784}
   hurtClips:
   - {fileID: 8300000, guid: c929138819592314cb1370d9641ec724, type: 3}
   - {fileID: 8300000, guid: fc3418fd5b5b3f94c9882faaa69ba028, type: 3}
@@ -549,6 +551,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackDifficulty: 1
+  animController: {fileID: 1217404625311381784}
   tauntClips:
   - {fileID: 8300000, guid: 71a973282a3ed744e9907d885bd817fc, type: 3}
   - {fileID: 8300000, guid: d9ee7f657baf07f418579c0cec9cd90a, type: 3}
@@ -825,6 +828,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb14edbc5d84b1f42a7959df1e9a0a8b, type: 3}
+--- !u!95 &1217404625311381784 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: cb14edbc5d84b1f42a7959df1e9a0a8b, type: 3}
+  m_PrefabInstance: {fileID: 4724138190126613641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5045504769236919138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cb14edbc5d84b1f42a7959df1e9a0a8b, type: 3}

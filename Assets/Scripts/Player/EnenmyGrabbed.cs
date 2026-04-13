@@ -23,6 +23,9 @@ public class GrabbableEnemy : MonoBehaviour
     private bool isOnGround;
     public LayerMask layerMask;
 
+    [Header("Animation")]
+    public Animator animController;
+
     [Header("Voice Lines")]
     public List<AudioClip> hurtClips;
     public List<AudioClip> grabbedClips;
@@ -85,6 +88,8 @@ public class GrabbableEnemy : MonoBehaviour
             rb.isKinematic = true;
             rb.useGravity = false;
         }
+
+        animController.SetTrigger("hurt");
 
         // Sounds
         if (Random.Range(0, 5) == 0) // 20/80?
@@ -188,6 +193,8 @@ public class GrabbableEnemy : MonoBehaviour
     {
         //Debug.Log("Stun Snap");
 
+        animController.SetTrigger("standUp");
+
         isStunned = false;
 
         if (agent != null)
@@ -219,6 +226,8 @@ public class GrabbableEnemy : MonoBehaviour
 
         if (enemyAI != null)
             enemyAI.enabled = true;
+
+        animController.SetTrigger("standUp");
 
         //Debug.Log("Drop Snap");
     }

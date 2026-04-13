@@ -498,6 +498,7 @@ MonoBehaviour:
   player: {fileID: 0}
   detectionRange: 20
   attackRange: 5
+  animController: {fileID: 1881041525300904785}
   alertClips:
   - {fileID: 8300000, guid: e31b4021d7567bb419401bb98886fc62, type: 3}
   - {fileID: 8300000, guid: 731235b74f88d77498075dd8ccb165a1, type: 3}
@@ -526,6 +527,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 261
+  animController: {fileID: 1881041525300904785}
   hurtClips:
   - {fileID: 8300000, guid: 80fd1c917f363c643a3efc5e2f685e1d, type: 3}
   - {fileID: 8300000, guid: 76c586099329a124a9d0c7c4112097a5, type: 3}
@@ -561,6 +563,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackDifficulty: 0
+  animController: {fileID: 1881041525300904785}
   tauntClips:
   - {fileID: 8300000, guid: 8a42252e1186f8c49800673b13c9544b, type: 3}
   - {fileID: 8300000, guid: a27c17fb1bf66354cafe6acd9f7befb5, type: 3}
