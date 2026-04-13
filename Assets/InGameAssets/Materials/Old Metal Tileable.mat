@@ -164,7 +164,7 @@ Material:
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
     - _BlendMode: 0
-    - _CoatMask: 1
+    - _CoatMask: 0.37
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
@@ -224,7 +224,7 @@ Material:
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
     - _Smoothness: 0.5
-    - _SmoothnessRemapMax: 1
+    - _SmoothnessRemapMax: 0.74545455
     - _SmoothnessRemapMin: 0.29090908
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
