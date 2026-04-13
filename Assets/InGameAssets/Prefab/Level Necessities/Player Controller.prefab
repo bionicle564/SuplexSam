@@ -239,11 +239,21 @@ MonoBehaviour:
   throwSFX: {fileID: 8300000, guid: 7bb42f9bfcd3c0846abb171374747626, type: 3}
   grunt1SFX: {fileID: 8300000, guid: f4037dc0cbda0e449831931cd0b95ec2, type: 3}
   grunt2SFX: {fileID: 8300000, guid: c18ffecd8c6b2324387fd169b60a87af, type: 3}
-  grabClips: []
-  throwClips: []
-  suplexClips: []
-  airborneClips: []
-  hurtClips: []
+  grabClips:
+  - {fileID: 8300000, guid: de0e3fbb009317e4bbb44fa052ff1865, type: 3}
+  - {fileID: 8300000, guid: 3ed325bc6aa74c74ab7d06cbe3178380, type: 3}
+  - {fileID: 8300000, guid: 9c60af07dedba004e8c4b63554771f54, type: 3}
+  - {fileID: 8300000, guid: 15328cf9716609c44988f1fe5c387d7a, type: 3}
+  throwClips:
+  - {fileID: 8300000, guid: 103aea330c111444eb0050f72b5db1c6, type: 3}
+  - {fileID: 8300000, guid: c2c248dfe64045247aca715a47c6c82a, type: 3}
+  - {fileID: 8300000, guid: 8f94a1d699826fe4aa2e338013b85913, type: 3}
+  - {fileID: 8300000, guid: bd6e2fbbe7819cb40af108f9e35da507, type: 3}
+  - {fileID: 8300000, guid: bbe48a8dbc971b14a842bf95b08c920d, type: 3}
+  suplexClips:
+  - {fileID: 8300000, guid: 17b132cad6adecb4480d5ca90a371c59, type: 3}
+  - {fileID: 8300000, guid: b9c58040ea885654386290b050b65fc2, type: 3}
+  - {fileID: 8300000, guid: 5b7c877cbc2d0c049b77be61e9e94733, type: 3}
   clipVolume: 0.6
   clipSpatial: 0.8
 --- !u!82 &6954060566204293983

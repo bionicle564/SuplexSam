@@ -93,11 +93,9 @@ public class GrabAndThrow : MonoBehaviour
     public List<AudioClip> grabClips;
     public List<AudioClip> throwClips;
     public List<AudioClip> suplexClips;
-    public List<AudioClip> airborneClips;
-    public List<AudioClip> hurtClips;
 
     public float clipVolume = 0.6f;
-    public float clipSpatial = 0.8f;
+    public float clipSpatial = 0f;
 
     private void Awake()
     {
@@ -347,6 +345,12 @@ public class GrabAndThrow : MonoBehaviour
 
         if (grabbedObject.GetComponent<GrabbableEnemy>() != null)
         {
+            // Sounds
+            if (Random.Range(0, 5) == 0) // 20/80?
+            {
+                AudioClip clip = grabClips[Random.Range(0, grabClips.Count)];
+                VoiceManager.Instance.VoiceTrySam(clip, this.transform, clipVolume, clipSpatial);
+            }
             grabbedObject.GetComponent<GrabbableEnemy>().OnGrabbed();
         }
         if (grabbedObject.GetComponent<EnemyAttack>() != null)
@@ -521,6 +525,12 @@ public class GrabAndThrow : MonoBehaviour
 
         if (grabbedObject.GetComponent<EnemyAttack>() != null)
         {
+            // Sounds
+            if (Random.Range(0, 5) == 0) // 20/80?
+            {
+                AudioClip clip = throwClips[Random.Range(0, throwClips.Count)];
+                VoiceManager.Instance.VoiceTrySam(clip, this.transform, clipVolume, clipSpatial);
+            }
             grabbedObject.GetComponent<EnemyAttack>().OnReleased();
         }
 
@@ -597,6 +607,12 @@ public class GrabAndThrow : MonoBehaviour
 
         if (grabbedObject.GetComponent<EnemyAttack>() != null)
         {
+            // Sounds
+            if (Random.Range(0, 5) == 0) // 20/80?
+            {
+                AudioClip clip = suplexClips[Random.Range(0, suplexClips.Count)];
+                VoiceManager.Instance.VoiceTrySam(clip, this.transform, clipVolume, clipSpatial);
+            }
             grabbedObject.GetComponent<EnemyAttack>().OnReleased();
         }
 

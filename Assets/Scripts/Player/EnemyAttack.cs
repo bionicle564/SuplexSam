@@ -77,7 +77,7 @@ public class EnemyAttack : MonoBehaviour
                     else
                     {
                         player.TakeDamage(1); // Currently doesn't do varied damage, can change if necessary
-                        Debug.Log("Enemy Damages Player");
+                        //Debug.Log("Enemy Damages Player");
                     }
                 }
             }

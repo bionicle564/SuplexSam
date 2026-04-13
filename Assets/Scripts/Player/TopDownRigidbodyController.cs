@@ -76,7 +76,7 @@ public class TopDownRigidbodyController : MonoBehaviour
     public List<AudioClip> hurtClips;
 
     public float clipVolume = 0.6f;
-    public float clipSpatial = 0.8f;
+    public float clipSpatial = 0f;
 
     private void Awake()
     {
@@ -369,7 +369,7 @@ public class TopDownRigidbodyController : MonoBehaviour
         if (Random.Range(0, 2) == 0) // 50/50?
         {
             AudioClip clip = hurtClips[Random.Range(0, hurtClips.Count)];
-            VoiceManager.Instance.VoiceTrySam(clip, this.transform, clipVolume, clipSpatial);
+            VoiceManager.Instance.VoiceTrySamHurt(clip, this.transform, clipVolume, clipSpatial);
         }
 
         GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>().DamageAnimation();

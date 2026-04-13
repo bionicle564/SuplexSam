@@ -5069,6 +5069,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   jumpHeight: 20
+  airborneClips:
+  - {fileID: 8300000, guid: 35de0ef18fa5a374fb2d7156d957df5f, type: 3}
+  - {fileID: 8300000, guid: 074d07e6ca9562a4fbbe81b3c7f54ba0, type: 3}
+  - {fileID: 8300000, guid: 2b39818de5b4e914aa40c2b8ec751113, type: 3}
+  clipVolume: 0.6
+  clipSpatial: 0.8
 --- !u!114 &6122821181665779407
 MonoBehaviour:
   m_ObjectHideFlags: 0
