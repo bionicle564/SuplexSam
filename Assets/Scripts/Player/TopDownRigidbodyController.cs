@@ -365,7 +365,7 @@ public class TopDownRigidbodyController : MonoBehaviour
     // Health and damage
     public void TakeDamage(int damage)
     {
-        // Find a way to add animations here
+        // Sounds
         if (Random.Range(0, 2) == 0) // 50/50?
         {
             AudioClip clip = hurtClips[Random.Range(0, hurtClips.Count)];

@@ -196,6 +196,13 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 257
+  hurtClips:
+  - {fileID: 8300000, guid: 22daa1ee3bbc29e4692525d4bf9c7c79, type: 3}
+  - {fileID: 8300000, guid: fb126c49f5bfdcc4391082d80c28a921, type: 3}
+  - {fileID: 8300000, guid: 1b312196e20c0ee479771a2a818c8b4d, type: 3}
+  - {fileID: 8300000, guid: e83ee61aa3f4f5e4f8e170a5b039fd9a, type: 3}
+  clipVolume: 0.6
+  clipSpatial: 0.8
 --- !u!114 &3045683763348779059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +239,13 @@ MonoBehaviour:
   throwSFX: {fileID: 8300000, guid: 7bb42f9bfcd3c0846abb171374747626, type: 3}
   grunt1SFX: {fileID: 8300000, guid: f4037dc0cbda0e449831931cd0b95ec2, type: 3}
   grunt2SFX: {fileID: 8300000, guid: c18ffecd8c6b2324387fd169b60a87af, type: 3}
+  grabClips: []
+  throwClips: []
+  suplexClips: []
+  airborneClips: []
+  hurtClips: []
+  clipVolume: 0.6
+  clipSpatial: 0.8
 --- !u!82 &6954060566204293983
 AudioSource:
   m_ObjectHideFlags: 0
