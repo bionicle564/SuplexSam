@@ -61391,6 +61391,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b579e2f0efaf21a4eb6fd1c16a662dd9, type: 3}
+--- !u!1 &1082645671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1082645673}
+  - component: {fileID: 1082645672}
+  m_Layer: 0
+  m_Name: Voice Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1082645672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082645671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a3820f6c245284f8be28b5f68a8130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoiceManager
+  currentSamAudio: {fileID: 0}
+  currentGoonAudio: {fileID: 0}
+  audioObjectPrefab: {fileID: 8584445638217024485, guid: 424251c4b671d5849a585fd19e3c3804, type: 3}
+  samTimerMax: 22
+  goonTimerMax: 22
+--- !u!4 &1082645673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082645671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1083022061
 GameObject:
   m_ObjectHideFlags: 0
@@ -100022,7 +100071,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f447d35178dc0194f9df8943a133c841, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.37
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -120598,6 +120647,7 @@ SceneRoots:
   - {fileID: 5074594478723540997}
   - {fileID: 1734907452}
   - {fileID: 1810460250}
+  - {fileID: 1082645673}
   - {fileID: 1701501483}
   - {fileID: 1282603867}
   - {fileID: 15250196}
