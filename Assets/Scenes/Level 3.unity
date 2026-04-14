@@ -33755,6 +33755,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2815064807433443818, guid: 391da35d1e0a92748a821fa389fecd86, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815064807433443818, guid: 391da35d1e0a92748a821fa389fecd86, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d3b92c6c8c8ed6340824fac4987102e1, type: 2}
     - target: {fileID: 3478716649386645994, guid: 391da35d1e0a92748a821fa389fecd86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.369
@@ -118854,11 +118862,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 3247885079920696774, guid: 5d67a55563430174f9648a4336d614e0, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3247885079920696774, guid: 5d67a55563430174f9648a4336d614e0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d3b92c6c8c8ed6340824fac4987102e1, type: 2}
     - target: {fileID: 6536183916563110577, guid: 5d67a55563430174f9648a4336d614e0, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6536183916563110577, guid: 5d67a55563430174f9648a4336d614e0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d3b92c6c8c8ed6340824fac4987102e1, type: 2}
+    - target: {fileID: 9016209623081262846, guid: 5d67a55563430174f9648a4336d614e0, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016209623081262846, guid: 5d67a55563430174f9648a4336d614e0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d3b92c6c8c8ed6340824fac4987102e1, type: 2}
