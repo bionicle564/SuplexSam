@@ -27,9 +27,9 @@ public class VoiceManager : MonoBehaviour
     public GameObject audioObjectPrefab;
 
     float samTimer = 0f;
-    [SerializeField] float samTimerMax = 25f;
+    float samTimerMax = 21f;
     float goonTimer = 0f;
-    [SerializeField] float goonTimerMax = 25f;
+    float goonTimerMax = 21f;
 
     void Start()
     {
@@ -61,7 +61,7 @@ public class VoiceManager : MonoBehaviour
             currentSamAudio.GetComponent<AudioSource>().volume = volume;
             currentSamAudio.GetComponent<AudioSource>().spatialBlend = spatialBlend;
 
-            samTimer = samTimerMax + clip.length;
+            samTimer = samTimerMax / 2 + clip.length;
         }
     }
 
