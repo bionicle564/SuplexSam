@@ -55,6 +55,11 @@ public class EnemyNavMeshAttack : MonoBehaviour
 
         if (distance > detectionRange)
         {
+            if (isRanged)
+            {
+                animController.SetBool("shoot", false);
+            }
+
             if (agent.enabled)
             {
                 if (agent.isOnNavMesh) // Should stop enemies from floating, but will also not reset them properly if there is no navmesh
@@ -90,6 +95,7 @@ public class EnemyNavMeshAttack : MonoBehaviour
             if (isRanged)
             {
                 rangedEnemyAttack.Shoot(player.transform);
+                animController.SetBool("shoot", true);
             }
         }
         else
@@ -104,18 +110,17 @@ public class EnemyNavMeshAttack : MonoBehaviour
             else
             {
                 rangedEnemyAttack.Shoot(player.transform);
+                animController.SetBool("shoot", true);
             }
             FacePlayer();
         }
 
         if (agent.velocity.magnitude > 0.05f) // Arbitrary number for now
         {
-            Debug.Log("Moving");
             animController.SetBool("moving", true);
         }
         else if (agent.velocity.magnitude <= 0.05f)
         {
-            Debug.Log("Not moving");
             animController.SetBool("moving", false);
         }
     }

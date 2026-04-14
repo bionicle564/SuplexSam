@@ -351,12 +351,12 @@ public class GrabAndThrow : MonoBehaviour
             {
                 if (Random.Range(0, 3) == 0) // Rare check
                 {
-                    AudioClip clip = grabClips[Random.Range(0, grabClips.Count)];
+                    AudioClip clip = grabClipsRare[Random.Range(0, grabClipsRare.Count)];
                     VoiceManager.Instance.VoiceTrySam(clip, this.transform, clipVolume, clipSpatial);
                 }
                 else
                 {
-                    AudioClip clip = grabClipsRare[Random.Range(0, grabClipsRare.Count)];
+                    AudioClip clip = grabClips[Random.Range(0, grabClips.Count)];
                     VoiceManager.Instance.VoiceTrySam(clip, this.transform, clipVolume, clipSpatial);
                 }
             }
