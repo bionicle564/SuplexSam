@@ -44,6 +44,11 @@ public class EnemyNavMeshAttack : MonoBehaviour
         grabbableEnemy = GetComponent<GrabbableEnemy>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        /*if (isRanged)
+        {
+            grabbableEnemy.StartStunPublic();
+        }*/
+
         //agent.avoidancePriority = Random.Range(0, 50);
     }
 

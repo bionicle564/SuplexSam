@@ -191,7 +191,7 @@ public class GrabbableEnemy : MonoBehaviour
 
     private void StunRoutine()
     {
-        //Debug.Log("Stun Snap");
+        Debug.Log("Stun Snap");
 
         animController.SetTrigger("standUp");
 
