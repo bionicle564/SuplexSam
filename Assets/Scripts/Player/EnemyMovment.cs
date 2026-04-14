@@ -58,7 +58,6 @@ public class EnemyNavMeshAttack : MonoBehaviour
             if (isRanged)
             {
                 animController.SetBool("shoot", false);
-                Debug.Log("No Shoot");
             }
 
             if (agent.enabled)
@@ -97,7 +96,6 @@ public class EnemyNavMeshAttack : MonoBehaviour
             {
                 rangedEnemyAttack.Shoot(player.transform);
                 animController.SetBool("shoot", true);
-                Debug.Log("Shoot 1");
             }
         }
         else
@@ -113,7 +111,6 @@ public class EnemyNavMeshAttack : MonoBehaviour
             {
                 rangedEnemyAttack.Shoot(player.transform);
                 animController.SetBool("shoot", true);
-                Debug.Log("Shoot 2");
             }
             FacePlayer();
         }

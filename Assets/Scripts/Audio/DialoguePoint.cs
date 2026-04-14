@@ -20,7 +20,7 @@ public class DialoguePoint : MonoBehaviour
         if (other.tag == "Player" && !triggered)
         {
             triggered = true;
-            VoiceManager.Instance.VoiceForceSam(clip, this.transform, 0.65f, 0f);
+            VoiceManager.Instance.VoiceForceSam(clip, other.transform, 0.7f, 0f);
         }
     }
 }

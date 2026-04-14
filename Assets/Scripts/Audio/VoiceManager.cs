@@ -56,13 +56,14 @@ public class VoiceManager : MonoBehaviour
         if (currentSamAudio != null)
         {
             Destroy(currentSamAudio);
-
+        }
             currentSamAudio = Instantiate(audioObjectPrefab, point.position, point.rotation);
+            currentSamAudio.GetComponent<AudioSource>().PlayOneShot(clip);
             currentSamAudio.GetComponent<AudioSource>().volume = volume;
             currentSamAudio.GetComponent<AudioSource>().spatialBlend = spatialBlend;
+            currentSamAudio.GetComponent<KillAfterTime>().lifetime = clip.length;
 
             samTimer = samTimerMax / 2 + clip.length;
-        }
     }
 
     public void VoiceTrySam(AudioClip clip, Transform point, float volume, float spatialBlend)

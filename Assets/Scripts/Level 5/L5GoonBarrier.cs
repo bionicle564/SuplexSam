@@ -6,13 +6,13 @@ public class L5GoonBarrier : MonoBehaviour
     public GameObject explosionEffect;
     public Transform point;
     public GameObject barrier;
-    Animator animator;
+    public Animator animator;
     bool triggered;
     float timer = 0.5f;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        
     }
 
     void Update()
